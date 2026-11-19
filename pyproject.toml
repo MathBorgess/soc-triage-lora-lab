@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "soc-triage-lora-lab"
+version = "0.1.0"
+description = "Laboratório de LoRA e QLoRA para triagem de logs de SOC em JSON estrito"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "datasets",
+    "httpx",
+    "huggingface-hub",
+    "mlx-lm[train]",
+    "pydantic>=2.0",
+    "pyyaml",
+    "scikit-learn",
+    "tqdm",
+]
+
+[dependency-groups]
+dev = ["pytest", "ruff"]
+mlx-lora-extension = ["mlx-lm-lora"]
+
+[tool.uv]
+default-groups = ["dev", "mlx-lora-extension"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/soc_triage"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+extend-select = ["I"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

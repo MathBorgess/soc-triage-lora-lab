@@ -1,0 +1,22 @@
+model: "mlx-community/Qwen2.5-7B-Instruct-4bit"
+data: "data/processed"
+train: true
+fine_tune_type: lora
+adapter_path: "adapters/run1_qlora_attn"
+num_layers: -1
+mask_prompt: true
+max_seq_length: 1024
+batch_size: 4
+grad_accumulation_steps: 4
+grad_checkpoint: false
+learning_rate: 1.0e-4
+iters: 500
+seed: 42
+
+lora_parameters:
+  rank: 16
+  scale: 2.0
+  dropout: 0.05
+  keys:
+    - "self_attn.q_proj"
+    - "self_attn.v_proj"
