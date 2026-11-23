@@ -1,0 +1,33 @@
+{
+  "lote": 12,
+  "estado": "propostas_para_revisao_humana",
+  "meta_coleta": 1000,
+  "treino_aprovado": 415,
+  "propostas": 639,
+  "total_sem_validacao_e_teste": 1054,
+  "splits_ativos_v7": {
+    "train": 415,
+    "valid": 11,
+    "test": 9
+  },
+  "grupos_de_propostas": 72,
+  "propostas_por_telemetria": {
+    "apache": 31,
+    "linux_auth": 36,
+    "suricata": 75,
+    "sysmon": 288,
+    "waf": 209
+  },
+  "propostas_por_veredito": {
+    "benign": 212,
+    "expected_admin": 29,
+    "malicious": 165,
+    "suspicious": 233
+  },
+  "tokenizacao": {
+    "tokenizer": "Gemma 4 E4B-it",
+    "limite": 1024,
+    "maximo_propostas": 1014
+  },
+  "indice_sha256": "0d823dc5d9425172978df4686b1cb8c7b7e63ee003b02ae0dfd0ad48b3a4e2d9"
+}
