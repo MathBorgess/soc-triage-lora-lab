@@ -72,11 +72,15 @@ _Avoid_: vulnerabilidade confirmada, bug report, misconfiguration como veredito
 ## Agente e runtime
 
 **Guardião**:
-Agente que lê um Recorte de log de SOC e emite um único Relato. Ele relata e nunca age: não pede contexto, não chama ferramentas e não propõe contenção.
-_Avoid_: SOC-Triage-Lab SLM, motor de triagem, shield
+Agente que lê um Recorte de log de SOC, pode consultar logs locais com Ferramentas de leitura e emite um único Relato. Ele relata e nunca age: não altera o sistema e não propõe contenção.
+_Avoid_: SOC-Triage-Lab SLM, motor de triagem, shield, Investigador, segundo agente
+
+**Ferramenta de leitura**:
+Função determinística e somente-leitura que o Guardião pode chamar para consultar logs locais, como a árvore de processos de um host ou as falhas de SSH de um usuário numa janela. Nunca muda o sistema.
+_Avoid_: ação, ferramenta de resposta, consulta livre ao SIEM
 
 **Runtime agêntico**:
-Sistema que projeta logs em Recortes, executa o Guardião e converte Relatos em Propostas de contenção para aprovação humana. O Shirudo é a inspiração.
+Sistema que roda localmente nas máquinas monitoradas: projeta logs em Recortes, executa o Guardião e suas Ferramentas de leitura e envia os Relatos ao SOC, onde Propostas de contenção aguardam aprovação humana. O Shirudo é a inspiração.
 _Avoid_: plano de raciocínio, motor fechado
 
 **Projetor**:
