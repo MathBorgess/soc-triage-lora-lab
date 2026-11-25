@@ -2,7 +2,7 @@
 
 Conduzir um estudo experimental controlado de LoRA 16-bit (BF16) e QLoRA 4-bit para
 normalização e triagem de logs heterogêneos de SOC em JSON estrito. A matriz inicial usa
-Qwen2.5-7B-Instruct. A meta de engenharia é chegar a um modelo de 3B para uso local e
+Gemma 4 E4B-it em modo texto. A meta de engenharia é chegar a um modelo de 3B para uso local e
 escalar a abordagem para 7B–8B em nuvem, com triagem confiável e baixa taxa de falsos
 positivos. O objetivo do estudo é separar os efeitos da quantização, dos alvos LoRA,
 da loss apenas na resposta (`mask_prompt`) e do rank `r`.
@@ -11,13 +11,18 @@ da loss apenas na resposta (`mask_prompt`) e do rank `r`.
 
 | Rodada | Pesos base | Alvos por bloco | Rank | Loss |
 | --- | --- | --- | --- | --- |
-| Run 0 | Qwen2.5-7B-Instruct, zero-shot | Sem adaptador | — | — |
-| Run 1 | 4-bit | `q_proj`, `v_proj` | 16 | Apenas resposta |
+| Run 0 | Gemma 4 E4B-it, zero-shot em texto | Sem adaptador | — | — |
+| Run 1 | 4-bit | `q_proj`, `v_proj` onde presente | 16 | Apenas resposta |
 | Run 2 | 4-bit | `all-linear` | 16 | Apenas resposta |
 | Run 3 | BF16 | `all-linear` | 16 | Apenas resposta |
 | Run 4 | 4-bit | `all-linear` | 8 e 64 | Apenas resposta |
 
-`all-linear` cobre as sete projeções lineares de atenção e MLP de cada bloco.
+`all-linear` cobre as projeções de atenção e MLP declaradas nos presets.
+Nos blocos com KV compartilhado do Gemma 4, os alvos `k_proj` e `v_proj`
+ausentes são dispensados. Os embeddings e as projeções dos embeddings por
+camada ficam congelados em todas as rodadas.
+Use a revisão indicada nos presets e o template do Gemma com
+`enable_thinking=false` na inspeção, no treino e na avaliação.
 Use Run 2 como referência para Run 1 (alvos), Run 3 (quantização) e Run 4 (rank).
 Mantenha `scale: 2.0` nas duas variantes de rank e `seed: 42` nas rodadas treinadas.
 
@@ -41,7 +46,8 @@ o prompt, o script de curadoria e a versão dos datasets processados.
   (hold-out/benchmark), `alirezaaminzadeh/soc-agent-traces-100k`,
   `k3nn3dy/blueteam-v8`, OTRF Mordor, EVTX-ATTACK-SAMPLES com `evtx-baseline`,
   AIT-LDS, Loghub e BOTES.
-- Almeje 2.000–3.000 exemplos limpos, com cerca de 45% maliciosos/suspeitos,
+- Reúna pelo menos 500 exemplos de treino aprovados para o primeiro piloto.
+  Para o estudo, almeje 2.000–3.000 exemplos limpos, com cerca de 45% maliciosos/suspeitos,
   45% benignos ou administrativos esperados e 10% truncados/ambíguos
   que exijam `null` nos campos ausentes. Use apenas rótulos sustentados pelo log.
 - Divida por grupos de cenário, incidente ou origem de ataque. Mantenha todas as
