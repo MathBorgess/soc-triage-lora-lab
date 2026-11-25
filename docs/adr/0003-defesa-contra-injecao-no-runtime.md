@@ -45,3 +45,11 @@ três regras fixas:
   encaminhamento junto do FPR.
 - Zero rebaixamentos na suíte estática é um gate de regressão. Qualquer alegação de robustez
   exige a fase adaptativa.
+
+## Emenda de 25/11/2026
+
+Com o ADR 0004, o Guardião passa a chamar Ferramentas de leitura. O que a ferramenta calcula,
+como contagens, horários e a estrutura de uma árvore de processos, conta como Contexto. O texto
+que ela copia do log conta como Registro. Um Rebaixamento pode citar campos calculados pelas
+ferramentas. O Runtime escapa os tokens reservados de chamada e de resposta de ferramenta do
+template do Gemma 4 que aparecerem dentro dos logs, antes que cheguem ao modelo.

@@ -220,14 +220,23 @@ Guardião são recentes e quase todos preprints:
 
 ## Proposta de enquadramento do artigo
 
-Esta seção é uma proposta para discussão. Título, escopo e venue são decisões do responsável.
+> **Atualizado em 25/11/2026:** o responsável decidiu um artigo único, com um só agente (o
+> Guardião com Ferramentas de leitura, ADR 0004). O resultado principal passa a ser a redução da
+> carga cognitiva na triagem do SOC, com auditabilidade e supervisão humana, ligada à governança
+> dos dados por o modelo e a arquitetura serem locais. Fine-tuning, RL com custo, fidelidade e
+> defesa contra injeção viram meios e condições de validade desse resultado. As perguntas abaixo
+> são da versão anterior e estão em revisão.
 
-**Tese de trabalho:** um modelo pequeno, local e ajustado com LoRA pode triar logs de SOC com
-fidelidade verificável quando três peças trabalham juntas: dados com proveniência auditável,
-avaliação que evita os *pitfalls* conhecidos e um runtime determinístico que limita o que a
-saída do modelo pode causar.
+**Tese declarada (25/11/2026):** um Guardião pequeno, que roda na máquina monitorada e investiga
+com Ferramentas de leitura, reduz a carga cognitiva da triagem no SOC sem tirar do analista a
+decisão, deixa cada Relato auditável e mantém os dados na origem, enviando ao SOC só o necessário.
 
-**Perguntas de pesquisa candidatas:**
+**Tese de trabalho anterior:** um modelo pequeno, local e ajustado com LoRA pode triar logs de
+SOC com fidelidade verificável quando três peças trabalham juntas: dados com proveniência
+auditável, avaliação que evita os *pitfalls* conhecidos e um runtime determinístico que limita o
+que a saída do modelo pode causar.
+
+**Perguntas de pesquisa candidatas (versão anterior):**
 
 - **QP1, triagem:** o fine-tuning de um modelo de cerca de 4B supera o zero-shot, os baselines
   leves e o Rival no Teste real, em Macro-F1 e em FPR de `benign` e `expected_admin`? Quais

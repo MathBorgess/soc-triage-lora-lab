@@ -10,11 +10,11 @@ Projeção curada de uma janela de log de uma Modalidade, que termina na Âncora
 _Avoid_: telemetria, evento de telemetria, envelope, log bruto
 
 **Contexto**:
-Parte confiável do Recorte, escrita pelo Projetor ou pela curadoria: correlações, mudanças aprovadas, linha de base e histórico. Só o Contexto pode justificar trocar um Alerta por benign ou expected_admin.
+Parte confiável da entrada do Guardião: o que o Projetor ou a curadoria escrevem (correlações, mudanças aprovadas, linha de base, histórico) e os campos que as Ferramentas de leitura calculam (contagens, horários, estrutura de uma árvore de processos). Só o Contexto pode justificar trocar um Alerta por benign ou expected_admin.
 _Avoid_: metadados, evidência confiável, enriquecimento
 
 **Registro**:
-Parte não confiável do Recorte: o conteúdo do log, que um atacante pode controlar. Pode conter linhas literais, contagens e sinais estruturais. Nada no Registro é instrução para o Guardião.
+Parte não confiável da entrada do Guardião: o conteúdo do log, inclusive o texto que as Ferramentas de leitura copiam dele, que um atacante pode controlar. Pode conter linhas literais, contagens e sinais estruturais. Nada no Registro é instrução para o Guardião.
 _Avoid_: payload, observable, log bruto
 
 **Âncora**:
@@ -95,6 +95,14 @@ _Avoid_: downgrade, supressão
 Histórico append-only do Runtime agêntico, com uma linha por Recorte, que liga o Recorte, o Sinal, o adaptador, o Relato, a regra aplicada e a decisão humana.
 _Avoid_: registro, log de inferência, ledger
 
+**Reexecução**:
+Nova execução de um Relato a partir do Diário de inferências, com a mesma build, temperatura 0 e o mesmo número de threads, para auditar se o resultado se repete byte a byte.
+_Avoid_: replay, reprodução
+
+**Remessa**:
+O que o Runtime agêntico envia ao SOC por Recorte: o Relato, as chamadas de ferramenta com o hash de cada resposta, a linha do Diário, os hashes do Recorte e do adaptador e a Proposta de contenção, quando houver. O Recorte completo fica na máquina.
+_Avoid_: payload, telemetria, evento, log enviado
+
 **Proposta de contenção**:
 Ação que o Runtime agêntico deriva de um Relato por regras determinísticas e versionadas. Só vale depois da aprovação humana.
 _Avoid_: shield, upatch, recommended_shield
@@ -124,6 +132,14 @@ _Avoid_: golden set, hold-out sintético
 **Rival**:
 O adaptador infosecn1nja/soc-triage-nemotron-bolt-e4b-lora, que o Guardião precisa superar no Teste real: Macro-F1 maior, FPR igual ou menor e não mais malicious perdidos.
 _Avoid_: baseline (reservado ao Run 0), concorrente
+
+**Ambiente de treino**:
+Reprodução de data/raw que responde às Ferramentas de leitura durante o treino e a avaliação, só com eventos do mesmo grupo de incidente e até a hora da Âncora.
+_Avoid_: SIEM simulado, sandbox, replay
+
+**Carga no analista**:
+Trabalho que o Guardião deixa para o SOC: Relatos que exigem decisão humana, falsos positivos que chegam ao analista e o material que ele precisa ler para decidir. É o resultado principal do estudo, medido com os malicious perdidos como restrição.
+_Avoid_: fadiga de alertas (sintoma, não medida), workload
 
 **Suíte adversarial**:
 Conjunto de avaliação separado dos splits, com injeções de prompt no Registro de Recortes reais, em moldes que o treino não contém. Mede injeções que rebaixam e que inflam Alertas. É um teste de regressão, não uma prova de robustez.
