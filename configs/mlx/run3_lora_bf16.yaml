@@ -1,5 +1,12 @@
-model: "Qwen/Qwen2.5-7B-Instruct"
-data: "data/processed"
+model: "models/pissa/gemma-4-e4b-it/run3_lora_bf16/base"
+init_lora_weights: pissa
+pissa_source_model: "google/gemma-4-E4B-it"
+pissa_source_model_type: gemma4
+pissa_source_revision: "4ecc2ba63bcac23ba4a767fc87025b1450f84c9c"
+pissa_optional_keys: ["self_attn.k_proj", "self_attn.v_proj"]
+disable_thinking: true
+resume_adapter_file: "models/pissa/gemma-4-e4b-it/run3_lora_bf16/init.safetensors"
+data: "data/processed/soc-triage-v12/splits"
 train: true
 fine_tune_type: lora
 adapter_path: "adapters/run3_lora_bf16"

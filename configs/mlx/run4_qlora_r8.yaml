@@ -1,16 +1,24 @@
-model: "mlx-community/Qwen2.5-7B-Instruct-4bit"
-data: "data/processed"
+model: "models/pissa/gemma-4-e4b-it/run4_qlora_r8/base"
+init_lora_weights: pissa
+pissa_source_model: "google/gemma-4-E4B-it"
+pissa_source_model_type: gemma4
+pissa_source_revision: "4ecc2ba63bcac23ba4a767fc87025b1450f84c9c"
+pissa_optional_keys: ["self_attn.k_proj", "self_attn.v_proj"]
+disable_thinking: true
+resume_adapter_file: "models/pissa/gemma-4-e4b-it/run4_qlora_r8/init.safetensors"
+pissa_quantization: {bits: 4, group_size: 64, mode: affine}
+data: "data/processed/soc-triage-v12/splits"
 train: true
 fine_tune_type: lora
 adapter_path: "adapters/run4_qlora_r8"
 num_layers: -1
 mask_prompt: true
 max_seq_length: 1024
-batch_size: 4
-grad_accumulation_steps: 4
+batch_size: 1
+grad_accumulation_steps: 16
 grad_checkpoint: false
 learning_rate: 1.0e-4
-iters: 500
+iters: 2000
 seed: 42
 
 lora_parameters:
