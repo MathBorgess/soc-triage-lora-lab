@@ -106,6 +106,10 @@ Guardião são recentes e quase todos preprints:
 - A validade de saída estruturada varia muito por modelo [A-16].
 - JSON estrito não custa acurácia em classificação, mas pode custar em raciocínio. A ordem dos
   campos muda o resultado [A-19], este revisado por pares.
+- **Saju e Azim (2026):** framework de ponta a ponta com dados de produção (detecção, consultas
+  ao SIEM e códigos de fechamento). Usa LLMs sem fine-tuning e não trata injeção nem
+  fidelidade literal. A leitura integral achou inconsistências nas tabelas. Ver a
+  [revisão integral](02-revisao-saju-azim-2026.md).
 
 ### 4. Injeção de prompt em logs é uma ameaça documentada e a defesa tem de ser arquitetural
 
@@ -283,6 +287,7 @@ centrais desta síntese.
 - Tam et al. (2024). *Let Me Speak Freely?* EMNLP Industry. https://aclanthology.org/2024.emnlp-industry.91
 - Tsegai et al. (2026). *From Investigation Failures to Reliable SOC Agents.* Preprint. https://arxiv.org/abs/2610.10608
 - Zhao et al. (2025). *Information-Dense Reasoning for Efficient and Auditable Security Alert Triage.* Preprint. https://arxiv.org/abs/2512.08169
+- Saju e Azim (2026). *Toward Autonomous SOC Operations: End-to-End LLM Framework for Threat Detection, Query Generation, and Resolution in Security Operations.* Preprint. https://arxiv.org/abs/2604.27321
 - Alahmadi, Axon e Martinovic (2022). *99% False Positives.* USENIX Security. https://www.usenix.org/conference/usenixsecurity22/presentation/alahmadi
 - Kokulu et al. (2019). *Matched and Mismatched SOCs.* ACM CCS. DOI 10.1145/3319535.3354239
 - Greshake et al. (2023). *Not what you've signed up for.* ACM AISec. https://arxiv.org/abs/2302.12173
