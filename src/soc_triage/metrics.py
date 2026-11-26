@@ -27,15 +27,19 @@ def validate_json_output(raw_text: str) -> SocTriageEvent:
     return SocTriageEvent.model_validate_json(raw_text)
 
 
-def check_ioc_hallucinations(parsed_event: SocTriageEvent, raw_log: str) -> IocCheck:
-    """Conte cada candidato distinto por evento, ignorando diferenças de caixa."""
+def unique_ioc_candidates(parsed_event: SocTriageEvent) -> dict[str, str]:
+    """Mapeie cada candidato distinto (IoCs e IPs) para o texto original, sem distinguir caixa."""
     event = parsed_event.normalized_event
-    candidates = [*event.iocs, event.src_ip, event.dst_ip]
     unique: dict[str, str] = {}
-    for candidate in candidates:
+    for candidate in [*event.iocs, event.src_ip, event.dst_ip]:
         if candidate is not None:
             unique.setdefault(candidate.casefold(), candidate)
+    return unique
 
+
+def check_ioc_hallucinations(parsed_event: SocTriageEvent, raw_log: str) -> IocCheck:
+    """Conte cada candidato distinto por evento, ignorando diferenças de caixa."""
+    unique = unique_ioc_candidates(parsed_event)
     searchable_log = raw_log.casefold()
     hallucinated = [value for key, value in unique.items() if key not in searchable_log]
     rate = len(hallucinated) / len(unique) if unique else 0.0

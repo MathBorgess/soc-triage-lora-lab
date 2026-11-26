@@ -13,6 +13,7 @@ dependencies = [
     "httpx",
     "huggingface-hub",
     "mlx-lm[train]",
+    "numpy",
     "pydantic>=2.0",
     "pyyaml",
     "scikit-learn",

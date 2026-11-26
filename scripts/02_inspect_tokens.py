@@ -11,6 +11,8 @@ from huggingface_hub import snapshot_download
 from mlx_lm.tuner.datasets import ChatDataset
 from mlx_lm.utils import load_tokenizer
 
+from soc_triage.chat_template import disable_chat_thinking
+
 SPLITS = ("train", "valid", "test")
 HISTOGRAM_STEP = 128
 TOKENIZER_FILES = (
@@ -26,7 +28,7 @@ TOKENIZER_FILES = (
 )
 
 
-def read_config(path: Path) -> tuple[str, Path, int]:
+def read_config(path: Path) -> tuple[str, Path, int, bool]:
     config = yaml.safe_load(path.read_text(encoding="utf-8"))
     if not isinstance(config, dict):
         raise TypeError("O arquivo deve conter um mapa de configuração MLX.")
@@ -35,7 +37,10 @@ def read_config(path: Path) -> tuple[str, Path, int]:
         raise ValueError("A configuração deve definir model e data como texto não vazio.")
     if type(limit) is not int or limit < 2:
         raise ValueError("A configuração deve definir max_seq_length como inteiro >= 2.")
-    return model, Path(data), limit
+    disable_thinking = config.get("disable_thinking", False)
+    if type(disable_thinking) is not bool:
+        raise ValueError("O campo disable_thinking deve ser booleano.")
+    return model, Path(data), limit, disable_thinking
 
 
 def valid_chat(record: object) -> bool:
@@ -115,13 +120,16 @@ def main() -> int:
     parser.add_argument("--split", choices=SPLITS, help="Examine somente este split.")
     parser.add_argument("--tokenizer", help="Pasta local ou ID HF. O padrão é model no YAML.")
     parser.add_argument(
+        "--tokenizer-revision", help="Revisão do tokenizer quando fornecido via Hub."
+    )
+    parser.add_argument(
         "--allow-tokenizer-download",
         action="store_true",
         help="Permita buscar apenas arquivos do tokenizer no Hugging Face Hub.",
     )
     args = parser.parse_args()
     try:
-        model, data_path, limit = read_config(args.config)
+        model, data_path, limit, disable_thinking = read_config(args.config)
     except (OSError, TypeError, ValueError, yaml.YAMLError) as error:
         parser.error(str(error))
 
@@ -138,6 +146,7 @@ def main() -> int:
             tokenizer_path = Path(
                 snapshot_download(
                     source,
+                    revision=args.tokenizer_revision,
                     allow_patterns=TOKENIZER_FILES,
                     local_files_only=not args.allow_tokenizer_download,
                 )
@@ -148,6 +157,11 @@ def main() -> int:
             f"Tokenizer indisponível ({type(error).__name__}). "
             "Forneça uma pasta em --tokenizer ou use --allow-tokenizer-download."
         )
+    if disable_thinking:
+        try:
+            disable_chat_thinking(tokenizer)
+        except ValueError as error:
+            parser.error(str(error))
 
     # O offset é calculado pelo mesmo código usado no treino com mask_prompt.
     dataset = ChatDataset([], tokenizer, mask_prompt=True)

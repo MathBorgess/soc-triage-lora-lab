@@ -1,0 +1,19 @@
+# Reserva aprovada no Codex em 22/11/2026. Use estas atribuições no próximo manifesto de exportação.
+valid:
+  - dataset: cse-cic-ids2018
+    group: cse-cic-ids2018/2018-02-14
+    archive: logs.zip
+    scope: "Captura de 14/02/2018 com a campanha SSH completa."
+    source: "https://www.unb.ca/cic/datasets/ids-2018.html"
+test:
+  - dataset: echolake-cloud-data-exfiltration
+    group: echolake-cloud-data-exfiltration/captura
+    archive: linux_auth.log.gz
+    revision: "01aeb66088bb465ed0414fb3ee07647d3303ff43"
+    scope: "Captura de autenticação com as duas sessões SSH do mesmo cenário."
+    source: "https://github.com/daveherrald/echolake-datasets/tree/01aeb66088bb465ed0414fb3ee07647d3303ff43/datasets/cloud-data-exfiltration"
+  - dataset: web-server-log-dataset
+    group: web-server-log-dataset/organization-y
+    archive: organization-y.zip
+    scope: "Captura completa da Organização Y, com todos os hosts e rotações."
+    source: "https://zenodo.org/records/20001206"
