@@ -225,3 +225,12 @@ def test_desembrulha_envelopes_de_coleta():
     assert ler("linux_auth", logstash, "f", 1).tipo == "aceite"
     assert linha.startswith("2025-01-10T11:34:09.762Z srv sshd[7]: Accepted")
     assert desembrulhar("linux_auth", "{quebrado") == ("{quebrado", None)
+
+
+def test_registro_desembrulhado_nao_quebra_linha():
+    from soc_triage.guardiao.eventos import ler
+
+    filebeat = json.dumps({"@timestamp": "x", "agent": {}, "message": "Nov  5 14:17:20 h sshd[1]: a\nb\n"})
+    evento = ler("linux_auth", filebeat, "f", 1)
+    assert evento.texto == "Nov  5 14:17:20 h sshd[1]: a\\nb"
+    assert "\n" not in evento.texto

@@ -14,12 +14,13 @@ TRAIN_TARGETS := train-run1 train-run2 train-run3 train-run4-r8 train-run4-r64 \
                  train-run5-dora train-run5-qdora
 
 .PHONY: help setup check-mlx lint test prepare-pissa inspect-tokens check-prompt \
-        eval-run0 eval-adapter smoke serve-adapter reproduzir-v12 tipos-de-contexto $(TRAIN_TARGETS)
+        eval-run0 eval-adapter smoke serve-adapter reproduzir-v12 tipos-de-contexto reprojetar-v12 \
+        $(TRAIN_TARGETS)
 
 help:
 	@printf '%s\n' 'setup check-mlx lint test prepare-pissa inspect-tokens check-prompt' \
 		'eval-run0 smoke eval-adapter' '$(TRAIN_TARGETS) serve-adapter' \
-		'reproduzir-v12 tipos-de-contexto'
+		'reproduzir-v12 tipos-de-contexto reprojetar-v12'
 
 setup:
 	uv sync --locked
@@ -39,6 +40,13 @@ reproduzir-v12:
 tipos-de-contexto:
 	$(UV_RUN) python scripts/10_tipos_de_contexto.py --raiz-dados "$(RAIZ_DADOS)" \
 		--relatorio docs/curadoria/12-tipos-de-contexto-da-v12.md
+
+# Reprojeção da v12 no formato canônico (ADR 0012). VERSAO_V2 é uma pasta nova em data/processed.
+VERSAO_V2 ?= guardiao-v2-r01
+
+reprojetar-v12:
+	$(UV_RUN) python scripts/11_reprojetar_v12.py --raiz-dados "$(RAIZ_DADOS)" --versao "$(VERSAO_V2)" \
+		--relatorio docs/curadoria/13-reprojecao-v2.md
 
 lint:
 	$(UV_RUN) ruff check .

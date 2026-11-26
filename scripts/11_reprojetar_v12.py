@@ -228,7 +228,7 @@ def escrever_relatorio(
         "### Por que ficam fora",
         "",
     ]
-    motivos_fora = Counter(r.fora.split(": ", 1)[-1] for r in fora)
+    motivos_fora = Counter(r.fora for r in fora)
     linhas += tabela_md(
         ["Motivo", "Recortes"], [[m, n] for m, n in motivos_fora.most_common()], "lr"
     )

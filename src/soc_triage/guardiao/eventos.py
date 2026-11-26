@@ -288,9 +288,17 @@ def desembrulhar(modalidade: str, texto: str) -> tuple[str, str | None]:
     return texto, None
 
 
+def _uma_linha(texto: str) -> str:
+    """Tira a quebra final de um registro desembrulhado e deixa visível qualquer quebra interna."""
+    texto = texto.removesuffix("\n").removesuffix("\r")
+    return texto.replace("\r\n", "\\n").replace("\n", "\\n")
+
+
 def ler(modalidade: str, texto: str, fonte: str, linha: int, relogio: RelogioSyslog | None = None):
     """Evento de uma linha de log. Uma linha num envelope de coleta é lida pela linha nativa."""
     nativo, envelope = desembrulhar(modalidade, texto)
+    if envelope:
+        nativo = _uma_linha(nativo)
     if modalidade == "linux_auth":
         evento = ler_auth(nativo, fonte, linha, relogio)
     elif modalidade == "apache":
