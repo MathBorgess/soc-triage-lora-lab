@@ -99,3 +99,21 @@ validação. Um calibrador separado fica fora do escopo e entra como limitação
   modelos (H-25). Os créditos de Google Cloud e o pré-pagamento da Gemini API não são ativados.
 - Os valores, os limites e as alternativas gratuitas estão na nota
   [H](../pesquisa/notas/H-ai-pro-e-custos-de-computacao.md).
+
+## Emenda 2 de 26/11/2026: treino no Colab, Hugging Face e Gemini
+
+Mais tarde no mesmo dia, o responsável mudou três pontos da emenda anterior:
+
+- **Treino.** Todo o treino do Guardião roda no Colab: o SFT e o RL. O Mac fica com o Ambiente
+  de treino, as recompensas, a avaliação local e os Comparadores locais. Isso também evita
+  converter o adaptador do SFT do MLX para o PEFT antes do RL.
+- **Armazenamento.** Datasets e modelos ficam no Hugging Face Hub, fora do Git. A visibilidade
+  de cada repositório é decisão do responsável.
+- **Gemini e créditos.** O Gemini e os créditos de Google Cloud do AI Pro passam a poder ser
+  usados, e os US$ 10 mensais devem ser usados por inteiro. Isso substitui o item da emenda
+  anterior que não ativava os créditos. Os termos continuam valendo: os Termos de Serviço do
+  Google proíbem usar conteúdo gerado pela IA do Google para desenvolver modelos (H-25), e os
+  termos da Gemini API proíbem desenvolver modelos que concorram com o serviço (H-21). A Gemini
+  API paga exige conta de faturamento e pré-pagamento mínimo de US$ 5 (H-20). O uso exato fica
+  registrado em ADR próprio.
+

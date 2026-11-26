@@ -83,12 +83,14 @@ processados.
   Almeje pico de RAM abaixo de aproximadamente 24 GB para evitar swap. Para BF16,
   o preset usa `grad_checkpoint: true` e microbatch menor. Confirme a viabilidade em
   relação ao teto antes de uma rodada completa.
-- O Mac roda o SFT, o Ambiente de treino, as recompensas, os Comparadores e o piloto de RL
-  de turno único. O RL com várias chamadas de ferramenta por episódio roda no Google Colab
-  AI Pro com L4, usando TRL e vLLM ([ADR 0005](docs/adr/0005-rl-com-custo-multiplicativo.md)).
-  Mantenha scripts, notebooks e dependências do Colab em `colab/`. Exclua `bitsandbytes`,
-  `unsloth` e CUDA do projeto principal. Unidades de computação além do plano são gasto e
-  exigem aprovação do responsável.
+- O treino do Guardião, SFT e RL, roda no Google Colab AI Pro com L4, usando TRL e vLLM. O Mac
+  roda o Ambiente de treino, as recompensas, a avaliação local e os Comparadores locais
+  ([ADR 0005](docs/adr/0005-rl-com-custo-multiplicativo.md)). Mantenha scripts, notebooks e
+  dependências do Colab em `colab/`. Exclua `bitsandbytes`, `unsloth` e CUDA do projeto
+  principal. Unidades de computação além do plano são gasto e exigem aprovação do responsável.
+- Datasets e modelos ficam no Hugging Face Hub. A visibilidade de cada repositório é decisão do
+  responsável. O Gemini e os créditos de Google Cloud do AI Pro podem ser usados dentro dos
+  termos do Google, conforme o ADR 0005.
 - Mantenha logs reais confidenciais, credenciais, pesos, adaptadores, arquivos
   `.safetensors`, `.gguf` e dumps grandes fora do Git. A chave de assinatura da Liberação e
   os dados do Estudo com analistas também ficam fora do Git e do wiki.

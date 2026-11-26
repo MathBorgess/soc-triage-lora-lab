@@ -104,8 +104,8 @@ Regras de todas as ferramentas:
 - O Runtime passa ao Guardião o Peso de custo gravado na Liberação (ADR 0008).
 - O E4B tem 4,5B de parâmetros efetivos, ou 8B com embeddings. O E2B, com 2,3B efetivos ou 5,1B
   com embeddings, é o plano B se o E4B estourar o orçamento de latência.
-- O SFT e o piloto de turno único rodam no MLX, no Mac. O RL com várias chamadas por episódio
-  roda no Colab L4, com TRL e vLLM (ADR 0005).
+- O SFT e o RL do Guardião rodam no Colab L4, com TRL e vLLM. Datasets e adaptadores ficam no
+  Hugging Face Hub (ADR 0005).
 
 ### Validador
 
