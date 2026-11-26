@@ -249,11 +249,56 @@ def ler_eve(texto: str, fonte: str, linha: int) -> Evento:
     return Evento("suricata", fonte, linha, texto, instante, tipo, campos)
 
 
+def desembrulhar(modalidade: str, texto: str) -> tuple[str, str | None]:
+    """Linha nativa de um log guardado dentro de um envelope JSON de coleta.
+
+    Envelopes conhecidos, com a linha que o Runtime agêntico leria na máquina:
+
+    - exportação do Splunk: ``result._raw``;
+    - alerta do Wazuh: ``full_log`` (syslog) ou ``data`` (campos do EVE, reserializados);
+    - Filebeat: ``message``;
+    - Logstash: ``timestamp8601``, ``logsource``, ``program``, ``pid`` e ``message``, recompostos
+      numa linha de syslog com carimbo ISO.
+
+    Uma linha EVE nativa (com ``event_type``) e qualquer outra linha voltam sem mudança.
+    """
+    if not texto.startswith("{"):
+        return texto, None
+    try:
+        dados = json.loads(texto)
+    except json.JSONDecodeError:
+        return texto, None
+    if not isinstance(dados, dict) or "event_type" in dados:
+        return texto, None
+    resultado = dados.get("result")
+    if isinstance(resultado, dict) and isinstance(resultado.get("_raw"), str):
+        return resultado["_raw"], "splunk"
+    if "rule" in dados and "agent" in dados:
+        if modalidade == "suricata" and isinstance(dados.get("data"), dict):
+            return json.dumps(dados["data"], ensure_ascii=False, separators=(",", ":")), "wazuh"
+        if isinstance(dados.get("full_log"), str):
+            return dados["full_log"], "wazuh"
+    if isinstance(dados.get("message"), str):
+        if all(isinstance(dados.get(c), (str, int)) for c in ("timestamp8601", "logsource", "program")):
+            pid = f"[{dados['pid']}]" if dados.get("pid") not in (None, "") else ""
+            linha = f"{dados['timestamp8601']} {dados['logsource']} {dados['program']}{pid}: {dados['message']}"
+            return linha, "logstash"
+        if "@timestamp" in dados and ("agent" in dados or "@metadata" in dados or "log" in dados):
+            return dados["message"], "filebeat"
+    return texto, None
+
+
 def ler(modalidade: str, texto: str, fonte: str, linha: int, relogio: RelogioSyslog | None = None):
+    """Evento de uma linha de log. Uma linha num envelope de coleta é lida pela linha nativa."""
+    nativo, envelope = desembrulhar(modalidade, texto)
     if modalidade == "linux_auth":
-        return ler_auth(texto, fonte, linha, relogio)
-    if modalidade == "apache":
-        return ler_apache(texto, fonte, linha)
-    if modalidade == "suricata":
-        return ler_eve(texto, fonte, linha)
-    raise ValueError(f"Modalidade sem leitor: {modalidade}")
+        evento = ler_auth(nativo, fonte, linha, relogio)
+    elif modalidade == "apache":
+        evento = ler_apache(nativo, fonte, linha)
+    elif modalidade == "suricata":
+        evento = ler_eve(nativo, fonte, linha)
+    else:
+        raise ValueError(f"Modalidade sem leitor: {modalidade}")
+    if envelope:
+        evento.campos["envelope"] = envelope
+    return evento

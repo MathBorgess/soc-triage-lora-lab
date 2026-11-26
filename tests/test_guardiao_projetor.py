@@ -196,3 +196,32 @@ def test_relogio_sem_ano_nao_inventa_ano():
 
 def test_catalogo_de_sinais_aprovado():
     assert sinais.VERSAO_CATALOGO == "sinais-0.1"
+
+
+def test_desembrulha_envelopes_de_coleta():
+    from soc_triage.guardiao.eventos import desembrulhar, ler
+
+    eve = json.dumps({"timestamp": "2016-08-10T15:49:46.857627-0600", "event_type": "http",
+                      "src_ip": "192.0.2.1", "dest_ip": "198.51.100.2"})
+    splunk = json.dumps({"preview": False, "offset": 1, "result": {"_raw": eve, "date_hour": "15"}})
+    assert desembrulhar("suricata", splunk) == (eve, "splunk")
+    assert desembrulhar("suricata", eve) == (eve, None)
+    evento = ler("suricata", splunk, "f", 1)
+    assert (evento.tipo, evento.texto, evento.get("envelope")) == ("http", eve, "splunk")
+
+    syslog = "Jan 15 12:21:09 mail auth: pam_unix(dovecot:auth): authentication failure; rhost=192.0.2.7"
+    wazuh = json.dumps({"rule": {"id": "1"}, "agent": {"id": "2"}, "full_log": syslog, "data": {"srcip": "x"}})
+    assert desembrulhar("linux_auth", wazuh) == (syslog, "wazuh")
+    wazuh_eve = json.dumps({"rule": {}, "agent": {}, "data": {"event_type": "alert", "src_ip": "192.0.2.1"}})
+    assert desembrulhar("suricata", wazuh_eve) == ('{"event_type":"alert","src_ip":"192.0.2.1"}', "wazuh")
+
+    filebeat = json.dumps({"@timestamp": "x", "agent": {}, "message": "Nov  5 14:17:20 h sshd[1]: x"})
+    assert desembrulhar("linux_auth", filebeat) == ("Nov  5 14:17:20 h sshd[1]: x", "filebeat")
+    logstash = json.dumps({"@timestamp": "x", "timestamp8601": "2025-01-10T11:34:09.762Z",
+                           "logsource": "srv", "program": "sshd", "pid": "7",
+                           "message": "Accepted publickey for root from 192.0.2.8 port 5 ssh2"})
+    linha, envelope = desembrulhar("linux_auth", logstash)
+    assert envelope == "logstash"
+    assert ler("linux_auth", logstash, "f", 1).tipo == "aceite"
+    assert linha.startswith("2025-01-10T11:34:09.762Z srv sshd[7]: Accepted")
+    assert desembrulhar("linux_auth", "{quebrado") == ("{quebrado", None)

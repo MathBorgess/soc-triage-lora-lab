@@ -124,6 +124,7 @@ def _resumo_linux_auth(eventos: list[Evento]) -> str:
     contas = {e.get("usuario") for e in eventos if e.get("usuario")}
     origens = {e.ip for e in eventos if e.ip}
     conexoes = {e.get("pid") for e in eventos if e.get("programa") == "sshd" and e.get("pid")}
+    encerradas = sum(1 for e in eventos if e.tipo == "conexao_encerrada" and e.get("usuario"))
     aceites = sum(1 for e in eventos if e.tipo == "aceite")
     sessoes = sum(1 for e in eventos if e.tipo == "sessao_aberta")
     sudo = sum(1 for e in eventos if e.tipo == "sudo")
@@ -131,7 +132,9 @@ def _resumo_linux_auth(eventos: list[Evento]) -> str:
         f"Contagens: {plural(falhas, 'falha', 'falhas')} de autenticação ({invalidas} com usuário "
         f"inválido); {plural(len(origens), 'origem', 'origens')}; "
         f"{plural(len(contas), 'conta', 'contas distintas')}; "
-        f"{plural(len(conexoes), 'conexão', 'conexões')} do sshd; {plural(aceites, 'aceite', 'aceites')}; "
+        f"{plural(len(conexoes), 'conexão', 'conexões')} do sshd; "
+        f"{plural(encerradas, 'conexão encerrada', 'conexões encerradas')} durante a autenticação; "
+        f"{plural(aceites, 'aceite', 'aceites')}; "
         f"{plural(sessoes, 'sessão aberta', 'sessões abertas')}; "
         f"{plural(sudo, 'comando sudo', 'comandos sudo')}."
     )
@@ -260,5 +263,9 @@ def projetar(
         sinais=sinais,
         incompleto=tuple(incompleto),
         perfil="canonico",
-        metadados={"versao_projetor": VERSAO_PROJETOR, "versao_sinais": regras_de_sinal.VERSAO_CATALOGO},
+        metadados={
+            "versao_projetor": VERSAO_PROJETOR,
+            "versao_sinais": regras_de_sinal.VERSAO_CATALOGO,
+            "linhas_do_registro": [(e.fonte, e.linha) for e in mostrados],
+        },
     )
