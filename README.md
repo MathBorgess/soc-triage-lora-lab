@@ -68,6 +68,9 @@ SVD e memória de pico do 8B ainda precisam ser medidos.
 
 ## Curadoria e pré-treino
 
+O [lote 12 de curadoria](docs/curadoria/lote-12/README.md) registra o marco de 1.000
+registros para revisão, com o índice público das propostas e um roteiro para adjudicação.
+
 A fonte, os rótulos, os grupos de incidentes e os splits são decisões do responsável
 pelo estudo. [01_curate_dataset.py](scripts/01_curate_dataset.py) recebe um
 manifesto JSON com `train`, `valid` e `test`. Cada split aceita uma fonte ou
