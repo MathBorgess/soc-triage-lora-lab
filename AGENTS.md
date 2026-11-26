@@ -84,8 +84,9 @@ processados.
 - MacBook Pro M1 Max com 32 GB de memória unificada. Use `uv`. O Mac roda MLX LM para
   smoke tests e inferência local, com pico de RAM abaixo de aproximadamente 24 GB.
 - Todo o treino roda no Google Colab AI Pro, com TRL, PEFT e vLLM: a matriz de ablação e o SFT
-  e o RL do Guardião. A GPU padrão é a L4. A A100 40 GB entra enquanto a L4 estiver
-  indisponível ou quando o modelo não couber. O Mac roda o Ambiente de treino, as recompensas,
+  e o RL do Guardião. Os números oficiais saem todos da mesma GPU com BF16: a L4, ou a A100
+  40 GB quando a L4 estiver indisponível ou o modelo não couber. A T4 serve só para
+  desenvolvimento, com base em 4 bits e FP16. O Mac roda o Ambiente de treino, as recompensas,
   a avaliação local e os Comparadores locais
   ([ADR 0005](docs/adr/0005-rl-com-custo-multiplicativo.md)). Mantenha scripts, notebooks e
   dependências do Colab em `colab/`. Exclua `bitsandbytes`, `unsloth` e CUDA do projeto
