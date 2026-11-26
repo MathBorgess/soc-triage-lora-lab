@@ -57,3 +57,22 @@ Resultados da montagem `4bit-hf` em FP16 na T4, com 3 passos de DAPO e LoRA r16 
   mais longos, e a folga de memória da T4 é de ~1 GB. A T4 não cabe o E4B em 16 bits, então a
   Run 3 da ablação (BF16) não roda nela.
 
+## Resultado na L4, em BF16 (26/11/2026)
+
+A L4 voltou a alocar às 17:13 UTC, a 2,33 unidades por hora. Com 2 prompts por passo, 8
+respostas por prompt, recompensa variada e DAPO:
+
+| Montagem | Resultado | Pico de memória (nvidia-smi) | Tempo por passo |
+| --- | --- | --- | --- |
+| `bf16-hf` | coube | 21,5 GB de 23,0 GB | 54 a 60 s (163 s no primeiro) |
+| `4bit-hf` | coube | 15,5 GB de 23,0 GB | 65 a 77 s |
+| `bf16-vllm` | não iniciou | o vLLM achou 6,9 GB livres e pediu 15,4 GB | — |
+| `4bit-vllm` | não iniciou | o vLLM achou 12,9 GB livres; os pesos em BF16 têm ~16 GB | — |
+
+- **vLLM:** na L4, ele não cabe junto do treino. O RL na L4 gera pelo transformers.
+- **`bf16-hf`:** é a montagem mais rápida, com cerca de 28 s por Recorte, e a que serve aos
+  números oficiais. A folga é de ~1,5 GB com respostas curtas.
+- **Estabilidade:** não houve NaN, e o gradiente foi real (`grad_norm` de 0,27 a 0,45).
+- **Custo:** a rodada gastou 0,77 unidade. Os testes de 26/11 somaram 9,53 unidades, incluindo
+  as falhas de conexão e de disparo já corrigidas no script.
+

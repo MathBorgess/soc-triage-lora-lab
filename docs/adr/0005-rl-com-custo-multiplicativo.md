@@ -159,3 +159,13 @@ A100. Misturar T4 em FP16 com A100 em BF16 confundiria precisão e hardware com 
 quantização. A disponibilidade da L4 e da A100 é testada uma vez por dia. Uma tentativa recusada
 não gasta unidades.
 
+## Emenda 7 de 26/11/2026: na L4, o RL gera sem vLLM
+
+O teste de encaixe na L4, em BF16, mostrou que o vLLM em modo colocate não cabe junto do treino
+em 24 GB: depois de carregar o modelo de treino, sobram 6,9 GB, e os pesos do E4B em BF16 têm
+~16 GB. O treino com geração pelo transformers coube: pico de 21,5 GB, cerca de 28 s por Recorte
+com 8 respostas curtas, sem NaN. A taxa medida da L4 foi de 2,33 unidades por hora. A
+estimativa de 7 a 8 h por época na L4 se mantém para respostas curtas, mas os episódios com
+ferramentas precisam ser medidos quando o Ambiente de treino estiver pronto. Os números estão em
+`colab/README.md`.
+
