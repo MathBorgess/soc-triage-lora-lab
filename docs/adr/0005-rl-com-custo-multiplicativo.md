@@ -117,3 +117,45 @@ Mais tarde no mesmo dia, o responsável mudou três pontos da emenda anterior:
   API paga exige conta de faturamento e pré-pagamento mínimo de US$ 5 (H-20). O uso exato fica
   registrado em ADR próprio.
 
+## Emenda 3 de 26/11/2026: A100 nos testes e ablação no Colab
+
+- As duas tentativas de alocar uma L4 receberam "503 Service Unavailable". O responsável decidiu
+  seguir os testes na A100 40 GB enquanto a L4 estiver indisponível. A L4 continua sendo a padrão
+  quando voltar e quando o modelo couber.
+- A primeira tentativa na A100, às 12:24 UTC, também recebeu "503 Service Unavailable". A falha
+  coincide com a issue googlecolab/colabtools#6289, aberta por assinantes que perderam acesso a
+  L4, A100 e G4 desde cerca de 16/11/2026, sem resposta do Google em 26/11/2026.
+- A matriz de ablação também passa para o Colab, com PEFT. O 4-bit passa a ser o NF4 do
+  `bitsandbytes`, e o PiSSA vem do PEFT. O MLX fica para smoke tests e inferência local, e os
+  smoke runs antigos do MLX deixam de ser comparáveis com as rodadas novas.
+- O uso do Gemini está no ADR 0010, e a publicação no Hugging Face está no ADR 0011.
+
+## Emenda 4 de 26/11/2026: o algoritmo é o DAPO
+
+O responsável escolheu o DAPO, que a decisão original deixava como alternativa ao Dr. GRPO. O
+DAPO roda no `GRPOTrainer` do TRL 1.19.0, que já implementa:
+
+- a loss por token (`loss_type="dapo"`);
+- o corte assimétrico, com `epsilon_high` de 0,28;
+- a exclusão das respostas cortadas da loss (`mask_truncated_completions`);
+- a ausência de KL (`beta` 0).
+
+O TRL não repõe os grupos sem variância, como faz a amostragem dinâmica do artigo do DAPO. Esses
+grupos não contribuem para o gradiente, e a fração deles é registrada em cada passo.
+
+## Emenda 5 de 26/11/2026: a T4 serve para desenvolvimento
+
+Com L4 e A100 indisponíveis, o responsável pediu para seguir numa VM que funcionasse. Só a T4
+padrão alocou. O teste de encaixe mostrou que o E4B treina nela com a base em 4 bits (NF4),
+cálculo em FP16 e geração pelo transformers, sem vLLM. O pico de memória foi de 14,3 GB de
+15,4 GB, sem NaN, com gradiente real e cerca de 50 s por Recorte com 8 respostas curtas.
+Os números estão em `colab/README.md`. A T4 não tem BF16 e não cabe o E4B em 16 bits.
+
+## Emenda 6 de 26/11/2026: números oficiais só em BF16
+
+O responsável decidiu que a T4 serve para desenvolver e depurar o pipeline de SFT e RL, com
+rodadas curtas. Os números oficiais da ablação e do RL saem todos da mesma GPU com BF16, L4 ou
+A100. Misturar T4 em FP16 com A100 em BF16 confundiria precisão e hardware com o efeito da
+quantização. A disponibilidade da L4 e da A100 é testada uma vez por dia. Uma tentativa recusada
+não gasta unidades.
+

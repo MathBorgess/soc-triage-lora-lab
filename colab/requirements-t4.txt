@@ -1,0 +1,8 @@
+# Dependências da montagem 4bit-hf na T4 (conferidas no PyPI em 26/11/2026).
+# Sem vLLM: usa o torch que o Colab já traz (todas exigem torch>=2.6).
+trl==1.19.0
+transformers==5.22.2
+peft==0.22.0
+accelerate==1.16.0
+datasets==5.2.0
+bitsandbytes==0.50.2

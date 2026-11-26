@@ -1,0 +1,10 @@
+# Dependências do teste de encaixe no Colab (conferidas no PyPI em 26/11/2026).
+# vllm 0.34.0 fixa torch==2.14.0 e transformers>=5.16.1,<5.23.0.
+# trl 1.19.0 aceita vllm>=0.23.0,<0.35.0.
+vllm==0.34.0
+trl==1.19.0
+transformers==5.22.2
+peft==0.22.0
+accelerate==1.16.0
+datasets==5.2.0
+bitsandbytes==0.50.2

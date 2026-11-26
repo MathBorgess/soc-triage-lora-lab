@@ -35,6 +35,8 @@ ausentes são dispensados. Os embeddings e as projeções dos embeddings por
 camada ficam congelados em todas as rodadas.
 Use a revisão indicada nos presets e o template do Gemma com
 `enable_thinking=false` na inspeção, no treino e na avaliação.
+A matriz roda no Colab com PEFT: o 4-bit é o NF4 do `bitsandbytes`, e o PiSSA vem do PEFT.
+Os presets em `configs/mlx/` ficam como referência e para smoke tests.
 Use Run 2 como referência para Run 1 (alvos), Run 3 (quantização) e Run 4 (rank).
 Mantenha `scale: 2.0` nas duas variantes de rank e `seed: 42` nas rodadas treinadas.
 
@@ -79,18 +81,22 @@ processados.
 
 ## Hardware e stack
 
-- MacBook Pro M1 Max com 32 GB de memória unificada. Use `uv` e MLX LM sobre Metal.
-  Almeje pico de RAM abaixo de aproximadamente 24 GB para evitar swap. Para BF16,
-  o preset usa `grad_checkpoint: true` e microbatch menor. Confirme a viabilidade em
-  relação ao teto antes de uma rodada completa.
-- O treino do Guardião, SFT e RL, roda no Google Colab AI Pro com L4, usando TRL e vLLM. O Mac
-  roda o Ambiente de treino, as recompensas, a avaliação local e os Comparadores locais
+- MacBook Pro M1 Max com 32 GB de memória unificada. Use `uv`. O Mac roda MLX LM para
+  smoke tests e inferência local, com pico de RAM abaixo de aproximadamente 24 GB.
+- Todo o treino roda no Google Colab AI Pro, com TRL, PEFT e vLLM: a matriz de ablação e o SFT
+  e o RL do Guardião. Os números oficiais saem todos da mesma GPU com BF16: a L4, ou a A100
+  40 GB quando a L4 estiver indisponível ou o modelo não couber. A T4 serve só para
+  desenvolvimento, com base em 4 bits e FP16. O Mac roda o Ambiente de treino, as recompensas,
+  a avaliação local e os Comparadores locais
   ([ADR 0005](docs/adr/0005-rl-com-custo-multiplicativo.md)). Mantenha scripts, notebooks e
   dependências do Colab em `colab/`. Exclua `bitsandbytes`, `unsloth` e CUDA do projeto
   principal. Unidades de computação além do plano são gasto e exigem aprovação do responsável.
-- Datasets e modelos ficam no Hugging Face Hub. A visibilidade de cada repositório é decisão do
-  responsável. O Gemini e os créditos de Google Cloud do AI Pro podem ser usados dentro dos
-  termos do Google, conforme o ADR 0005.
+- Datasets e adaptadores ficam em repositórios públicos no Hugging Face Hub. Cada Fonte só
+  entra no que é publicado se a licença permitir
+  ([ADR 0011](docs/adr/0011-hugging-face-publico-por-licenca.md)). O token fica só no Mac.
+- O Gemini entra só na avaliação, pela Gemini API paga com os créditos do AI Pro. Ele nunca
+  gera rótulos, Trajetórias, recompensas nem dados de treino
+  ([ADR 0010](docs/adr/0010-gemini-so-na-avaliacao.md)).
 - Mantenha logs reais confidenciais, credenciais, pesos, adaptadores, arquivos
   `.safetensors`, `.gguf` e dumps grandes fora do Git. A chave de assinatura da Liberação e
   os dados do Estudo com analistas também ficam fora do Git e do wiki.
@@ -117,7 +123,7 @@ processados.
 ## Fluxo de trabalho
 
 Rode `uv run ruff check .` e `uv run pytest` após mudanças em `src/` ou `tests/`.
-Versione os presets em `configs/mlx/` e mantenha a seed fixa em `42`. Registre em
+Versione os presets em `configs/` e mantenha a seed fixa em `42`. Registre em
 `runs/`, em diretórios exclusivos por execução, as métricas, a configuração efetiva,
 as revisões dos pesos, tokenizer e dados, e as versões da stack. Preserve os resultados
 das execuções anteriores.

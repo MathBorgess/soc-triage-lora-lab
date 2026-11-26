@@ -198,7 +198,8 @@
 | H100 | NVIDIA H100 [H-7] | 80 GB HBM3 nas VMs A3 [H-13]; variante do Colab NÃO VERIFICADA | ~18 (as of 2026-11-11) [H-11] | Secundária, uma medição |
 | TPU v5e-1 / v6e-1 | TPUs do Google [H-6, H-7] | NÃO VERIFICADO | NÃO VERIFICADO | — |
 
-- **Acesso pelo AI Pro:** nenhuma fonte primária lista as GPUs por plano. H100 e G4 ficaram só para Pro+ desde agosto de 2026 [H-9]. O AI Ultra ganha "Premium GPU access" [H-5]. Leitura provável (inferência): o AI Pro acessa T4, L4 e A100. A G4 e a H100 ficam fora. **Confirmar na conta.**
+- **Acesso pelo AI Pro, observado em 26/11/2026:** o endpoint `ccu-info` que o Colab CLI consulta respondeu, para a conta AI Pro do responsável, `eligibleGpus: G4, A100, L4, T4`, `ineligibleGpus: H100` e `eligibleTpus: V6E1, V5E1`. Isso corrige a inferência abaixo sobre a G4. Ter direito não garante alocação: no mesmo dia, L4, A100 e T4 com RAM alta receberam 503.
+- **Inferência anterior, superada:** nenhuma fonte primária lista as GPUs por plano. H100 e G4 ficaram só para Pro+ desde agosto de 2026 [H-9]. O AI Ultra ganha "Premium GPU access" [H-5]. Leitura provável (inferência): o AI Pro acessa T4, L4 e A100. A G4 e a H100 ficam fora. **Confirmar na conta.**
 - **TPUs:** a stack do projeto (TRL + vLLM em CUDA) não roda nelas sem trabalho extra (inferência). Não as considerei.
 
 ---
@@ -402,7 +403,8 @@ Não faço interpretação jurídica. A coluna "Uso automatizado" só cita o que
 ### [H-30] Modal — Pricing. — [modal.com/pricing](https://modal.com/pricing) · Primária oficial · Verificado (acesso 2026-11-26)
 
 **O que diz**
-- Plano Starter: "$30 / month free credits", em vigor desde 2026-09-01. Preços por hora (as of 2026-11-26): L4 US$ 0,222; A100 40 GB US$ 0,583; A100 80 GB US$ 0,694; H100 US$ 1,097; RTX PRO 6000 US$ 0,842.
+- Plano Starter: "$30 / month free credits", em vigor desde 2026-09-01. Preços **por segundo** (as of 2026-11-26): L4 US$ 0,000222; A100 40 GB US$ 0,000583; A100 80 GB US$ 0,000694; H100 US$ 0,001097; RTX PRO 6000 US$ 0,000842. Por hora, isso dá cerca de US$ 0,80 na L4, US$ 2,10 na A100 40 GB e US$ 2,50 na A100 80 GB. CPU e memória do contêiner são cobrados à parte.
+- **Correção de 26/11/2026:** a primeira versão desta ficha leu os preços como valores por hora. Conferido na página, que diz "/ sec".
 
 ### [H-31] Google Cloud — Free Program. — [docs.cloud.google.com/free/docs/free-cloud-features](https://docs.cloud.google.com/free/docs/free-cloud-features) · Primária oficial · Verificado (acesso 2026-11-26)
 
@@ -417,7 +419,7 @@ Não faço interpretação jurídica. A coluna "Uso automatizado" só cita o que
 | **Kaggle** [H-27] | 30 h/semana de GPU; 20 h/semana de TPU | P100 16 GB ou 2× T4 | 12 h por sessão; "Save & Run All" roda sem navegador | Avaliação em lote, pré-processamento, smoke tests em fp16. As 2× T4 permitem o modo server do TRL (vLLM numa GPU, treino na outra). O E4B em 16 bits não cabe em 16 GB. |
 | **SageMaker Studio Lab** [H-28] | 4 h de GPU por 24 h | G4dn.xlarge | 4 h | Pouco útil: sessões curtas demais. |
 | **Lightning AI** [H-29] | ~30 créditos, únicos, não mensais | Várias; A100 e H100 com sessão de 4 h | 4 h nos Studios grátis | Um teste pontual de vazão. |
-| **Modal** [H-30] | US$ 30/mês | L4, A100, H100, RTX PRO 6000 | Cobrança por segundo | US$ 30 ≈ 135 h de L4 por mês na tabela de preços (inferência). Exige código adaptado ao Modal. |
+| **Modal** [H-30] | US$ 30/mês | L4, A100, H100, RTX PRO 6000 | Cobrança por segundo | US$ 30 ≈ 37 h de L4 ou 14 h de A100 40 GB por mês, antes do custo de CPU e memória (inferência). Exige código adaptado ao Modal. |
 | **Google Cloud (teste)** [H-31] | US$ 300 por 90 dias | **Nenhuma** no teste | — | Não serve para GPU. |
 
 ---
