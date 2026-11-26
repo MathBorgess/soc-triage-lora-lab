@@ -28,14 +28,20 @@ perder um malicious.
 Assim, qualquer Relato certo vale mais que qualquer Relato errado, e perder um malicious vale
 tanto quanto um Relato inválido.
 
+**Custo de investigação.** É a média de duas frações, limitada a 1: as Chamadas desnecessárias
+divididas por 6 e os tokens gerados divididos por 1.024. Um Relato certo vale
+1 − 0,5 × Peso de custo × custo de investigação, o que respeita o piso de 0,5. No treino, o Peso
+de custo é sorteado a cada episódio entre 0; 0,25; 0,5; 0,75 e 1. Cada episódio aceita até 6
+chamadas. Depois da sexta, o Ambiente de treino exige o Relato.
+
 **Razões.** O treino usa só R = 10. R = 3 e R = 30 entram só na avaliação, como custo esperado
 da mesma política. Com R = 10 e probabilidade calibrada, o limiar de Elkan para emitir Alerta fica
 perto de 0,09.
 
 **Peso de custo em produção.** O valor é escolhido na validação pelo menor custo esperado de erro
-com R = 10. Entre valores cujo custo de erro não difere com significância, vence o de menor custo
-de investigação. O valor fica gravado no manifesto da Liberação, e mudar o valor exige uma
-Liberação nova. O Diário de inferências registra o valor usado em cada Relato.
+com R = 10. Entre os valores cujo custo de erro fica dentro do intervalo de confiança do melhor,
+calculado por bootstrap, vence o de menor custo de investigação. O valor fica gravado no
+manifesto da Liberação, e mudar o valor exige uma Liberação nova. O Diário de inferências registra o valor usado em cada Relato.
 
 ## Considered Options
 

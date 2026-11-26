@@ -77,7 +77,7 @@ validação. Um calibrador separado fica fora do escopo e entra como limitação
 - O controle com recompensa embaralhada separa o ganho da recompensa do ganho de formato (F-7).
 - O Runtime agêntico precisa passar o Peso de custo ao Guardião também em produção.
 
-## Emenda de 26/11/2026: orçamento do Colab
+## Emenda de 26/11/2026: orçamento e uso do Colab
 
 - O teto é o saldo de unidades de computação do plano do Colab do responsável.
 - A ordem de execução é:
@@ -87,5 +87,15 @@ validação. Um calibrador separado fica fora do escopo e entra como limitação
   4. as políticas de peso fixo, só se sobrar saldo.
 - O treino grava checkpoints no Drive a cada cerca de 50 passos, porque a sessão pode cair.
 - Nenhuma compra de unidades sem aprovação do responsável.
+- A GPU padrão é a L4. A A100 40 GB só entra se o Guardião com vLLM não couber nos 24 GB da L4.
+  G4 e H100 ficam fora, porque custam mais por trabalho, e a T4 também, porque não tem BF16.
+- O Mac faz o SFT, a avaliação e os Comparadores. O Colab faz só o RL. Outras plataformas, como
+  o Kaggle, ficam fora enquanto o saldo bastar.
+- As sessões usam `colab new`, `colab exec` e `colab stop`. O checkpoint do adaptador sai da VM
+  a cada 30 a 60 minutos com `colab download` para `runs/`, fora do Git. O Drive fica como
+  reserva manual.
+- O Gemini não gera rótulos, Trajetórias, recompensas nem julgamentos que entrem no treino, porque
+  os Termos de Serviço do Google proíbem usar conteúdo gerado pela IA deles para desenvolver
+  modelos (H-25). Os créditos de Google Cloud e o pré-pagamento da Gemini API não são ativados.
 - Os valores, os limites e as alternativas gratuitas estão na nota
   [H](../pesquisa/notas/H-ai-pro-e-custos-de-computacao.md).

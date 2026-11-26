@@ -55,7 +55,7 @@ estudo confirmatório.
 - **Tarefa:** para cada Recorte, o participante escolhe um dos quatro Vereditos e marca a
   confiança de 1 a 5. O tempo é registrado automaticamente.
 
-**Sessão (cerca de 70 minutos):**
+**Sessão presencial, na máquina do pesquisador (cerca de 70 minutos):**
 
 1. TCLE e questionário de perfil: faixa de experiência e função.
 2. Treino com 4 Recortes fora dos blocos.
@@ -142,7 +142,7 @@ cobre:
 ## 10. Pendências do responsável
 
 - Escolher o CEP e o pesquisador responsável na Plataforma Brasil.
-- Escolher sessão presencial ou remota.
 - Escolher a fonte de recrutamento.
-- Decidir se o desenho também testa a variante em que o analista decide antes de ver o Relato
-  (G-10).
+
+A variante em que o analista decide antes de ver o Relato (G-10) fica para o estudo
+confirmatório, por decisão de 26/11/2026.
