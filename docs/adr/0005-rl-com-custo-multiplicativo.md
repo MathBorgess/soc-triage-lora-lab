@@ -122,6 +122,9 @@ Mais tarde no mesmo dia, o responsável mudou três pontos da emenda anterior:
 - As duas tentativas de alocar uma L4 receberam "503 Service Unavailable". O responsável decidiu
   seguir os testes na A100 40 GB enquanto a L4 estiver indisponível. A L4 continua sendo a padrão
   quando voltar e quando o modelo couber.
+- A primeira tentativa na A100, às 12:24 UTC, também recebeu "503 Service Unavailable". A falha
+  coincide com a issue googlecolab/colabtools#6289, aberta por assinantes que perderam acesso a
+  L4, A100 e G4 desde cerca de 16/11/2026, sem resposta do Google em 26/11/2026.
 - A matriz de ablação também passa para o Colab, com PEFT. O 4-bit passa a ser o NF4 do
   `bitsandbytes`, e o PiSSA vem do PEFT. O MLX fica para smoke tests e inferência local, e os
   smoke runs antigos do MLX deixam de ser comparáveis com as rodadas novas.
