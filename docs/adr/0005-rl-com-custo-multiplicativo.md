@@ -169,3 +169,6 @@ estimativa de 7 a 8 h por época na L4 se mantém para respostas curtas, mas os 
 ferramentas precisam ser medidos quando o Ambiente de treino estiver pronto. Os números estão em
 `colab/README.md`.
 
+O responsável decidiu que os números oficiais do RL saem da montagem `bf16-hf` na L4, com geração
+pelo transformers. O vLLM só volta se uma A100 de 80 GB for alocada.
+

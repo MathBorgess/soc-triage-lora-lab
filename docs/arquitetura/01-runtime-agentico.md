@@ -10,8 +10,9 @@
 > [0005](../adr/0005-rl-com-custo-multiplicativo.md),
 > [0006](../adr/0006-nenhum-relato-fecha-sozinho.md),
 > [0007](../adr/0007-ambiente-ait-segue-os-splits-da-v12.md),
-> [0008](../adr/0008-matriz-de-custo-e-peso-de-custo.md) e
-> [0009](../adr/0009-sft-com-trajetorias-derivadas.md).
+> [0008](../adr/0008-matriz-de-custo-e-peso-de-custo.md),
+> [0009](../adr/0009-sft-com-trajetorias-derivadas.md) e
+> [0012](../adr/0012-recorte-v2-no-formato-canonico.md).
 
 ## Objetivo
 
@@ -57,8 +58,9 @@ a primeira peça a construir.
 - Separa o Recorte em **Contexto**, que é confiável, e **Registro**, que não é.
 - Escapa no Registro os delimitadores reservados das seções e os tokens reservados de chamada e de
   resposta de ferramenta do template do Gemma 4.
-- Marca **Sinais** por regras versionadas, antes do modelo: assinatura do Suricata, bloqueio do
-  WAF, sinais estruturais de travessia ou SQLi, rajada de falhas de SSH.
+- Marca **Sinais** por regras versionadas, antes do modelo. O catálogo `sinais-0.1`, aprovado em
+  26/11/2026, tem rajada de SSH (5 falhas em 300 s), sudo negado, travessia, SQLi e alerta de
+  assinatura do Suricata (ADR 0012).
 - Declara no Contexto quando o Recorte está incompleto.
 - Calcula o hash do Recorte.
 
@@ -73,7 +75,7 @@ Contexto que a curadoria já escreve.
 
 | Modalidade | Exemplos |
 | --- | --- |
-| linux_auth | `falhas_de_login(usuario ou ip, janela)`, `sessoes(usuario, janela)`, `sudo(usuario, janela)` |
+| linux_auth | `falhas_de_login(usuario ou ip, janela)`, `sessoes(usuario, janela)` |
 | sysmon | `arvore_de_processos(processo)`, `conexoes_do_processo(processo, janela)`, `eventos_do_host(event_id, janela)` |
 | apache e waf | `requisicoes_do_cliente(ip, janela)`, `bloqueios_do_cliente(ip, janela)` |
 | suricata | `alertas_do_ip(ip, janela)`, `fluxos_entre(ip_a, ip_b, janela)` |
@@ -212,8 +214,8 @@ Os malicious perdidos são uma restrição em todas as medidas.
 
 ## Pontos em aberto
 
-- **Catálogo final de Sinais por Modalidade.** As regras precisam de aprovação do responsável,
-  com versão e testes. O catálogo de ferramentas segue a regra do ADR 0009.
+- **Limiares dos Sinais.** O `sinais-0.1` está aprovado. Os limiares são revistos depois de
+  medir a taxa de cada Sinal na v12 reprojetada.
 - **Formato do lote da Fila de confirmação.** O Runtime e o Estudo com analistas precisam usar o
   mesmo.
 

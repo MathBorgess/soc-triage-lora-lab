@@ -36,3 +36,12 @@ leitura antes do RL (ADR 0005).
   divergência é reportada.
 - Ferramentas usadas em menos de 20 Recortes saem do catálogo, e o Contexto delas volta a ser
   escrito pelo Projetor.
+
+## Emenda de 26/11/2026: o catálogo pela regra dos 20
+
+A contagem dos tipos de linha de Contexto da v12 (PR #4, `docs/curadoria/12-tipos-de-contexto-da-v12.md`)
+pôs no catálogo `falhas_de_login`, `sessoes`, `requisicoes_do_cliente`, `bloqueios_do_cliente`,
+`alertas_do_ip` e `fluxos_entre`. A `sudo` apareceu em 11 Recortes e sai do catálogo, por decisão
+do responsável. O Contexto de sudo continua escrito pelo Projetor. `arvore_de_processos` (9) e
+`conexoes_do_processo` (0) também ficam fora.
+
