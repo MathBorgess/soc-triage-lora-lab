@@ -15,18 +15,19 @@ Esta pasta guarda os scripts e as dependências que rodam no Colab (ADR 0005, em
 ## Teste de encaixe
 
 `00_teste_de_encaixe.py` mede memória, tempo e tokens de alguns passos de GRPO com o Gemma 4
-E4B, em três montagens: `bf16-vllm`, `4bit-vllm` e `bf16-hf`. Cada montagem roda num processo
-próprio.
+E4B, em quatro montagens: `bf16-vllm`, `4bit-vllm`, `bf16-hf` e `4bit-hf`. Cada montagem roda
+num processo próprio. Antes do treino, ele gera uma resposta gulosa para conferir a saída.
+
+`01_rodar_encaixe.sh` faz tudo numa sessão nova e sempre encerra a VM no fim:
 
 ```bash
-colab new -s encaixe --gpu L4
-colab upload -s encaixe colab/00_teste_de_encaixe.py /content/00_teste_de_encaixe.py
-colab upload -s encaixe colab/requirements-encaixe.txt /content/requirements-encaixe.txt
-colab upload -s encaixe <prompts.jsonl> /content/prompts.jsonl
-echo '!pip install -q -r /content/requirements-encaixe.txt' | colab exec -s encaixe
-echo '!python /content/00_teste_de_encaixe.py --modo bf16-vllm --dados /content/prompts.jsonl --saida /content/bf16-vllm.json' | colab exec -s encaixe
-colab download -s encaixe /content/bf16-vllm.json runs/<pasta-da-execucao>/bf16-vllm.json
-colab stop -s encaixe
+colab/01_rodar_encaixe.sh A100 runs/<execucao>/prompts.jsonl runs/<execucao>/a100 0.5
+```
+
+A T4 não tem BF16 e tem 16 GB. Nela, só a montagem `4bit-hf` em FP16 faz sentido, sem vLLM:
+
+```bash
+MODOS=4bit-hf REQUISITOS=requirements-t4.txt PRECISAO=fp16 colab/01_rodar_encaixe.sh T4 runs/<execucao>/prompts.jsonl runs/<execucao>/t4
 ```
 
 O arquivo de prompts tem uma linha JSON por prompt, com o campo `prompt` na forma de mensagens

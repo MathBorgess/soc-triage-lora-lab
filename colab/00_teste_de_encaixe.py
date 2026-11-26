@@ -1,10 +1,14 @@
 """Teste de encaixe do Guardião numa GPU do Colab.
 
-Mede se o Gemma 4 E4B cabe na GPU durante alguns passos de GRPO, em três montagens:
+Mede se o Gemma 4 E4B cabe na GPU durante alguns passos de GRPO, em quatro montagens:
 
-- ``bf16-vllm``: treino em BF16 e geração com vLLM na mesma GPU (modo colocate);
+- ``bf16-vllm``: treino em 16 bits e geração com vLLM na mesma GPU (modo colocate);
 - ``4bit-vllm``: treino com a base em 4 bits (NF4) e geração com vLLM;
-- ``bf16-hf``: treino em BF16 e geração pelo próprio transformers, sem vLLM.
+- ``bf16-hf``: treino em 16 bits e geração pelo próprio transformers, sem vLLM;
+- ``4bit-hf``: base em 4 bits e geração pelo transformers, sem vLLM. É a montagem da T4.
+
+``--precisao fp16`` serve às GPUs sem BF16, como a T4. Antes do treino, o script gera uma
+resposta gulosa para conferir se a precisão escolhida não estraga a saída do modelo.
 
 Não há ferramentas nem recompensa real: a recompensa só vale 1 quando a resposta é JSON válido.
 O objetivo é medir memória, tempo e tokens, não aprender. Rode cada montagem num processo
@@ -15,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import os
 import platform
 import subprocess
@@ -112,6 +117,31 @@ def alvos_lora(modelo) -> list[str]:
     return nomes
 
 
+def gerar_amostra(modelo, tokenizer, prompt) -> dict:
+    """Gera uma resposta gulosa para conferir a saída antes do treino."""
+    import torch
+
+    entrada = tokenizer.apply_chat_template(
+        prompt,
+        add_generation_prompt=True,
+        enable_thinking=False,
+        return_tensors="pt",
+        return_dict=True,
+    ).to(modelo.device)
+    inicio = time.monotonic()
+    with torch.no_grad():
+        saida = modelo.generate(**entrada, max_new_tokens=256, do_sample=False)
+    segundos = time.monotonic() - inicio
+    novos = saida[0, entrada["input_ids"].shape[1] :]
+    texto = tokenizer.decode(novos, skip_special_tokens=True)
+    return {
+        "texto": texto[:800],
+        "json_valido": recompensa_json([texto])[0] == 1.0,
+        "tokens": int(novos.shape[0]),
+        "tokens_por_segundo": round(int(novos.shape[0]) / segundos, 2),
+    }
+
+
 def executar(args: argparse.Namespace) -> dict:
     import torch
     from datasets import Dataset
@@ -135,12 +165,15 @@ def executar(args: argparse.Namespace) -> dict:
     ]
     relatorio["tokens_do_prompt"] = {"max": max(tamanhos), "medio": sum(tamanhos) / len(tamanhos)}
 
-    kwargs: dict = {"revision": REVISAO, "dtype": torch.bfloat16}
-    if args.modo == "4bit-vllm":
+    dtype = torch.bfloat16 if args.precisao == "bf16" else torch.float16
+    relatorio["precisao"] = args.precisao
+    relatorio["gpu_suporta_bf16"] = torch.cuda.is_bf16_supported(including_emulation=False)
+    kwargs: dict = {"revision": REVISAO, "dtype": dtype}
+    if args.modo.startswith("4bit"):
         kwargs["quantization_config"] = BitsAndBytesConfig(
             load_in_4bit=True,
             bnb_4bit_quant_type="nf4",
-            bnb_4bit_compute_dtype=torch.bfloat16,
+            bnb_4bit_compute_dtype=dtype,
             bnb_4bit_use_double_quant=True,
         )
     inicio = time.monotonic()
@@ -148,6 +181,8 @@ def executar(args: argparse.Namespace) -> dict:
     relatorio["classe_do_modelo"] = type(modelo).__name__
     relatorio["parametros_bilhoes"] = round(sum(p.numel() for p in modelo.parameters()) / 1e9, 3)
     relatorio["segundos_para_carregar"] = round(time.monotonic() - inicio, 1)
+    relatorio["memoria_apos_carregar_gib"] = round(torch.cuda.memory_allocated() / 2**30, 2)
+    relatorio["amostra"] = gerar_amostra(modelo, tokenizer, linhas[0]["prompt"])
 
     alvos = alvos_lora(modelo)
     relatorio["modulos_lora"] = len(alvos)
@@ -155,7 +190,7 @@ def executar(args: argparse.Namespace) -> dict:
         r=16, lora_alpha=32, lora_dropout=0.05, target_modules=alvos, task_type="CAUSAL_LM"
     )
 
-    usa_vllm = args.modo != "bf16-hf"
+    usa_vllm = args.modo.endswith("vllm")
     config = GRPOConfig(
         output_dir="/content/encaixe-saida",
         max_steps=args.passos,
@@ -164,8 +199,10 @@ def executar(args: argparse.Namespace) -> dict:
         num_generations=8,
         max_completion_length=args.max_completion,
         learning_rate=1e-5,
-        bf16=True,
+        bf16=args.precisao == "bf16",
+        fp16=args.precisao == "fp16",
         gradient_checkpointing=True,
+        gradient_checkpointing_kwargs={"use_reentrant": False},
         logging_steps=1,
         report_to="none",
         save_strategy="no",
@@ -192,13 +229,21 @@ def executar(args: argparse.Namespace) -> dict:
     relatorio["segundos_de_treino"] = round(time.monotonic() - inicio, 1)
     relatorio["passos"] = args.passos
     relatorio["log"] = trainer.state.log_history
+    relatorio["nan_no_log"] = any(
+        isinstance(v, float) and math.isnan(v)
+        for linha in trainer.state.log_history
+        for v in linha.values()
+    )
     relatorio["pico_torch_gib"] = round(torch.cuda.max_memory_allocated() / 2**30, 2)
     return relatorio
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--modo", choices=("bf16-vllm", "4bit-vllm", "bf16-hf"), required=True)
+    parser.add_argument(
+        "--modo", choices=("bf16-vllm", "4bit-vllm", "bf16-hf", "4bit-hf"), required=True
+    )
+    parser.add_argument("--precisao", choices=("bf16", "fp16"), default="bf16")
     parser.add_argument("--dados", required=True, help="JSONL com um campo prompt por linha")
     parser.add_argument("--saida", required=True, help="Arquivo JSON do relatório")
     parser.add_argument("--passos", type=int, default=3)
