@@ -186,7 +186,7 @@ def escrever_relatorio(
              percentual(estados["sem_mudanca_detectada"], total)],
             ["Reprojetados na fila de revisão", estados["fila_de_revisao"],
              percentual(estados["fila_de_revisao"], total)],
-            ["Fora do contrato v2 (sem linha nativa)", estados["fora_do_contrato"],
+            ["Fora do contrato v2 (sem linha nativa legível)", estados["fora_do_contrato"],
              percentual(estados["fora_do_contrato"], total)],
             ["**Total**", total, "100%"],
         ],
