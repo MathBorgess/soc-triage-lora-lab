@@ -1,5 +1,8 @@
 """Catálogo de Ferramentas de leitura do Guardião.
 
+O catálogo segue a regra dos 20 Recortes do ADR 0009. A ``sudo`` saiu na emenda de 26/11/2026 e o
+Contexto de sudo voltou a ser escrito pelo Projetor.
+
 Cada ferramenta é determinística e somente-leitura: lê eventos do Ambiente de treino (no treino e na
 avaliação) ou dos logs locais (em produção) e nunca muda nada. A resposta tem duas partes:
 
@@ -26,7 +29,7 @@ from .ambiente import AmbienteDeTreino
 from .eventos import Evento
 from .recorte import escapar
 
-VERSAO_CATALOGO = "ferramentas-0.1"
+VERSAO_CATALOGO = "ferramentas-0.2"
 JANELA_MAXIMA_S = 24 * 3600
 LIMITE_DE_LINHAS = 8
 BLOQUEIO_HTTP = frozenset({403, 406, 429})
@@ -201,25 +204,6 @@ def _sessoes(ambiente: AmbienteDeTreino, args: dict) -> tuple[dict, list[Evento]
     return contexto, eventos
 
 
-def _sudo(ambiente: AmbienteDeTreino, args: dict) -> tuple[dict, list[Evento]]:
-    usuario = args["usuario"]
-    eventos = [
-        e
-        for e in ambiente.eventos("linux_auth", args["janela_s"])
-        if e.tipo in ("sudo", "su") and e.get("usuario") == usuario
-    ]
-    sudo = [e for e in eventos if e.tipo == "sudo"]
-    contexto = {
-        "comandos_sudo": sum(1 for e in sudo if e.get("comando") is not None),
-        "senhas_incorretas": sum(int(e.get("falhas") or 0) for e in sudo),
-        "fora_do_sudoers": sum(1 for e in sudo if e.get("negado")),
-        "trocas_su": sum(1 for e in eventos if e.tipo == "su"),
-        "contas_alvo_distintas": len({e.get("alvo") for e in eventos if e.get("alvo")}),
-        **_extremos(eventos),
-    }
-    return contexto, eventos
-
-
 # --------------------------------------------------------------------------------------
 # apache
 # --------------------------------------------------------------------------------------
@@ -355,13 +339,6 @@ CATALOGO: dict[str, Ferramenta] = {
             "Aceites de login e sessões PAM de uma conta na janela até a âncora.",
             (USUARIO, JANELA),
             _sessoes,
-        ),
-        Ferramenta(
-            "sudo",
-            "linux_auth",
-            "Comandos sudo e trocas de conta com su feitos por uma conta na janela até a âncora.",
-            (USUARIO, JANELA),
-            _sudo,
         ),
         Ferramenta(
             "requisicoes_do_cliente",

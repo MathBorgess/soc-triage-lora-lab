@@ -167,3 +167,70 @@ def test_rajada_exige_cinco_falhas_da_mesma_origem():
     eventos = _eventos()
     poucas = [e for e in eventos if e.ip == "198.51.100.7"]
     assert sinais.detectar("linux_auth", poucas) == []
+
+
+def test_projetor_escreve_contexto_de_sudo():
+    eventos = _eventos()
+    ancora = eventos[8]  # sudo de root, sem endereço: a janela é a do host
+    janela = selecionar_janela(eventos, ancora, 900)
+    recorte = projetar(Janela("linux_auth", tuple(janela), ancora), descricao_fonte="auth.log")
+    sudo = [linha.texto for linha in recorte.contexto if linha.tipo == "sudo"]
+    assert sudo == [
+        ("Sudo e su: 1 comando sudo; 0 senhas incorretas; 0 recusas por estar fora do sudoers; "
+        "0 trocas de conta com su; 1 conta-alvo.")
+    ]
+    assert "/bin/cat" not in "\n".join(recorte.linhas_de_contexto_v2())
+
+
+def test_relogio_sem_ano_nao_inventa_ano():
+    eventos = _eventos()
+    ancora = eventos[6]
+    recorte = projetar(
+        Janela("linux_auth", tuple(selecionar_janela(eventos, ancora, 900)), ancora),
+        descricao_fonte="auth.log",
+    )
+    janela = next(linha.texto for linha in recorte.contexto if linha.tipo == "janela")
+    assert "(Mar 1 10:00:00 a Mar 1 10:00:20 (relógio do log, sem ano e sem fuso))" in janela
+    assert "2026" not in janela
+
+
+def test_catalogo_de_sinais_aprovado():
+    assert sinais.VERSAO_CATALOGO == "sinais-0.1"
+
+
+def test_desembrulha_envelopes_de_coleta():
+    from soc_triage.guardiao.eventos import desembrulhar, ler
+
+    eve = json.dumps({"timestamp": "2016-08-10T15:49:46.857627-0600", "event_type": "http",
+                      "src_ip": "192.0.2.1", "dest_ip": "198.51.100.2"})
+    splunk = json.dumps({"preview": False, "offset": 1, "result": {"_raw": eve, "date_hour": "15"}})
+    assert desembrulhar("suricata", splunk) == (eve, "splunk")
+    assert desembrulhar("suricata", eve) == (eve, None)
+    evento = ler("suricata", splunk, "f", 1)
+    assert (evento.tipo, evento.texto, evento.get("envelope")) == ("http", eve, "splunk")
+
+    syslog = "Jan 15 12:21:09 mail auth: pam_unix(dovecot:auth): authentication failure; rhost=192.0.2.7"
+    wazuh = json.dumps({"rule": {"id": "1"}, "agent": {"id": "2"}, "full_log": syslog, "data": {"srcip": "x"}})
+    assert desembrulhar("linux_auth", wazuh) == (syslog, "wazuh")
+    wazuh_eve = json.dumps({"rule": {}, "agent": {}, "data": {"event_type": "alert", "src_ip": "192.0.2.1"}})
+    assert desembrulhar("suricata", wazuh_eve) == ('{"event_type":"alert","src_ip":"192.0.2.1"}', "wazuh")
+
+    filebeat = json.dumps({"@timestamp": "x", "agent": {}, "message": "Nov  5 14:17:20 h sshd[1]: x"})
+    assert desembrulhar("linux_auth", filebeat) == ("Nov  5 14:17:20 h sshd[1]: x", "filebeat")
+    logstash = json.dumps({"@timestamp": "x", "timestamp8601": "2025-01-10T11:34:09.762Z",
+                           "logsource": "srv", "program": "sshd", "pid": "7",
+                           "message": "Accepted publickey for root from 192.0.2.8 port 5 ssh2"})
+    linha, envelope = desembrulhar("linux_auth", logstash)
+    assert envelope == "logstash"
+    assert ler("linux_auth", logstash, "f", 1).tipo == "aceite"
+    assert linha.startswith("2025-01-10T11:34:09.762Z srv sshd[7]: Accepted")
+    assert desembrulhar("linux_auth", "{quebrado") == ("{quebrado", None)
+
+
+def test_registro_desembrulhado_nao_quebra_linha():
+    from soc_triage.guardiao.eventos import ler
+
+    filebeat = json.dumps({"@timestamp": "x", "agent": {}, "message": "Nov  5 14:17:20 h sshd[1]: a\nb\n"})
+    evento = ler("linux_auth", filebeat, "f", 1)
+    assert evento.texto == "Nov  5 14:17:20 h sshd[1]: a\\nb"
+    assert "\n" not in evento.texto

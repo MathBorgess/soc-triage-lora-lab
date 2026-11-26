@@ -63,6 +63,9 @@ class ExemploV12:
     meta: dict = field(default_factory=dict)
     nativo: list[LinhaNativa] = field(default_factory=list)
     motivo_sem_nativo: str | None = None
+    veredito: str = ""
+    severidade: str = ""
+    alvo: dict = field(default_factory=dict)
 
     @property
     def familia(self) -> str:
@@ -97,6 +100,9 @@ def carregar_exemplos(
             dataset=linha["dataset"],
             entrada=linha["entrada"],
             localizador=linha["localizador"],
+            veredito=linha.get("veredito", ""),
+            severidade=linha.get("severidade", ""),
+            alvo=json.loads(linha["alvo_json"]) if linha.get("alvo_json") else {},
         )
         for linha in linhas
     }
