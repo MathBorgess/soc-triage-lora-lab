@@ -1,11 +1,23 @@
 # Objetivo do projeto
 
-Conduzir um estudo experimental controlado de LoRA 16-bit (BF16) e QLoRA 4-bit para
-normalização e triagem de logs heterogêneos de SOC em JSON estrito. A matriz inicial usa
-Gemma 4 E4B-it em modo texto. A meta de engenharia é chegar a um modelo de 3B para uso local e
-escalar a abordagem para 7B–8B em nuvem, com triagem confiável e baixa taxa de falsos
-positivos. O objetivo do estudo é separar os efeitos da quantização, dos alvos LoRA,
-da loss apenas na resposta (`mask_prompt`) e do rank `r`.
+O laboratório ensina o Gemma 4 E4B-it, em modo texto, a triar logs heterogêneos de SOC em JSON
+estrito, e sustenta um único artigo. Ele tem duas partes, sobre os mesmos dados curados:
+
+- **Estudo de ablação (contrato v1).** Separa os efeitos da quantização, dos alvos LoRA, da
+  loss apenas na resposta (`mask_prompt`) e do rank `r`, com LoRA BF16 e QLoRA 4-bit.
+- **Guardião (contrato v2).** Agente que lê um Recorte, consulta logs locais com Ferramentas de
+  leitura e emite um único Relato. Ele relata e nunca age. É treinado por SFT e depois por RL,
+  com recompensa que pesa o custo de errar contra o custo de investigar. Roda na máquina
+  monitorada e envia ao SOC só a Remessa.
+
+O resultado principal do artigo é a Carga no analista, junto com auditabilidade, supervisão
+humana e governança dos dados na origem. Os malicious perdidos são uma restrição em toda medida.
+A meta de engenharia é rodar o Guardião na máquina monitorada com o E4B, com o E2B como plano B
+de latência.
+
+Use os termos do [GLOSSARY.md](GLOSSARY.md). Antes de mudar dados, contrato, treino, recompensa
+ou runtime do Guardião, leia os ADRs em [docs/adr/](docs/adr/) e o desenho em
+[docs/arquitetura/01-runtime-agentico.md](docs/arquitetura/01-runtime-agentico.md).
 
 ## Matriz de ablação oficial
 
@@ -34,10 +46,12 @@ curará e aprovará os dados, os controles e as condições de treino antes da e
 
 ## Contrato de dados
 
-O schema oficial está em [schema.py](src/soc_triage/schema.py) e o prompt versionado em
-[prompts.py](src/soc_triage/prompts.py). Preserve os campos e enums do contrato.
-Quando uma mudança contratual for aprovada, atualize na mesma alteração os testes,
-o prompt, o script de curadoria e a versão dos datasets processados.
+O schema oficial do contrato v1 está em [schema.py](src/soc_triage/schema.py) e o prompt
+versionado em [prompts.py](src/soc_triage/prompts.py). O contrato v2 está definido no
+[ADR 0001](docs/adr/0001-guardiao-contrato-v2-sobre-recortes.md) e ainda não tem código.
+Preserve os campos e enums de cada contrato. Quando uma mudança contratual for aprovada,
+atualize na mesma alteração os testes, o prompt, o script de curadoria e a versão dos datasets
+processados.
 
 ### Curadoria e prevenção de vazamento
 
@@ -53,6 +67,10 @@ o prompt, o script de curadoria e a versão dos datasets processados.
 - Divida por grupos de cenário, incidente ou origem de ataque. Mantenha todas as
   linhas do grupo no mesmo split e mantenha o hold-out fora do treino e da seleção
   de hiperparâmetros. Almeje 80/10/10 em `train.jsonl`, `valid.jsonl` e `test.jsonl`.
+  Ambientes de RL e de avaliação seguem os splits da v12 ([ADR 0007](docs/adr/0007-ambiente-ait-segue-os-splits-da-v12.md)).
+- Mutações e Exemplos sintéticos ficam fora do Teste real. Os do opensec-triage entram no
+  treino com teto de um para um, aprovados por Família, e a seleção usa só a validação real
+  ([ADR 0002](docs/adr/0002-opensec-por-familia-e-teste-real.md)).
 - Antes de gravar em `data/processed/`, valide 100% dos alvos com Pydantic e
   confira todos os IoCs, incluindo `src_ip` e `dst_ip`, contra o log bruto.
 - Antes de qualquer treino, rode [02_inspect_tokens.py](scripts/02_inspect_tokens.py)
@@ -65,11 +83,15 @@ o prompt, o script de curadoria e a versão dos datasets processados.
   Almeje pico de RAM abaixo de aproximadamente 24 GB para evitar swap. Para BF16,
   o preset usa `grad_checkpoint: true` e microbatch menor. Confirme a viabilidade em
   relação ao teto antes de uma rodada completa.
-- Google Colab AI Pro com T4/L4 é o ambiente previsto para PyTorch/PEFT/TRL/Unsloth.
-  Mantenha scripts, notebooks e dependências dessa stack em `colab/` quando houver
-  implementação aprovada. Exclua `bitsandbytes`, `unsloth` e CUDA do projeto principal.
+- O Mac roda o SFT, o Ambiente de treino, as recompensas, os Comparadores e o piloto de RL
+  de turno único. O RL com várias chamadas de ferramenta por episódio roda no Google Colab
+  AI Pro com L4, usando TRL e vLLM ([ADR 0005](docs/adr/0005-rl-com-custo-multiplicativo.md)).
+  Mantenha scripts, notebooks e dependências do Colab em `colab/`. Exclua `bitsandbytes`,
+  `unsloth` e CUDA do projeto principal. Unidades de computação além do plano são gasto e
+  exigem aprovação do responsável.
 - Mantenha logs reais confidenciais, credenciais, pesos, adaptadores, arquivos
-  `.safetensors`, `.gguf` e dumps grandes fora do Git.
+  `.safetensors`, `.gguf` e dumps grandes fora do Git. A chave de assinatura da Liberação e
+  os dados do Estudo com analistas também ficam fora do Git e do wiki.
 
 ## Métricas de sucesso
 
@@ -79,6 +101,12 @@ o prompt, o script de curadoria e a versão dos datasets processados.
 - **Qualidade de triagem** com Macro-F1 para os quatro vereditos e FPR no conjunto
   `benign`/`expected_admin`. Um alerta `malicious`/`suspicious` nesse conjunto é falso positivo.
   Registre como respostas inválidas entram nas métricas de triagem antes de comparar rodadas.
+- **Rival e Comparadores.** No Teste real, o Guardião precisa superar o Rival: Macro-F1 maior,
+  FPR igual ou menor e não mais malicious perdidos. Com o mesmo custo de investigação, o
+  Guardião treinado por RL precisa superar os Comparadores do ADR 0005.
+- **Carga no analista, auditabilidade e governança** com as métricas da seção "Métricas" do
+  desenho do runtime. Afirme carga cognitiva só com o Estudo com analistas aprovado pelo CEP
+  ([ADR 0006](docs/adr/0006-nenhum-relato-fecha-sozinho.md)).
 - **Catastrophic forgetting** com perguntas gerais de cibersegurança fora do prompt
   JSON, comparando qualitativamente com o baseline.
 - **Recursos** com pico de memória, tempo de treino e tokens/s de cada rodada. Use
