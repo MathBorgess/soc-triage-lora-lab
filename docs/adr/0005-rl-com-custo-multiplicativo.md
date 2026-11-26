@@ -151,3 +151,11 @@ cálculo em FP16 e geração pelo transformers, sem vLLM. O pico de memória foi
 15,4 GB, sem NaN, com gradiente real e cerca de 50 s por Recorte com 8 respostas curtas.
 Os números estão em `colab/README.md`. A T4 não tem BF16 e não cabe o E4B em 16 bits.
 
+## Emenda 6 de 26/11/2026: números oficiais só em BF16
+
+O responsável decidiu que a T4 serve para desenvolver e depurar o pipeline de SFT e RL, com
+rodadas curtas. Os números oficiais da ablação e do RL saem todos da mesma GPU com BF16, L4 ou
+A100. Misturar T4 em FP16 com A100 em BF16 confundiria precisão e hardware com o efeito da
+quantização. A disponibilidade da L4 e da A100 é testada uma vez por dia. Uma tentativa recusada
+não gasta unidades.
+
