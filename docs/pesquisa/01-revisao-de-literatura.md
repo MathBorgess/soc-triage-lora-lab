@@ -296,7 +296,7 @@ centrais desta síntese.
 - Tam et al. (2024). *Let Me Speak Freely?* EMNLP Industry. https://aclanthology.org/2024.emnlp-industry.91
 - Tsegai et al. (2026). *From Investigation Failures to Reliable SOC Agents.* Preprint. https://arxiv.org/abs/2610.10608
 - Zhao et al. (2025). *Information-Dense Reasoning for Efficient and Auditable Security Alert Triage.* Preprint. https://arxiv.org/abs/2512.08169
-- Saju e Azim (2026). *Toward Autonomous SOC Operations: End-to-End LLM Framework for Threat Detection, Query Generation, and Resolution in Security Operations.* Preprint. https://arxiv.org/abs/2604.27321
+- Saju e Azim (2026). *Toward Autonomous SOC Operations: End-to-End LLM Framework for Threat Detection, Query Generation, and Resolution in Security Operations.* PMLR 318 (Canadian AI 2026). https://arxiv.org/abs/2604.27321
 - Alahmadi, Axon e Martinovic (2022). *99% False Positives.* USENIX Security. https://www.usenix.org/conference/usenixsecurity22/presentation/alahmadi
 - Kokulu et al. (2019). *Matched and Mismatched SOCs.* ACM CCS. DOI 10.1145/3319535.3354239
 - Greshake et al. (2023). *Not what you've signed up for.* ACM AISec. https://arxiv.org/abs/2302.12173

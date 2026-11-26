@@ -9,8 +9,9 @@
 - **Referência:** Saju, M. H.; Azim, A. (2026). *Toward Autonomous SOC Operations: End-to-End
   LLM Framework for Threat Detection, Query Generation, and Resolution in Security Operations.*
   arXiv:2604.27321v1 [cs.CR], 30/04/2026. https://arxiv.org/abs/2604.27321
-- **Status:** preprint. A página não declara venue, *comments* nem *journal-ref*. O HTML traz
-  marcas de template de anais, sem nome.
+- **Status:** revisado por pares. Publicado em PMLR 318 (Canadian AI 2026), pp. 422–433,
+  https://proceedings.mlr.press/v318/saju26a.html, conferido em 25/11/2026. A página do arXiv não
+  declara venue; esta revisão leu a versão v1 do arXiv, e a versão dos anais pode diferir.
 - **Afiliação:** Ontario Tech University, Canadá. É o mesmo grupo do SynRAG (CASCON 2025), sobre
   geração de consultas para SIEM.
 - **Licença do texto:** CC BY-SA 4.0.
