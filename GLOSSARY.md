@@ -108,7 +108,7 @@ Lista no SOC com os Relatos não-Alerta, que o analista confirma em lote. Nenhum
 _Avoid_: fechamento automático, auto-close, descarte
 
 **Peso de custo**:
-Número que o Runtime agêntico passa ao Guardião e que diz quanto pesa o custo de investigar frente ao custo de errar.
+Número que o Runtime agêntico passa ao Guardião e que diz quanto pesa o custo de investigar frente ao custo de errar. Em produção, fica fixo na Liberação.
 _Avoid_: orçamento, lambda, budget
 
 **Proposta de contenção**:
@@ -164,6 +164,10 @@ _Avoid_: pesos da recompensa
 **Chamada desnecessária**:
 Chamada de Ferramenta de leitura duplicada, inválida, fora da janela permitida ou além do mínimo de chamadas visto entre os Relatos corretos do mesmo Recorte.
 _Avoid_: chamada redundante, desperdício
+
+**Trajetória derivada**:
+Exemplo de SFT montado a partir de um Recorte curado, em que as linhas de Contexto viram chamadas de Ferramentas de leitura executadas no Ambiente de treino.
+_Avoid_: trajetória sintética, trajetória do professor
 
 **Comparador**:
 Sistema que o Guardião treinado por RL precisa superar com o mesmo custo de investigação, como o próprio Guardião sem ferramentas.

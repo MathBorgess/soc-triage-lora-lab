@@ -1,5 +1,5 @@
 ---
-status: proposed
+status: accepted
 ---
 
 # O ambiente sobre o AIT-LDSv2 segue os splits da v12
@@ -20,7 +20,9 @@ estão nos splits:
 Não há cenário livre, e santos já serve à seleção do SFT. A regra do AGENTS.md mantém o teste
 fora do treino e da seleção de hiperparâmetros.
 
-## Decisão proposta
+## Decisão
+
+O responsável confirmou a decisão em 26/11/2026.
 
 - O RL treina nos cinco cenários do split de treino.
 - A seleção de checkpoints e do Peso de custo usa santos e shaw.
@@ -30,9 +32,19 @@ fora do treino e da seleção de hiperparâmetros.
 - O ExCyTIn-Bench é opcional e só entra se der para pontuar sem juiz pago.
 - A cláusula NC do AIT-LDSv2 fica registrada como limite para uso comercial de derivados.
 
+## Cobertura
+
+- O ambiente usa só as Modalidades que já existem: linux_auth, apache e suricata.
+- Cada alerta do Wazuh vira um Recorte, com a linha de log que o disparou como Âncora. O rótulo
+  vem dos rótulos por evento do AIT-LDSv2.
+- Alertas de auditd, dnsmasq e outras fontes ficam fora, e o artigo declara quantos foram
+  excluídos.
+- Se o auditd entrar um dia, ele ganha uma Modalidade com nome próprio, porque `audit` já reúne
+  os Exemplos sintéticos do opensec.
+
 ## Considered Options
 
-- **Avaliar em santos e harrison, como aceito antes da conferência.** Rejeitada na proposta.
+- **Avaliar em santos e harrison, como aceito antes da conferência.** Rejeitada.
   Santos entrou na seleção do SFT, o que viola a regra do hold-out.
 - **Refazer a divisão dos cenários do AIT.** Rejeitada. Quebraria a comparação com o Teste real
   da v12 e com o Rival.

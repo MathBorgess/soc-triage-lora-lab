@@ -8,8 +8,10 @@
 > [0003](../adr/0003-defesa-contra-injecao-no-runtime.md),
 > [0004](../adr/0004-guardiao-com-ferramentas-local.md),
 > [0005](../adr/0005-rl-com-custo-multiplicativo.md),
-> [0006](../adr/0006-nenhum-relato-fecha-sozinho.md) e
-> [0007](../adr/0007-ambiente-ait-segue-os-splits-da-v12.md).
+> [0006](../adr/0006-nenhum-relato-fecha-sozinho.md),
+> [0007](../adr/0007-ambiente-ait-segue-os-splits-da-v12.md),
+> [0008](../adr/0008-matriz-de-custo-e-peso-de-custo.md) e
+> [0009](../adr/0009-sft-com-trajetorias-derivadas.md).
 
 ## Objetivo
 
@@ -89,7 +91,7 @@ Regras de todas as ferramentas:
 
 - A Liberação é uma assinatura OpenSSF Model Signing feita com chave local, sem log público. O
   manifesto traz os hashes do modelo exportado, do adaptador, da versão do dataset, da
-  configuração e da revisão da base.
+  configuração e da revisão da base, além do Peso de custo.
 - Artefato sem assinatura válida é recusado.
 - A chave fica com o responsável, fora do Git e do wiki.
 
@@ -99,7 +101,7 @@ Regras de todas as ferramentas:
   roda em CPU com llama.cpp, que já suporta o Gemma 4. Com PiSSA, a fusão parte do modelo
   residual.
 - A inferência usa `enable_thinking=false` e temperatura 0.
-- O Runtime passa ao Guardião o Peso de custo, como no treino (ADR 0005).
+- O Runtime passa ao Guardião o Peso de custo gravado na Liberação (ADR 0008).
 - O E4B tem 4,5B de parâmetros efetivos, ou 8B com embeddings. O E2B, com 2,3B efetivos ou 5,1B
   com embeddings, é o plano B se o E4B estourar o orçamento de latência.
 - O SFT e o piloto de turno único rodam no MLX, no Mac. O RL com várias chamadas por episódio
@@ -122,7 +124,7 @@ As regras são versionadas e só leem campos estruturados. O rationale nunca dis
 
 | Situação | Ação |
 | --- | --- |
-| Relato com Alerta | Gera a Proposta de contenção por regra e a anexa à Remessa |
+| Relato com Alerta | Vai ao SOC como Alerta. A Proposta de contenção por regra fica fora do estudo do artigo |
 | Recorte com Sinal e Relato não-Alerta | Rebaixamento: só vale com Evidência no Contexto, incluindo campos calculados pelas ferramentas. Sem isso, o caso vai para revisão humana |
 | Recorte incompleto e Relato não-Alerta | Revisão humana; nunca fecha sozinho |
 | Demais Relatos não-Alerta | Fila de confirmação no SOC, confirmada em lote. Nunca fecha sozinho (ADR 0006) |
@@ -134,7 +136,7 @@ formando uma cadeia. Em intervalos fixos, o Runtime assina um checkpoint com o h
 linha. Uma linha alterada ou apagada quebra a cadeia a partir dela. Cada linha guarda:
 
 - o hash do Recorte e os Sinais;
-- o hash do adaptador e da Liberação;
+- o hash do adaptador e da Liberação, e o Peso de custo;
 - as chamadas de ferramenta e o hash de cada resposta;
 - o Relato e o resultado da validação;
 - as regras aplicadas e suas versões;
@@ -156,7 +158,8 @@ A **Remessa** é a única saída por Recorte:
 - as chamadas de ferramenta, com o hash de cada resposta;
 - a linha do Diário;
 - os hashes do Recorte e do adaptador;
-- a Proposta de contenção gerada por regra, quando houver.
+- a Proposta de contenção gerada por regra, quando houver. No estudo do artigo, a Remessa sai
+  sem Proposta, e o campo fica reservado.
 
 O Recorte completo e as respostas brutas só saem quando o SOC pede, para um caso específico.
 Isso aplica a minimização de dados da LGPD (art. 6º, III). Nenhum dado vai para APIs de
@@ -209,11 +212,13 @@ Os malicious perdidos são uma restrição em todas as medidas.
 
 ## Pontos em aberto
 
-- **Catálogo final de Sinais e de ferramentas por Modalidade.** As regras precisam de aprovação
-  do responsável, com versão e testes.
-- **Catálogo de Propostas de contenção.** Faltam os tipos de ação e o mapeamento a partir do
-  Veredito, da Severidade e da Hipótese de vulnerabilidade.
-- **Peso de custo em produção.** Falta decidir quem fixa o valor e se ele pode mudar sem nova
-  Liberação.
+- **Catálogo final de Sinais por Modalidade.** As regras precisam de aprovação do responsável,
+  com versão e testes. O catálogo de ferramentas segue a regra do ADR 0009.
 - **Formato do lote da Fila de confirmação.** O Runtime e o Estudo com analistas precisam usar o
   mesmo.
+
+## Trabalho futuro
+
+- **Catálogo de Propostas de contenção.** Tipos de ação e mapeamento a partir do Veredito, da
+  Severidade e da Hipótese de vulnerabilidade. Fica fora do artigo, porque avaliar o efeito das
+  ações exige dados que o estudo não tem.

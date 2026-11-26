@@ -76,3 +76,16 @@ validação. Um calibrador separado fica fora do escopo e entra como limitação
   (F-21). A distribuição dos Vereditos é acompanhada em cada checkpoint.
 - O controle com recompensa embaralhada separa o ganho da recompensa do ganho de formato (F-7).
 - O Runtime agêntico precisa passar o Peso de custo ao Guardião também em produção.
+
+## Emenda de 26/11/2026: orçamento do Colab
+
+- O teto é o saldo de unidades de computação do plano do Colab do responsável.
+- A ordem de execução é:
+  1. um piloto curto, para medir a vazão e o consumo reais;
+  2. a política condicionada ao Peso de custo;
+  3. o controle com recompensa embaralhada;
+  4. as políticas de peso fixo, só se sobrar saldo.
+- O treino grava checkpoints no Drive a cada cerca de 50 passos, porque a sessão pode cair.
+- Nenhuma compra de unidades sem aprovação do responsável.
+- Os valores, os limites e as alternativas gratuitas estão na nota
+  [H](../pesquisa/notas/H-ai-pro-e-custos-de-computacao.md).
