@@ -102,6 +102,15 @@ def recompensa_json(completions, **_kwargs) -> list[float]:
     return notas
 
 
+def recompensa_variada(completions, **_kwargs) -> list[float]:
+    """JSON válido vale mais quanto mais perto de 180 caracteres. Força variância no grupo."""
+    notas = []
+    for completion, valido in zip(completions, recompensa_json(completions), strict=True):
+        texto = completion[-1]["content"] if isinstance(completion, list) else completion
+        notas.append(valido * (1.0 - min(1.0, abs(len(texto) - 180) / 180)))
+    return notas
+
+
 def alvos_lora(modelo) -> list[str]:
     """Projeções de atenção e MLP do modelo de texto, sem torres de visão e áudio."""
     import torch
@@ -169,8 +178,12 @@ def executar(args: argparse.Namespace, relatorio: dict) -> None:
     tamanhos = [
         len(
             tokenizer.apply_chat_template(
-                linha["prompt"], tokenize=True, add_generation_prompt=True, enable_thinking=False
-            )
+                linha["prompt"],
+                tokenize=True,
+                add_generation_prompt=True,
+                enable_thinking=False,
+                return_dict=True,
+            )["input_ids"]
         )
         for linha in linhas
     ]
@@ -206,10 +219,12 @@ def executar(args: argparse.Namespace, relatorio: dict) -> None:
         output_dir="/content/encaixe-saida",
         max_steps=args.passos,
         per_device_train_batch_size=2,
-        gradient_accumulation_steps=4,
+        gradient_accumulation_steps=4 * args.prompts_por_passo,
         num_generations=8,
         max_completion_length=args.max_completion,
         learning_rate=1e-5,
+        lr_scheduler_type="constant",
+        warmup_steps=0,
         bf16=args.precisao == "bf16",
         fp16=args.precisao == "fp16",
         gradient_checkpointing=True,
@@ -231,7 +246,7 @@ def executar(args: argparse.Namespace, relatorio: dict) -> None:
     )
     trainer = GRPOTrainer(
         model=modelo,
-        reward_funcs=recompensa_json,
+        reward_funcs=recompensa_json if args.recompensa == "json" else recompensa_variada,
         args=config,
         train_dataset=dados,
         processing_class=tokenizer,
@@ -248,6 +263,8 @@ def executar(args: argparse.Namespace, relatorio: dict) -> None:
     trainer.train()
     relatorio["segundos_de_treino"] = round(time.monotonic() - inicio, 1)
     relatorio["passos"] = args.passos
+    relatorio["prompts_por_passo"] = args.prompts_por_passo
+    relatorio["recompensa"] = args.recompensa
     relatorio["log"] = trainer.state.log_history
     relatorio["nan_no_log"] = any(
         isinstance(v, float) and math.isnan(v)
@@ -268,6 +285,8 @@ def main() -> None:
     parser.add_argument("--passos", type=int, default=3)
     parser.add_argument("--max-completion", type=int, default=1024)
     parser.add_argument("--vllm-mem", type=float, default=0.3)
+    parser.add_argument("--recompensa", choices=("json", "variada"), default="variada")
+    parser.add_argument("--prompts-por-passo", type=int, default=1)
     args = parser.parse_args()
 
     amostrador = AmostradorDeMemoria()

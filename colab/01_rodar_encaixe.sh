@@ -2,7 +2,8 @@
 # Roda o teste de encaixe numa sessão nova do Colab e sempre encerra a VM no fim.
 # Uso: colab/01_rodar_encaixe.sh <GPU> <prompts.jsonl> <pasta-de-saida> [vllm_mem]
 # Variáveis opcionais: MODOS (lista), REQUISITOS (arquivo em colab/), PRECISAO (bf16 ou fp16),
-# HIGH_MEM (1 pede a VM com RAM alta) e MAX_CONSULTAS (consultas de 60 s).
+# HIGH_MEM (1 pede a VM com RAM alta), MAX_CONSULTAS (consultas de 60 s) e EXTRA (argumentos
+# repassados ao teste, como "--prompts-por-passo 2").
 # Exemplo A100: colab/01_rodar_encaixe.sh A100 runs/<execucao>/prompts.jsonl runs/<execucao>/a100 0.5
 # Exemplo T4: MODOS=4bit-hf REQUISITOS=requirements-t4.txt PRECISAO=fp16 \
 #   colab/01_rodar_encaixe.sh T4 runs/<execucao>/prompts.jsonl runs/<execucao>/t4
@@ -20,6 +21,7 @@ REQUISITOS="${REQUISITOS:-requirements-encaixe.txt}"
 PRECISAO="${PRECISAO:-bf16}"
 HIGH_MEM="${HIGH_MEM:-0}"
 MAX_CONSULTAS="${MAX_CONSULTAS:-75}"
+EXTRA="${EXTRA:-}"
 SESSAO="encaixe"
 AQUI="$(cd "$(dirname "$0")" && pwd)"
 
@@ -68,7 +70,7 @@ colab upload -s "$SESSAO" "$AQUI/$REQUISITOS" /content/requirements.txt
 colab upload -s "$SESSAO" "$PROMPTS" /content/prompts.jsonl
 
 log "iniciando o trabalho desacoplado na VM"
-executar "!setsid nohup bash /content/02_encaixe_na_vm.sh '$MODOS' $PRECISAO $VLLM_MEM > /content/vm.log 2>&1 < /dev/null &"
+executar "!setsid nohup bash /content/02_encaixe_na_vm.sh '$MODOS' $PRECISAO $VLLM_MEM '$EXTRA' > /content/vm.log 2>&1 < /dev/null &"
 
 falhas=0
 for _ in $(seq 1 "$MAX_CONSULTAS"); do
