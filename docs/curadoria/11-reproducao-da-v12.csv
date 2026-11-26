@@ -1,0 +1,675 @@
+id,split,modalidade,familia,lote,linhas_citadas,linhas_conferidas,linhas_literais,linhas_da_entrada,perfil,byte_a_byte,causa,detalhe
+AC01,train,linux_auth,AC,lote-08,15,15,0,1,,não,perfil não portado,prosa do lote 08 com aceites anteriores
+AC02,train,linux_auth,AC,lote-08,16,16,0,1,,não,perfil não portado,prosa do lote 08 com aceites anteriores
+AC03,train,linux_auth,AC,lote-08,15,15,0,1,,não,perfil não portado,prosa do lote 08 com aceites anteriores
+AC04,train,linux_auth,AC,lote-08,13,13,0,1,,não,perfil não portado,prosa do lote 08 com aceites anteriores
+AC05,train,linux_auth,AC,lote-08,8,8,0,1,,não,perfil não portado,prosa do lote 08 com aceites anteriores
+AC05-LH01,train,linux_auth,AC05-LH,lote-08,9,9,0,1,,não,perfil não portado,
+AC05-RM01,train,linux_auth,AC05-RM,lote-08,4,4,0,1,,não,perfil não portado,
+AC07,train,linux_auth,AC,lote-08,5,5,0,1,,não,perfil não portado,prosa do lote 08 com aceites anteriores
+AC09,train,linux_auth,AC,lote-08,5,5,0,1,,não,perfil não portado,prosa do lote 08 com aceites anteriores
+AINC09-SL100-001,test,suricata,AINC09-SL100,lote-12,28,28,0,1,,não,perfil não portado,
+AIT-H-09b30e20c967,test,apache,AIT-H,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-H-436a0e7265cf,test,linux_auth,AIT-H,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-H-43ca2793f3c2,test,apache,AIT-H,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-H-b1b8a4785f34,test,apache,AIT-H,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-H-b63d1e93cc04,test,apache,AIT-H,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-H-ce0c035bfea6,test,apache,AIT-H,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-H-d5ce63035bad,test,apache,AIT-H,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-H-d9a113b8ec34,test,linux_auth,AIT-H,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-H-dfd43f61f56e,test,apache,AIT-H,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-0aaadc048782,train,apache,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-11272126ce63,train,linux_auth,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-146aec01697b,train,apache,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-25a183cd41a0,train,apache,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-32136a71a3d3,train,linux_auth,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-3ab725c7d80d,train,apache,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-47e056dcddee,train,apache,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-480e2720353b,train,apache,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-48fb4dadf48e,train,apache,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-55948ab1c23f,train,apache,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-5d702f68375a,train,apache,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-6e9f4255f6f0,train,linux_auth,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-82c6dd9b4657,train,apache,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-87fab52d99d5,train,linux_auth,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-a19846212a9d,train,linux_auth,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-a72aba5c1e22,train,linux_auth,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-ab3b82cb8d47,train,linux_auth,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-c92d57f27c9a,train,apache,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-cca75eb3bb61,train,linux_auth,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-cce4c6470a76,train,apache,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-d82752d18251,train,apache,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-dbcee1f95664,train,linux_auth,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-e65f2840ffdd,train,apache,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-e9d9f985dab4,train,linux_auth,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-eb4269f2fa58,train,linux_auth,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-RM-f082b15ca03c,train,linux_auth,AIT-RM,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-SA-00b470d9dd13,valid,linux_auth,AIT-SA,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-SA-22077abea76f,valid,apache,AIT-SA,sem prova de lote,0,0,0,2,,não,sem linha nativa,lote sem localizador nativo
+AIT-SA-590f2f3bce50,valid,apache,AIT-SA,sem prova de lote,0,0,0,2,,não,sem linha nativa,lote sem localizador nativo
+AIT-SA-63a9f78e2abb,valid,linux_auth,AIT-SA,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-SA-7294062d83e0,valid,apache,AIT-SA,sem prova de lote,0,0,0,2,,não,sem linha nativa,lote sem localizador nativo
+AIT-SA-833459f9fb9b,valid,apache,AIT-SA,sem prova de lote,0,0,0,2,,não,sem linha nativa,lote sem localizador nativo
+AIT-SA-9bf28f226485,valid,apache,AIT-SA,sem prova de lote,0,0,0,2,,não,sem linha nativa,lote sem localizador nativo
+AIT-SA-ae0f5dbe80bc,valid,linux_auth,AIT-SA,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-SA-b271245898d7,valid,apache,AIT-SA,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT-SA-ef5db22d17b1,valid,apache,AIT-SA,sem prova de lote,0,0,0,2,,não,sem linha nativa,lote sem localizador nativo
+AIT-SA-f122d82298f7,valid,apache,AIT-SA,sem prova de lote,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+AIT1W12-266CEB785F1C,train,apache,AIT1W,lote-12,4,4,0,5,,não,perfil não portado,"classes de rota, classe do corpo e pseudônimos de recurso calculados pela cadeia de scripts dos lotes 07, 09 e 12; portável, não portado nesta rodada"
+AIT1W12-40F5D7A416B9,valid,apache,AIT1W,lote-12,2,2,0,4,,não,perfil não portado,"classes de rota, classe do corpo e pseudônimos de recurso calculados pela cadeia de scripts dos lotes 07, 09 e 12; portável, não portado nesta rodada"
+AIT1W12-4682FB38D71B,train,apache,AIT1W,lote-12,4,4,0,5,,não,perfil não portado,"classes de rota, classe do corpo e pseudônimos de recurso calculados pela cadeia de scripts dos lotes 07, 09 e 12; portável, não portado nesta rodada"
+AIT1W12-48EACF279614,train,apache,AIT1W,lote-12,3,3,0,4,,não,perfil não portado,"classes de rota, classe do corpo e pseudônimos de recurso calculados pela cadeia de scripts dos lotes 07, 09 e 12; portável, não portado nesta rodada"
+AIT1W12-5C90CFF85815,train,apache,AIT1W,lote-12,4,4,0,5,,não,perfil não portado,"classes de rota, classe do corpo e pseudônimos de recurso calculados pela cadeia de scripts dos lotes 07, 09 e 12; portável, não portado nesta rodada"
+AIT1W12-6314CEF47ECE,train,apache,AIT1W,lote-12,2,2,0,4,,não,perfil não portado,"classes de rota, classe do corpo e pseudônimos de recurso calculados pela cadeia de scripts dos lotes 07, 09 e 12; portável, não portado nesta rodada"
+AIT1W12-63683FB84193,train,apache,AIT1W,lote-12,2,2,0,4,,não,perfil não portado,"classes de rota, classe do corpo e pseudônimos de recurso calculados pela cadeia de scripts dos lotes 07, 09 e 12; portável, não portado nesta rodada"
+AIT1W12-65BA9ADDDF4E,train,apache,AIT1W,lote-12,3,3,0,4,,não,perfil não portado,"classes de rota, classe do corpo e pseudônimos de recurso calculados pela cadeia de scripts dos lotes 07, 09 e 12; portável, não portado nesta rodada"
+AIT1W12-72871F66384C,train,apache,AIT1W,lote-12,3,3,0,4,,não,perfil não portado,"classes de rota, classe do corpo e pseudônimos de recurso calculados pela cadeia de scripts dos lotes 07, 09 e 12; portável, não portado nesta rodada"
+AIT1W12-7D0CF5CB95B9,train,apache,AIT1W,lote-12,3,3,0,4,,não,perfil não portado,"classes de rota, classe do corpo e pseudônimos de recurso calculados pela cadeia de scripts dos lotes 07, 09 e 12; portável, não portado nesta rodada"
+AIT1W12-97D9D29C8129,train,apache,AIT1W,lote-12,3,3,0,4,,não,perfil não portado,"classes de rota, classe do corpo e pseudônimos de recurso calculados pela cadeia de scripts dos lotes 07, 09 e 12; portável, não portado nesta rodada"
+AIT1W12-A6ADE9DC5AF1,train,apache,AIT1W,lote-12,3,3,0,4,,não,perfil não portado,"classes de rota, classe do corpo e pseudônimos de recurso calculados pela cadeia de scripts dos lotes 07, 09 e 12; portável, não portado nesta rodada"
+AIT1W12-B332DBB7B421,train,apache,AIT1W,lote-12,4,4,0,5,,não,perfil não portado,"classes de rota, classe do corpo e pseudônimos de recurso calculados pela cadeia de scripts dos lotes 07, 09 e 12; portável, não portado nesta rodada"
+AIT1W12-B875D156E0C4,train,apache,AIT1W,lote-12,4,4,0,5,,não,perfil não portado,"classes de rota, classe do corpo e pseudônimos de recurso calculados pela cadeia de scripts dos lotes 07, 09 e 12; portável, não portado nesta rodada"
+AIT1W12-BC272E1CD26F,train,apache,AIT1W,lote-12,4,4,0,5,,não,perfil não portado,"classes de rota, classe do corpo e pseudônimos de recurso calculados pela cadeia de scripts dos lotes 07, 09 e 12; portável, não portado nesta rodada"
+AIT1W12-F1677709A109,train,apache,AIT1W,lote-12,3,3,0,5,,não,perfil não portado,"classes de rota, classe do corpo e pseudônimos de recurso calculados pela cadeia de scripts dos lotes 07, 09 e 12; portável, não portado nesta rodada"
+AITADS-001,train,suricata,AITADS,lote-08,7,7,0,1,,não,perfil não portado,agregado JSON da curadoria do lote 08 sobre alertas do Wazuh
+AITADS-002,train,suricata,AITADS,lote-08,4,4,0,1,,não,perfil não portado,agregado JSON da curadoria do lote 08 sobre alertas do Wazuh
+AITADS-003,train,suricata,AITADS,lote-08,6,6,0,1,,não,perfil não portado,agregado JSON da curadoria do lote 08 sobre alertas do Wazuh
+AITADS-004,train,suricata,AITADS,lote-08,18,18,0,1,,não,perfil não portado,agregado JSON da curadoria do lote 08 sobre alertas do Wazuh
+AITADS-005,train,suricata,AITADS,lote-08,9,9,0,1,,não,perfil não portado,agregado JSON da curadoria do lote 08 sobre alertas do Wazuh
+AITADS-006,train,suricata,AITADS,lote-08,18,18,0,1,,não,perfil não portado,agregado JSON da curadoria do lote 08 sobre alertas do Wazuh
+AITADS-007,train,suricata,AITADS,lote-08,21,21,0,1,,não,perfil não portado,agregado JSON da curadoria do lote 08 sobre alertas do Wazuh
+AITADS-008,train,suricata,AITADS,lote-08,2,2,0,1,,não,perfil não portado,agregado JSON da curadoria do lote 08 sobre alertas do Wazuh
+AITAUTH-001,train,linux_auth,AITAUTH,lote-08,8,8,0,1,,não,perfil não portado,agregado JSON da curadoria do lote 08 sobre alertas do Wazuh
+AITDNS12-12f0790ddbe4f6,train,suricata,AITDNS,lote-12,4,4,0,3,,não,perfil não portado,pseudônimos de nome (nome_1) e campos do lote 12
+AITDNS12-3a8aece89dad7c,train,suricata,AITDNS,lote-12,4,4,0,3,,não,perfil não portado,pseudônimos de nome (nome_1) e campos do lote 12
+AITDNS12-464a2c50b067be,train,suricata,AITDNS,lote-12,4,4,0,3,,não,perfil não portado,pseudônimos de nome (nome_1) e campos do lote 12
+AITDNS12-586731b89b0c9e,train,suricata,AITDNS,lote-12,4,4,0,3,,não,perfil não portado,pseudônimos de nome (nome_1) e campos do lote 12
+AITDNS12-617b14f90421b4,train,suricata,AITDNS,lote-12,4,4,0,3,,não,perfil não portado,pseudônimos de nome (nome_1) e campos do lote 12
+AITDNS12-8ec7d0f0522c19,train,suricata,AITDNS,lote-12,4,4,0,3,,não,perfil não portado,pseudônimos de nome (nome_1) e campos do lote 12
+AITDNS12-ab1d745f869de5,train,suricata,AITDNS,lote-12,4,4,0,3,,não,perfil não portado,pseudônimos de nome (nome_1) e campos do lote 12
+AITDNS12-df7fe152da353e,train,suricata,AITDNS,lote-12,4,4,0,3,,não,perfil não portado,pseudônimos de nome (nome_1) e campos do lote 12
+AITDNS12-fb72c922997678,train,suricata,AITDNS,lote-12,4,4,0,3,,não,perfil não portado,pseudônimos de nome (nome_1) e campos do lote 12
+AITHTTP12-552e7189ebe8db,train,suricata,AITHTTP,lote-12,0,0,0,4,,não,sem linha nativa,"registro numerado numa exportação do Splunk, sem linha de arquivo"
+AITHTTP12-5dc84642b39553,train,suricata,AITHTTP,lote-12,0,0,0,4,,não,sem linha nativa,"registro numerado numa exportação do Splunk, sem linha de arquivo"
+AITHTTP12-78934bc35c4fea,valid,suricata,AITHTTP,lote-12,0,0,0,4,,não,sem linha nativa,"registro numerado numa exportação do Splunk, sem linha de arquivo"
+AITHTTP12-ed6948b14307b5,train,suricata,AITHTTP,lote-12,0,0,0,4,,não,sem linha nativa,"registro numerado numa exportação do Splunk, sem linha de arquivo"
+AITHTTP12-f352e89904edb2,train,suricata,AITHTTP,lote-12,0,0,0,4,,não,sem linha nativa,"registro numerado numa exportação do Splunk, sem linha de arquivo"
+AITTLS13-0ecc53280c76a1eb,train,suricata,AITTLS,lote-14,4,4,0,5,lote13_aittls,sim,reproduzido,
+AITTLS13-14acc8c850fd15e2,train,suricata,AITTLS,lote-14,4,4,0,5,lote13_aittls,sim,reproduzido,
+AITTLS13-24c8dfa144ff02af,train,suricata,AITTLS,lote-14,4,4,0,5,lote13_aittls,sim,reproduzido,
+AITTLS13-3a44de6d7a1c479d,train,suricata,AITTLS,lote-14,4,4,0,5,lote13_aittls,sim,reproduzido,
+AITTLS13-3ebc85c16cd175c2,train,suricata,AITTLS,lote-14,4,4,0,5,lote13_aittls,sim,reproduzido,
+AITTLS13-580d85f7eec0618f,train,suricata,AITTLS,lote-14,5,5,0,6,lote13_aittls,sim,reproduzido,
+AITTLS13-5b70bcfab861f67d,train,suricata,AITTLS,lote-14,5,5,0,6,lote13_aittls,sim,reproduzido,
+AITTLS13-7759c01e8019703b,train,suricata,AITTLS,lote-14,5,5,0,6,lote13_aittls,sim,reproduzido,
+AITTLS13-a3d439df29cac312,train,suricata,AITTLS,lote-14,5,5,0,6,lote13_aittls,sim,reproduzido,
+AITTLS13-c07cade14401d494,train,suricata,AITTLS,lote-14,4,4,0,5,lote13_aittls,sim,reproduzido,
+AITTLS13-c3696c14fb9c4bf5,valid,suricata,AITTLS,lote-14,5,5,0,6,lote13_aittls,sim,reproduzido,
+AITTLS13-c379caee92c5edae,train,suricata,AITTLS,lote-14,5,5,0,6,lote13_aittls,sim,reproduzido,
+AITTLS13-d738eac0f947d32b,train,suricata,AITTLS,lote-14,5,5,0,6,lote13_aittls,sim,reproduzido,
+AITW13-A10613DB6FE71,train,apache,AITW,lote-14,4,4,0,5,,não,perfil não portado,
+AITW13-ABAFDF5B281BD,train,apache,AITW,lote-14,4,4,0,5,,não,perfil não portado,
+ASC-01,train,linux_auth,ASC,lote-12,5,5,0,5,,não,perfil não portado,eventos normalizados com pseudônimos do lote 12
+ASC-02,train,linux_auth,ASC,lote-12,5,5,0,5,,não,perfil não portado,eventos normalizados com pseudônimos do lote 12
+ASC-03,train,linux_auth,ASC,lote-12,4,4,0,4,,não,perfil não portado,eventos normalizados com pseudônimos do lote 12
+B2AUTH11-efef62fcf7b20d38,train,linux_auth,B2AUTH,lote-12,0,0,0,3,,não,sem linha nativa,"offset em journal.gz do Splunk, sem linha de arquivo"
+BOTSDNS-d5b18e9a04f9f8,train,suricata,BOTSDNS,lote-12,3,0,0,4,,não,perfil não portado,pseudônimos de consulta do lote 12
+BOTSDNS-ec24ab70e74258,train,suricata,BOTSDNS,lote-12,6,0,0,7,,não,perfil não portado,pseudônimos de consulta do lote 12
+BOTSDNS-ed2840dca93e5f,train,suricata,BOTSDNS,lote-12,4,0,0,5,,não,perfil não portado,pseudônimos de consulta do lote 12
+BOTSDNS-fbb232e85cec67,train,suricata,BOTSDNS,lote-12,5,0,0,6,,não,perfil não portado,pseudônimos de consulta do lote 12
+BOTSEVE-01df1282891b12,train,suricata,BOTSEVE,lote-12,2,0,0,4,,não,perfil não portado,"classes semânticas de recurso e pseudônimos (C1, R1) do lote 12"
+BOTSEVE-02b4345452ccac,train,suricata,BOTSEVE,lote-12,3,0,0,5,,não,perfil não portado,"classes semânticas de recurso e pseudônimos (C1, R1) do lote 12"
+BOTSEVE-23ab0eb7753f15,train,suricata,BOTSEVE,lote-12,25,0,0,5,,não,perfil não portado,"classes semânticas de recurso e pseudônimos (C1, R1) do lote 12"
+BOTSEVE-270fa1a2206672,train,suricata,BOTSEVE,lote-12,2,0,0,4,,não,perfil não portado,"classes semânticas de recurso e pseudônimos (C1, R1) do lote 12"
+BOTSEVE-48ff428a68acd1,train,suricata,BOTSEVE,lote-12,10,0,0,5,,não,perfil não portado,"classes semânticas de recurso e pseudônimos (C1, R1) do lote 12"
+BOTSEVE-530adf90106a92,train,suricata,BOTSEVE,lote-12,2,0,0,4,,não,perfil não portado,"classes semânticas de recurso e pseudônimos (C1, R1) do lote 12"
+BOTSEVE-61bb66067dda7f,train,suricata,BOTSEVE,lote-12,35,0,0,5,,não,perfil não portado,"classes semânticas de recurso e pseudônimos (C1, R1) do lote 12"
+BOTSEVE-636a6f8922268c,train,suricata,BOTSEVE,lote-12,1,0,0,3,,não,perfil não portado,"classes semânticas de recurso e pseudônimos (C1, R1) do lote 12"
+BOTSEVE-e2815520b2c056,train,suricata,BOTSEVE,lote-12,1,0,0,3,,não,perfil não portado,"classes semânticas de recurso e pseudônimos (C1, R1) do lote 12"
+BOTSEVE-e9eeeba8e4b8a3,train,suricata,BOTSEVE,lote-12,6,0,0,5,,não,perfil não portado,"classes semânticas de recurso e pseudônimos (C1, R1) do lote 12"
+BOTSEVE-f4ee6187980eec,train,suricata,BOTSEVE,lote-12,2,0,0,4,,não,perfil não portado,"classes semânticas de recurso e pseudônimos (C1, R1) do lote 12"
+CAM04,valid,linux_auth,CAM,lote-08,4,4,0,1,,não,perfil não portado,frase de janela do lote 08 com contagens de tipos do EVE
+CAM06,valid,linux_auth,CAM,lote-08,5,5,0,1,,não,perfil não portado,frase de janela do lote 08 com contagens de tipos do EVE
+CAM08,valid,suricata,CAM,lote-08,19,19,0,1,,não,perfil não portado,frase de janela do lote 08 com contagens de tipos do EVE
+CAM10,valid,suricata,CAM,lote-08,4,4,0,1,,não,perfil não portado,frase de janela do lote 08 com contagens de tipos do EVE
+CAM14,valid,suricata,CAM,lote-08,4,4,0,1,,não,perfil não portado,frase de janela do lote 08 com contagens de tipos do EVE
+CAS36,train,linux_auth,CAS,lote-08,10,10,0,1,lote08_cas,sim,reproduzido,
+CAS37,train,linux_auth,CAS,lote-08,24,24,0,1,lote08_cas,sim,reproduzido,
+CAS38,train,linux_auth,CAS,lote-08,5,5,0,1,lote08_cas,sim,reproduzido,
+CAS39,train,linux_auth,CAS,lote-08,10,10,0,1,lote08_cas,sim,reproduzido,
+CAS40,train,linux_auth,CAS,lote-08,24,24,0,1,lote08_cas,sim,reproduzido,
+CAS41,train,linux_auth,CAS,lote-08,9,9,0,1,lote08_cas,sim,reproduzido,
+CAS42,train,linux_auth,CAS,lote-08,16,16,0,1,lote08_cas,sim,reproduzido,
+CAS45,train,linux_auth,CAS,lote-08,15,15,0,1,lote08_cas,sim,reproduzido,
+CAS46,train,linux_auth,CAS,lote-08,18,18,0,1,lote08_cas,sim,reproduzido,
+CAS47,train,linux_auth,CAS,lote-08,21,21,0,1,lote08_cas,sim,reproduzido,
+CAS49,train,linux_auth,CAS,lote-08,21,21,0,1,lote08_cas,sim,reproduzido,
+CAS50,train,linux_auth,CAS,lote-08,5,5,0,1,lote08_cas,sim,reproduzido,
+CAS51,train,linux_auth,CAS,lote-08,21,21,0,1,lote08_cas,sim,reproduzido,
+CAS52,train,linux_auth,CAS,lote-08,17,17,0,1,lote08_cas,sim,reproduzido,
+CAS53,train,linux_auth,CAS,lote-08,22,22,0,1,lote08_cas,sim,reproduzido,
+CAS54,train,linux_auth,CAS,lote-08,7,7,0,1,lote08_cas,sim,reproduzido,
+CAS55,train,linux_auth,CAS,lote-08,18,18,0,1,lote08_cas,sim,reproduzido,
+CAS61,train,linux_auth,CAS,lote-08,15,15,0,1,lote08_cas,sim,reproduzido,
+CAS64,train,linux_auth,CAS,lote-08,23,23,0,1,lote08_cas,sim,reproduzido,
+CAS66,train,linux_auth,CAS,lote-08,24,24,0,1,lote08_cas,sim,reproduzido,
+CAS67,train,linux_auth,CAS,lote-08,13,13,0,1,lote08_cas,sim,reproduzido,
+CPTC4-11-3D5C470ED924,train,suricata,CPTC4,lote-12,0,0,0,6,,não,sem linha nativa,"offset em journal.gz do Splunk, sem linha de arquivo"
+CPTC4-11-7BED6C325562,train,suricata,CPTC4,lote-12,0,0,0,4,,não,sem linha nativa,"offset em journal.gz do Splunk, sem linha de arquivo"
+CPTC4-11-84EC7DAEF59C,train,suricata,CPTC4,lote-12,0,0,0,6,,não,sem linha nativa,"offset em journal.gz do Splunk, sem linha de arquivo"
+CPTC4-11-87802033639C,train,suricata,CPTC4,lote-12,0,0,0,6,,não,sem linha nativa,"offset em journal.gz do Splunk, sem linha de arquivo"
+CPTC4-11-8853974C562D,train,suricata,CPTC4,lote-12,0,0,0,6,,não,sem linha nativa,"offset em journal.gz do Splunk, sem linha de arquivo"
+CPTC4-11-90335EF90735,train,suricata,CPTC4,lote-12,0,0,0,6,,não,sem linha nativa,"offset em journal.gz do Splunk, sem linha de arquivo"
+CPTC4-11-AC6FE859A94E,train,suricata,CPTC4,lote-12,0,0,0,6,,não,sem linha nativa,"offset em journal.gz do Splunk, sem linha de arquivo"
+CPTC4-11-E520A3B78BA4,train,suricata,CPTC4,lote-12,0,0,0,4,,não,sem linha nativa,"offset em journal.gz do Splunk, sem linha de arquivo"
+CT-CAS01-02,train,linux_auth,CT-CAS01,soc-triage-v5,0,0,0,10,,não,sem linha nativa,lote sem localizador nativo
+DED02,train,linux_auth,DED,soc-triage-v6,0,0,0,4,,não,sem linha nativa,lote sem localizador nativo
+DED03,train,linux_auth,DED,soc-triage-v6,0,0,0,4,,não,sem linha nativa,lote sem localizador nativo
+DED04,train,linux_auth,DED,soc-triage-v6,0,0,0,4,,não,sem linha nativa,lote sem localizador nativo
+DED05,train,linux_auth,DED,soc-triage-v6,0,0,0,4,,não,sem linha nativa,lote sem localizador nativo
+DED06,train,linux_auth,DED,soc-triage-v6,0,0,0,4,,não,sem linha nativa,lote sem localizador nativo
+DED07,train,linux_auth,DED,soc-triage-v6,0,0,0,6,,não,sem linha nativa,lote sem localizador nativo
+DED08,train,linux_auth,DED,soc-triage-v6,0,0,0,6,,não,sem linha nativa,lote sem localizador nativo
+DED09,train,linux_auth,DED,soc-triage-v6,0,0,0,6,,não,sem linha nativa,lote sem localizador nativo
+DED10,train,linux_auth,DED,soc-triage-v6,0,0,0,5,,não,sem linha nativa,lote sem localizador nativo
+DED11,train,linux_auth,DED,soc-triage-v6,0,0,0,4,,não,sem linha nativa,lote sem localizador nativo
+DED12,train,linux_auth,DED,soc-triage-v6,0,0,0,4,,não,sem linha nativa,lote sem localizador nativo
+DED13,train,linux_auth,DED,soc-triage-v6,0,0,0,4,,não,sem linha nativa,lote sem localizador nativo
+DED14,train,linux_auth,DED,soc-triage-v6,0,0,0,4,,não,sem linha nativa,lote sem localizador nativo
+DED15,train,linux_auth,DED,soc-triage-v6,0,0,0,4,,não,sem linha nativa,lote sem localizador nativo
+DED16,train,linux_auth,DED,soc-triage-v6,0,0,0,4,,não,sem linha nativa,lote sem localizador nativo
+DED17,train,linux_auth,DED,soc-triage-v6,0,0,0,4,,não,sem linha nativa,lote sem localizador nativo
+DED18,train,linux_auth,DED,soc-triage-v6,0,0,0,4,,não,sem linha nativa,lote sem localizador nativo
+DED19,train,linux_auth,DED,soc-triage-v6,0,0,0,4,,não,sem linha nativa,lote sem localizador nativo
+DED20,train,linux_auth,DED,soc-triage-v6,0,0,0,4,,não,sem linha nativa,lote sem localizador nativo
+DED21,train,linux_auth,DED,soc-triage-v6,0,0,0,4,,não,sem linha nativa,lote sem localizador nativo
+DED22,train,linux_auth,DED,soc-triage-v6,0,0,0,4,,não,sem linha nativa,lote sem localizador nativo
+DED23,train,linux_auth,DED,soc-triage-v6,0,0,0,4,,não,sem linha nativa,lote sem localizador nativo
+DED24,train,linux_auth,DED,soc-triage-v6,0,0,0,4,,não,sem linha nativa,lote sem localizador nativo
+DED25,train,linux_auth,DED,soc-triage-v6,0,0,0,4,,não,sem linha nativa,lote sem localizador nativo
+DED26,train,linux_auth,DED,soc-triage-v6,0,0,0,4,,não,sem linha nativa,lote sem localizador nativo
+DED27,train,linux_auth,DED,soc-triage-v6,0,0,0,4,,não,sem linha nativa,lote sem localizador nativo
+DED28,train,suricata,DED,soc-triage-v6,0,0,0,7,,não,sem linha nativa,lote sem localizador nativo
+DED29,train,suricata,DED,soc-triage-v6,0,0,0,7,,não,sem linha nativa,lote sem localizador nativo
+DED30,train,suricata,DED,soc-triage-v6,0,0,0,7,,não,sem linha nativa,lote sem localizador nativo
+EVE10-4ce078e92e3ffc6797,train,suricata,EVE,lote-12,0,0,0,3,,não,sem linha nativa,arquivo do localizador não encontrado em data/raw (release/first-org-conf-2015/eve.json)
+EVE10-cecdbb53a710b6cfc5,train,suricata,EVE,lote-12,0,0,0,3,,não,sem linha nativa,arquivo do localizador não encontrado em data/raw (release/first-org-conf-2015/eve.json)
+L09-AM-001,test,linux_auth,L09-AM,lote-12,0,0,0,7,,não,sem linha nativa,arquivo do localizador não encontrado em data/raw (attackmate-eval-v4)
+L09-CAM-001,valid,linux_auth,L09-CAM,lote-12,0,0,0,9,,não,sem linha nativa,arquivo do localizador não encontrado em data/raw (cam-lds-v2)
+L09-CPTC-001,train,linux_auth,L09-CPTC,lote-12,0,0,0,5,,não,sem linha nativa,item de localizador sem linha
+L09-CPTC-002,train,linux_auth,L09-CPTC,lote-12,0,0,0,3,,não,sem linha nativa,item de localizador sem linha
+L09-CPTC-003,train,linux_auth,L09-CPTC,lote-12,0,0,0,5,,não,sem linha nativa,item de localizador sem linha
+L09-FOX-AUTH-001,train,linux_auth,L09-FOX-AUTH,lote-12,0,0,0,8,,não,sem linha nativa,arquivo do localizador não encontrado em data/raw (ait-lds-v2.1)
+L09-FOX-HTTP-001,train,apache,L09-FOX-HTTP,lote-12,0,0,0,5,,não,sem linha nativa,arquivo do localizador não encontrado em data/raw (ait-lds-v2.1)
+L09-LAPT-001,train,linux_auth,L09-LAPT,lote-12,0,0,0,5,,não,sem linha nativa,item de localizador sem linha
+L09-LAPT-002,train,linux_auth,L09-LAPT,lote-12,0,0,0,4,,não,sem linha nativa,item de localizador sem linha
+L09-MAWA-001,train,linux_auth,L09-MAWA,lote-12,0,0,0,6,,não,sem linha nativa,item de localizador sem linha
+L09-MAWA-002,train,linux_auth,L09-MAWA,lote-12,4,0,0,4,,não,perfil não portado,
+L09-MAWA-003,train,linux_auth,L09-MAWA,lote-12,6,0,0,6,,não,perfil não portado,
+L10-SL300-001,test,linux_auth,L10-SL300,lote-12,6,0,0,6,,não,perfil não portado,
+L10-SL700-001,test,linux_auth,L10-SL700,lote-12,5,0,0,5,,não,perfil não portado,
+L10-SL700-002,test,linux_auth,L10-SL700,lote-12,1,0,0,1,,não,perfil não portado,
+L11-HPC-02,test,linux_auth,L11-HPC,lote-12,7,7,0,7,,não,perfil não portado,
+L11-HPC-03,test,linux_auth,L11-HPC,lote-12,10,10,0,10,,não,perfil não portado,
+L11-HY-01,train,linux_auth,L11-HY,lote-12,6,6,0,6,,não,perfil não portado,eventos normalizados com pseudônimos do lote 12
+L11-HY-02,train,linux_auth,L11-HY,lote-12,5,5,0,5,,não,perfil não portado,eventos normalizados com pseudônimos do lote 12
+L11-HY-03,train,linux_auth,L11-HY,lote-12,6,6,0,6,,não,perfil não portado,eventos normalizados com pseudônimos do lote 12
+L11-LA-01,train,linux_auth,L11-LA,lote-12,5,5,0,6,,não,perfil não portado,"eventos normalizados com pseudônimos (origem-01, conta-01) do lote 12"
+L11-LA-02,train,linux_auth,L11-LA,lote-12,3,3,0,4,,não,perfil não portado,"eventos normalizados com pseudônimos (origem-01, conta-01) do lote 12"
+L11-LA-03,train,linux_auth,L11-LA,lote-12,4,4,0,5,,não,perfil não portado,"eventos normalizados com pseudônimos (origem-01, conta-01) do lote 12"
+L11-LA-04,train,linux_auth,L11-LA,lote-12,6,6,0,7,,não,perfil não portado,"eventos normalizados com pseudônimos (origem-01, conta-01) do lote 12"
+L11-LIB-02,test,linux_auth,L11-LIB,lote-12,6,6,0,6,,não,perfil não portado,
+L12-LNX-01,train,linux_auth,L12-LNX,lote-12,4,4,0,5,,não,perfil não portado,eventos normalizados com pseudônimos do lote 12
+L12-LNX-02,train,linux_auth,L12-LNX,lote-12,4,4,0,5,,não,perfil não portado,eventos normalizados com pseudônimos do lote 12
+L12-LNX-03,train,linux_auth,L12-LNX,lote-12,5,5,0,6,,não,perfil não portado,eventos normalizados com pseudônimos do lote 12
+L13-AIT-AUTH-01,train,linux_auth,L13-AIT-AUTH,lote-14,6,6,0,6,,não,perfil não portado,
+L13-AIT-AUTH-02,train,linux_auth,L13-AIT-AUTH,lote-14,6,6,0,6,,não,perfil não portado,
+L13-DED-AUTH-01,train,linux_auth,L13-DED-AUTH,lote-14,4,4,0,4,,não,perfil não portado,
+L14-APA-0001,train,apache,L14-APA,lote-14,7,7,0,11,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0002,train,apache,L14-APA,lote-14,5,5,0,8,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0003,train,apache,L14-APA,lote-14,6,6,0,10,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0004,train,apache,L14-APA,lote-14,6,6,0,10,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0005,train,apache,L14-APA,lote-14,6,6,0,10,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0006,train,apache,L14-APA,lote-14,8,8,0,12,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0007,train,apache,L14-APA,lote-14,6,6,0,10,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0008,train,apache,L14-APA,lote-14,6,6,0,10,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0009,train,apache,L14-APA,lote-14,6,6,0,10,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0010,train,apache,L14-APA,lote-14,4,4,0,8,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0011,train,apache,L14-APA,lote-14,7,7,0,11,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0012,train,apache,L14-APA,lote-14,5,5,0,9,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0013,train,apache,L14-APA,lote-14,6,6,0,9,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0014,train,apache,L14-APA,lote-14,6,6,0,10,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0015,train,apache,L14-APA,lote-14,6,6,0,9,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0016,train,apache,L14-APA,lote-14,6,6,0,10,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0017,train,apache,L14-APA,lote-14,6,6,0,10,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0018,train,apache,L14-APA,lote-14,6,6,0,10,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0019,train,apache,L14-APA,lote-14,6,6,0,10,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0020,train,apache,L14-APA,lote-14,6,6,0,10,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0021,train,apache,L14-APA,lote-14,6,6,0,10,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0022,train,apache,L14-APA,lote-14,5,5,0,9,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0023,train,apache,L14-APA,lote-14,5,5,0,9,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0024,train,apache,L14-APA,lote-14,3,3,0,7,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0025,train,apache,L14-APA,lote-14,5,5,0,9,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0026,train,apache,L14-APA,lote-14,5,5,0,9,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0027,train,apache,L14-APA,lote-14,5,5,0,9,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0028,train,apache,L14-APA,lote-14,5,5,0,9,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0029,valid,apache,L14-APA,lote-14,5,5,0,9,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0030,valid,apache,L14-APA,lote-14,5,5,0,9,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0031,valid,apache,L14-APA,lote-14,5,5,0,9,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0032,valid,apache,L14-APA,lote-14,7,7,0,11,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0033,train,apache,L14-APA,lote-14,3,3,0,7,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0034,train,apache,L14-APA,lote-14,6,6,0,10,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0035,train,apache,L14-APA,lote-14,6,6,0,10,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0036,train,apache,L14-APA,lote-14,6,6,0,10,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0037,train,apache,L14-APA,lote-14,3,3,0,7,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0038,train,apache,L14-APA,lote-14,5,5,0,9,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0039,train,apache,L14-APA,lote-14,6,6,0,10,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0040,train,apache,L14-APA,lote-14,5,5,0,9,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0041,train,apache,L14-APA,lote-14,5,5,0,9,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0042,train,apache,L14-APA,lote-14,6,6,0,10,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0043,train,apache,L14-APA,lote-14,3,3,0,7,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0044,train,apache,L14-APA,lote-14,6,6,0,10,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-APA-0045,train,apache,L14-APA,lote-14,5,5,0,9,,não,perfil não portado,"especificação por episódio (cabeçalho, frase da janela, linhas e opções de renderização escolhidas à mão); linhas do Registro reescritas em forma compacta"
+L14-LNXA-0001,train,linux_auth,L14-LNXA,lote-14,7,7,7,8,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0002,train,linux_auth,L14-LNXA,lote-14,7,7,7,8,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0003,train,linux_auth,L14-LNXA,lote-14,7,7,7,8,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0004,train,linux_auth,L14-LNXA,lote-14,7,7,7,8,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0005,train,linux_auth,L14-LNXA,lote-14,7,7,7,8,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0006,train,linux_auth,L14-LNXA,lote-14,7,7,4,8,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0007,train,linux_auth,L14-LNXA,lote-14,7,7,7,8,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0008,train,linux_auth,L14-LNXA,lote-14,6,6,6,7,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0009,train,linux_auth,L14-LNXA,lote-14,2,2,2,3,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0010,train,linux_auth,L14-LNXA,lote-14,7,7,7,8,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0011,train,linux_auth,L14-LNXA,lote-14,6,6,6,7,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0012,train,linux_auth,L14-LNXA,lote-14,6,6,6,7,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0013,train,linux_auth,L14-LNXA,lote-14,3,3,3,4,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0014,train,linux_auth,L14-LNXA,lote-14,7,7,7,8,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0015,train,linux_auth,L14-LNXA,lote-14,7,7,7,8,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0016,train,linux_auth,L14-LNXA,lote-14,2,2,2,3,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0017,train,linux_auth,L14-LNXA,lote-14,6,6,6,7,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0018,train,linux_auth,L14-LNXA,lote-14,6,6,6,7,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0019,train,linux_auth,L14-LNXA,lote-14,7,7,7,8,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0020,train,linux_auth,L14-LNXA,lote-14,7,7,7,8,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0021,train,linux_auth,L14-LNXA,lote-14,6,6,6,7,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0022,train,linux_auth,L14-LNXA,lote-14,2,2,2,3,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0023,train,linux_auth,L14-LNXA,lote-14,2,2,2,3,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0024,train,linux_auth,L14-LNXA,lote-14,3,3,3,4,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0025,train,linux_auth,L14-LNXA,lote-14,3,3,3,4,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0026,train,linux_auth,L14-LNXA,lote-14,5,5,5,6,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0027,train,linux_auth,L14-LNXA,lote-14,6,6,6,7,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0028,train,linux_auth,L14-LNXA,lote-14,6,6,6,7,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0029,train,linux_auth,L14-LNXA,lote-14,7,7,7,8,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0030,train,linux_auth,L14-LNXA,lote-14,7,7,7,8,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0031,train,linux_auth,L14-LNXA,lote-14,6,6,6,7,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0032,train,linux_auth,L14-LNXA,lote-14,6,6,6,7,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0033,train,linux_auth,L14-LNXA,lote-14,4,4,4,5,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0034,train,linux_auth,L14-LNXA,lote-14,1,1,1,2,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0035,train,linux_auth,L14-LNXA,lote-14,6,6,6,7,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0036,train,linux_auth,L14-LNXA,lote-14,4,4,4,5,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0037,train,linux_auth,L14-LNXA,lote-14,4,4,4,5,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0038,train,linux_auth,L14-LNXA,lote-14,2,2,2,3,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0039,train,linux_auth,L14-LNXA,lote-14,4,4,4,5,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXA-0040,train,linux_auth,L14-LNXA,lote-14,2,2,2,3,,não,perfil não portado,"cinco moldes (rajada, sessão, explícito, origem isolada, cron) com janela escolhida à mão, que o localizador não registra, e apelidos conta-NN"
+L14-LNXB-0001,train,linux_auth,L14-LNXB,lote-14,6,6,6,8,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0002,train,linux_auth,L14-LNXB,lote-14,7,7,7,9,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0003,train,linux_auth,L14-LNXB,lote-14,6,6,6,8,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0004,train,linux_auth,L14-LNXB,lote-14,6,6,6,8,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0005,train,linux_auth,L14-LNXB,lote-14,5,5,5,7,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0006,train,linux_auth,L14-LNXB,lote-14,5,5,5,7,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0007,train,linux_auth,L14-LNXB,lote-14,5,5,5,7,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0008,train,linux_auth,L14-LNXB,lote-14,2,2,2,4,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0009,train,linux_auth,L14-LNXB,lote-14,2,2,2,4,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0010,train,linux_auth,L14-LNXB,lote-14,11,11,11,12,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0011,train,linux_auth,L14-LNXB,lote-14,9,9,7,10,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0012,train,linux_auth,L14-LNXB,lote-14,12,12,12,13,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0013,train,linux_auth,L14-LNXB,lote-14,5,5,5,6,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0014,train,linux_auth,L14-LNXB,lote-14,2,2,2,4,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0015,train,linux_auth,L14-LNXB,lote-14,9,9,9,11,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0016,train,linux_auth,L14-LNXB,lote-14,5,5,5,7,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0017,train,linux_auth,L14-LNXB,lote-14,5,5,4,6,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0018,train,linux_auth,L14-LNXB,lote-14,4,4,4,5,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0019,train,linux_auth,L14-LNXB,lote-14,7,7,7,9,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0020,train,linux_auth,L14-LNXB,lote-14,5,5,5,7,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0021,train,linux_auth,L14-LNXB,lote-14,7,7,7,9,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0022,train,linux_auth,L14-LNXB,lote-14,5,5,5,7,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0023,train,linux_auth,L14-LNXB,lote-14,5,5,5,7,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0024,train,linux_auth,L14-LNXB,lote-14,7,7,7,9,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0025,train,linux_auth,L14-LNXB,lote-14,7,7,7,9,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0026,train,linux_auth,L14-LNXB,lote-14,5,5,5,7,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0027,train,linux_auth,L14-LNXB,lote-14,4,4,4,6,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0028,train,linux_auth,L14-LNXB,lote-14,5,5,5,7,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0029,train,linux_auth,L14-LNXB,lote-14,2,2,2,4,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0030,train,linux_auth,L14-LNXB,lote-14,6,6,6,8,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0031,train,linux_auth,L14-LNXB,lote-14,6,6,6,8,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0032,train,linux_auth,L14-LNXB,lote-14,6,6,6,8,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-LNXB-0033,train,linux_auth,L14-LNXB,lote-14,2,2,2,3,,não,perfil não portado,"casos escritos por episódio, cada um com resumo próprio, sobre auth.log do MuSAR reconstruído do CSV do Filebeat e do MAWA"
+L14-SUR-0001,train,suricata,L14-SUR,lote-14,5,5,0,7,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0002,train,suricata,L14-SUR,lote-14,2,2,0,4,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0003,train,suricata,L14-SUR,lote-14,4,4,0,6,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0004,train,suricata,L14-SUR,lote-14,3,3,0,5,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0005,train,suricata,L14-SUR,lote-14,4,4,0,6,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0006,train,suricata,L14-SUR,lote-14,4,4,0,6,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0007,train,suricata,L14-SUR,lote-14,4,4,0,6,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0008,train,suricata,L14-SUR,lote-14,4,4,0,6,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0009,train,suricata,L14-SUR,lote-14,6,6,0,8,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0010,train,suricata,L14-SUR,lote-14,5,5,0,7,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0011,train,suricata,L14-SUR,lote-14,3,3,0,5,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0012,train,suricata,L14-SUR,lote-14,6,6,0,8,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0013,train,suricata,L14-SUR,lote-14,4,4,0,6,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0014,train,suricata,L14-SUR,lote-14,2,2,0,4,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0015,train,suricata,L14-SUR,lote-14,4,4,0,6,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0016,train,suricata,L14-SUR,lote-14,3,3,0,5,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0017,train,suricata,L14-SUR,lote-14,4,4,0,6,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0018,train,suricata,L14-SUR,lote-14,5,5,0,7,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0019,train,suricata,L14-SUR,lote-14,4,4,0,6,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0020,train,suricata,L14-SUR,lote-14,3,3,0,5,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0021,train,suricata,L14-SUR,lote-14,4,4,0,6,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0022,train,suricata,L14-SUR,lote-14,5,5,0,7,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0023,train,suricata,L14-SUR,lote-14,5,5,0,7,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0024,train,suricata,L14-SUR,lote-14,6,6,0,8,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0025,train,suricata,L14-SUR,lote-14,5,5,0,7,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0026,train,suricata,L14-SUR,lote-14,4,4,0,6,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0027,train,suricata,L14-SUR,lote-14,3,3,0,5,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0028,train,suricata,L14-SUR,lote-14,4,4,0,6,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0029,train,suricata,L14-SUR,lote-14,7,7,0,9,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0030,train,suricata,L14-SUR,lote-14,3,3,0,5,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0031,train,suricata,L14-SUR,lote-14,2,2,0,4,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0032,train,suricata,L14-SUR,lote-14,4,4,0,6,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0033,train,suricata,L14-SUR,lote-14,5,5,0,7,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0034,train,suricata,L14-SUR,lote-14,4,4,0,6,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0035,train,suricata,L14-SUR,lote-14,4,4,0,6,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0036,train,suricata,L14-SUR,lote-14,2,2,0,4,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0037,train,suricata,L14-SUR,lote-14,3,3,0,5,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0038,train,suricata,L14-SUR,lote-14,4,4,0,6,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0039,train,suricata,L14-SUR,lote-14,7,7,0,9,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0040,valid,suricata,L14-SUR,lote-14,4,4,0,6,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0041,train,suricata,L14-SUR,lote-14,5,5,0,7,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0042,train,suricata,L14-SUR,lote-14,4,4,0,6,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L14-SUR-0043,train,suricata,L14-SUR,lote-14,5,5,0,7,,não,perfil não portado,"especificação por episódio (título, frase da janela, filtros e opções de renderização); a renderização das linhas e as contagens de assinatura são regra comum"
+L15-RSVA-0001,valid,linux_auth,L15-RSVA,lote-15,4,4,4,6,lote15_rsva_validacao,sim,reproduzido,
+L15-RSVA-0002,valid,linux_auth,L15-RSVA,lote-15,3,3,3,5,lote15_rsva_validacao,sim,reproduzido,
+L15-RSVA-0003,valid,linux_auth,L15-RSVA,lote-15,2,2,2,4,lote15_rsva_validacao,sim,reproduzido,
+L15-RSVA-0004,valid,linux_auth,L15-RSVA,lote-15,3,3,3,5,lote15_rsva_validacao,sim,reproduzido,
+L15-RSVA-0005,valid,linux_auth,L15-RSVA,lote-15,2,2,2,4,lote15_rsva_validacao,sim,reproduzido,
+L15-RSVA-0006,valid,linux_auth,L15-RSVA,lote-15,3,3,3,6,lote15_rsva_validacao,sim,reproduzido,
+L15-RSVA-0007,valid,linux_auth,L15-RSVA,lote-15,2,2,2,4,lote15_rsva_validacao,sim,reproduzido,
+L15-RSVA-0008,valid,linux_auth,L15-RSVA,lote-15,3,3,3,5,lote15_rsva_validacao,sim,reproduzido,
+L15-RSVA-0009,valid,linux_auth,L15-RSVA,lote-15,3,3,3,5,lote15_rsva_validacao,sim,reproduzido,
+L15-RSVA-0010,valid,linux_auth,L15-RSVA,lote-15,4,4,4,6,lote15_rsva_validacao,sim,reproduzido,
+L15-RSVA-0011,valid,linux_auth,L15-RSVA,lote-15,4,4,4,6,lote15_rsva_validacao,sim,reproduzido,
+L15-RSVA-0012,valid,linux_auth,L15-RSVA,lote-15,3,3,3,6,lote15_rsva_validacao,sim,reproduzido,
+L15-RSVA-0013,valid,linux_auth,L15-RSVA,lote-15,3,3,3,6,lote15_rsva_validacao,sim,reproduzido,
+L15-RSVA-0014,valid,linux_auth,L15-RSVA,lote-15,3,3,3,5,lote15_rsva_validacao,sim,reproduzido,
+L15-RSVA-0101,test,linux_auth,L15-RSVA,lote-15,4,4,0,6,,não,perfil não portado,teste do EchoLake: resumo escrito por episódio; a validação tem perfil
+L15-RSVA-0102,test,linux_auth,L15-RSVA,lote-15,5,5,0,7,,não,perfil não portado,teste do EchoLake: resumo escrito por episódio; a validação tem perfil
+L15-RSVA-0103,test,linux_auth,L15-RSVA,lote-15,4,4,0,6,,não,perfil não portado,teste do EchoLake: resumo escrito por episódio; a validação tem perfil
+L15-RSVA-0104,test,linux_auth,L15-RSVA,lote-15,3,3,0,5,,não,perfil não portado,teste do EchoLake: resumo escrito por episódio; a validação tem perfil
+L15-RSVA-0105,test,linux_auth,L15-RSVA,lote-15,4,4,0,6,,não,perfil não portado,teste do EchoLake: resumo escrito por episódio; a validação tem perfil
+L15-RSVA-0106,test,linux_auth,L15-RSVA,lote-15,5,5,0,7,,não,perfil não portado,teste do EchoLake: resumo escrito por episódio; a validação tem perfil
+L15-RSVA-0107,test,linux_auth,L15-RSVA,lote-15,4,4,0,6,,não,perfil não portado,teste do EchoLake: resumo escrito por episódio; a validação tem perfil
+L15-RSVA-0108,test,linux_auth,L15-RSVA,lote-15,3,3,0,5,,não,perfil não portado,teste do EchoLake: resumo escrito por episódio; a validação tem perfil
+L15-RSVA-0109,test,linux_auth,L15-RSVA,lote-15,4,4,0,6,,não,perfil não portado,teste do EchoLake: resumo escrito por episódio; a validação tem perfil
+L15-RSVA-0110,test,linux_auth,L15-RSVA,lote-15,4,4,0,6,,não,perfil não portado,teste do EchoLake: resumo escrito por episódio; a validação tem perfil
+L15-RSVA-0111,test,linux_auth,L15-RSVA,lote-15,4,4,0,6,,não,perfil não portado,teste do EchoLake: resumo escrito por episódio; a validação tem perfil
+L15-RSVA-0112,test,linux_auth,L15-RSVA,lote-15,4,4,0,6,,não,perfil não portado,teste do EchoLake: resumo escrito por episódio; a validação tem perfil
+L15-RSVA-0113,test,linux_auth,L15-RSVA,lote-15,4,4,0,6,,não,perfil não portado,teste do EchoLake: resumo escrito por episódio; a validação tem perfil
+L15-RSVA-0114,test,linux_auth,L15-RSVA,lote-15,4,4,0,6,,não,perfil não portado,teste do EchoLake: resumo escrito por episódio; a validação tem perfil
+L15-RSVA-0115,test,linux_auth,L15-RSVA,lote-15,4,4,0,6,,não,perfil não portado,teste do EchoLake: resumo escrito por episódio; a validação tem perfil
+L15-RSVY-0001,test,apache,L15-RSVY,lote-15,6,6,0,10,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0002,test,apache,L15-RSVY,lote-15,6,6,0,10,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0003,test,apache,L15-RSVY,lote-15,4,4,0,8,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0004,test,apache,L15-RSVY,lote-15,5,5,0,9,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0005,test,apache,L15-RSVY,lote-15,4,4,0,8,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0006,test,apache,L15-RSVY,lote-15,5,5,0,9,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0007,test,apache,L15-RSVY,lote-15,6,6,0,10,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0008,test,apache,L15-RSVY,lote-15,4,4,0,8,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0009,test,apache,L15-RSVY,lote-15,5,5,0,9,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0010,test,apache,L15-RSVY,lote-15,5,5,0,9,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0011,test,apache,L15-RSVY,lote-15,6,6,0,10,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0012,test,apache,L15-RSVY,lote-15,6,6,0,10,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0013,test,apache,L15-RSVY,lote-15,6,6,0,10,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0014,test,apache,L15-RSVY,lote-15,5,5,0,9,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0015,test,apache,L15-RSVY,lote-15,6,6,0,10,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0016,test,apache,L15-RSVY,lote-15,4,4,0,8,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0017,test,apache,L15-RSVY,lote-15,5,5,0,9,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0018,test,apache,L15-RSVY,lote-15,5,5,0,9,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0019,test,apache,L15-RSVY,lote-15,5,5,0,9,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0020,test,apache,L15-RSVY,lote-15,6,6,0,10,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0021,test,apache,L15-RSVY,lote-15,6,6,0,10,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0022,test,apache,L15-RSVY,lote-15,5,5,0,9,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0023,test,apache,L15-RSVY,lote-15,5,5,0,9,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0024,test,apache,L15-RSVY,lote-15,5,5,0,9,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0025,test,apache,L15-RSVY,lote-15,5,5,0,9,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0026,test,apache,L15-RSVY,lote-15,5,5,0,9,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0027,test,apache,L15-RSVY,lote-15,7,7,0,11,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-RSVY-0028,test,apache,L15-RSVY,lote-15,1,1,0,5,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L15-TSS-0001,test,suricata,L15-TSS,lote-15,4,4,0,6,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0002,test,suricata,L15-TSS,lote-15,3,3,0,5,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0003,test,suricata,L15-TSS,lote-15,3,3,0,5,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0004,test,suricata,L15-TSS,lote-15,4,4,0,6,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0005,test,suricata,L15-TSS,lote-15,4,4,0,6,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0006,test,suricata,L15-TSS,lote-15,3,3,0,5,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0007,test,suricata,L15-TSS,lote-15,4,4,0,6,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0008,test,suricata,L15-TSS,lote-15,5,5,0,7,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0009,test,suricata,L15-TSS,lote-15,2,2,0,4,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0010,train,suricata,L15-TSS,lote-15,5,5,0,7,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0011,train,suricata,L15-TSS,lote-15,5,5,0,7,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0012,train,suricata,L15-TSS,lote-15,4,4,0,6,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0013,train,suricata,L15-TSS,lote-15,3,3,0,5,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0014,train,suricata,L15-TSS,lote-15,3,3,0,5,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0015,train,suricata,L15-TSS,lote-15,5,5,0,7,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0016,train,suricata,L15-TSS,lote-15,4,4,0,6,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0017,train,suricata,L15-TSS,lote-15,4,4,0,6,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0018,train,suricata,L15-TSS,lote-15,3,3,0,5,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0019,train,suricata,L15-TSS,lote-15,3,3,0,5,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0020,train,suricata,L15-TSS,lote-15,4,4,0,6,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0021,train,suricata,L15-TSS,lote-15,5,5,0,7,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0022,train,suricata,L15-TSS,lote-15,3,3,0,5,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0023,train,suricata,L15-TSS,lote-15,7,7,0,9,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0024,train,suricata,L15-TSS,lote-15,3,3,0,5,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0025,train,suricata,L15-TSS,lote-15,5,5,0,7,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0026,train,suricata,L15-TSS,lote-15,4,4,0,6,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L15-TSS-0027,train,suricata,L15-TSS,lote-15,3,3,0,5,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-APA-0001,valid,apache,L16-APA,lote-16,5,5,0,9,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L16-APA-0002,valid,apache,L16-APA,lote-16,2,2,0,6,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L16-APA-0003,valid,apache,L16-APA,lote-16,3,3,0,7,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L16-APA-0004,valid,apache,L16-APA,lote-16,3,3,0,7,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L16-APA-0005,valid,apache,L16-APA,lote-16,7,7,0,11,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L16-APA-0006,valid,apache,L16-APA,lote-16,4,4,0,8,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L16-APA-0007,valid,apache,L16-APA,lote-16,3,3,0,7,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L16-APA-0008,valid,apache,L16-APA,lote-16,4,4,0,8,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L16-APA-0009,valid,apache,L16-APA,lote-16,4,4,0,8,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L16-APA-0010,valid,apache,L16-APA,lote-16,2,2,0,6,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L16-APA-0011,valid,apache,L16-APA,lote-16,1,1,0,5,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L16-APA-0012,test,apache,L16-APA,lote-16,6,6,0,10,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L16-APA-0013,test,apache,L16-APA,lote-16,6,6,0,10,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L16-APA-0014,test,apache,L16-APA,lote-16,5,5,0,9,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L16-APA-0015,test,apache,L16-APA,lote-16,4,4,0,8,,não,perfil não portado,"especificação por episódio, como em L14-APA"
+L16-SUR-0001,valid,suricata,L16-SUR,lote-16,5,5,0,7,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-SUR-0002,valid,suricata,L16-SUR,lote-16,4,4,0,6,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-SUR-0003,valid,suricata,L16-SUR,lote-16,4,4,0,6,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-SUR-0004,valid,suricata,L16-SUR,lote-16,5,5,0,7,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-SUR-0005,valid,suricata,L16-SUR,lote-16,3,3,0,5,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-SUR-0006,valid,suricata,L16-SUR,lote-16,1,1,0,3,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-SUR-0007,valid,suricata,L16-SUR,lote-16,3,3,0,5,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-SUR-0008,valid,suricata,L16-SUR,lote-16,2,2,0,4,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-SUR-0009,valid,suricata,L16-SUR,lote-16,5,5,0,7,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-SUR-0010,valid,suricata,L16-SUR,lote-16,1,1,0,3,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-SUR-0011,valid,suricata,L16-SUR,lote-16,3,3,0,5,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-SUR-0012,valid,suricata,L16-SUR,lote-16,4,4,0,6,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-SUR-0013,valid,suricata,L16-SUR,lote-16,2,2,0,4,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-SUR-0101,test,suricata,L16-SUR,lote-16,4,4,0,6,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-SUR-0102,test,suricata,L16-SUR,lote-16,4,4,0,6,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-SUR-0103,test,suricata,L16-SUR,lote-16,4,4,0,6,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-SUR-0104,test,suricata,L16-SUR,lote-16,4,4,0,6,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-SUR-0105,test,suricata,L16-SUR,lote-16,3,3,0,5,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-SUR-0106,test,suricata,L16-SUR,lote-16,2,2,0,4,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-SUR-0107,test,suricata,L16-SUR,lote-16,2,2,0,4,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-SUR-0108,test,suricata,L16-SUR,lote-16,4,4,0,6,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-SUR-0109,test,suricata,L16-SUR,lote-16,3,3,0,5,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-SUR-0110,test,suricata,L16-SUR,lote-16,3,3,0,5,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-SUR-0111,test,suricata,L16-SUR,lote-16,2,2,0,4,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+L16-SUR-0112,test,suricata,L16-SUR,lote-16,3,3,0,5,,não,perfil não portado,"especificação por episódio, como em L14-SUR"
+LAN07-coleta_de_metricas,train,linux_auth,LAN07-coleta_de_metricas,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+LAN07-rotinas_diarias,train,linux_auth,LAN07-rotinas_diarias,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+LAN07-rotinas_horarias,train,linux_auth,LAN07-rotinas_horarias,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+LAN07-verificacao_de_volume,train,linux_auth,LAN07-verificacao_de_volume,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+LH01,train,linux_auth,LH,soc-triage-v3,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+LH02,train,linux_auth,LH,soc-triage-v3,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+LH03,train,linux_auth,LH,soc-triage-v3,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+LH05,train,linux_auth,LH,soc-triage-v4,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+LH06,train,linux_auth,LH,soc-triage-v4,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+LH08,train,linux_auth,LH,soc-triage-v4,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+LH09,train,linux_auth,LH,soc-triage-v4,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+LH10,train,linux_auth,LH,lote-08,8,8,0,1,,não,perfil não portado,prosa dos lotes 03 e 04 com aceites anteriores
+LH11,train,linux_auth,LH,lote-08,8,8,0,1,,não,perfil não portado,prosa dos lotes 03 e 04 com aceites anteriores
+LSPR24-U01,test,suricata,LSPR24-U,lote-12,0,0,0,4,,não,sem linha nativa,arquivo do localizador não encontrado em data/raw ()
+MAWAP09-55F06809C8,train,apache,MAWAP,lote-12,4,4,0,6,,não,perfil não portado,mesma cadeia de classes de rota de AIT1W
+MAWAP09-8292E6E70F,train,apache,MAWAP,lote-12,3,3,0,5,,não,perfil não portado,mesma cadeia de classes de rota de AIT1W
+MAWAP09-E14F718FCE,train,apache,MAWAP,lote-12,3,3,0,4,,não,perfil não portado,mesma cadeia de classes de rota de AIT1W
+MSAS09-1d898b269107c8d1,train,linux_auth,MSAS,lote-12,0,0,0,5,,não,sem linha nativa,"registro do CSV do filebeat, sem linha do auth.log"
+MSAS09-2f87571efff36bb0,train,linux_auth,MSAS,lote-12,0,0,0,5,,não,sem linha nativa,"registro do CSV do filebeat, sem linha do auth.log"
+MSAS09-530dcaf3cd303a26,train,linux_auth,MSAS,lote-12,0,0,0,4,,não,sem linha nativa,"registro do CSV do filebeat, sem linha do auth.log"
+MSAS09-a2a7d23d78648fd2,train,linux_auth,MSAS,lote-12,0,0,0,4,,não,sem linha nativa,"registro do CSV do filebeat, sem linha do auth.log"
+MSAS09-a4afcf33f4110b76,train,linux_auth,MSAS,lote-12,0,0,0,8,,não,sem linha nativa,"registro do CSV do filebeat, sem linha do auth.log"
+OX07-02093613EB6B,train,apache,OX,lote-08,0,0,0,2,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-02348534B8C8,train,apache,OX,lote-08,0,0,0,4,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-04DEF39F98C1,train,apache,OX,lote-08,0,0,0,4,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-069392654D66,train,apache,OX,lote-08,0,0,0,3,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-07BF16AF91DE,train,apache,OX,lote-08,0,0,0,7,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-08015155301A,train,apache,OX,lote-08,0,0,0,4,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-08115B5561B5,train,apache,OX,lote-08,0,0,0,2,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-18F7033ABE92,train,apache,OX,lote-08,0,0,0,4,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-1C68AF0D0340,train,apache,OX,lote-08,0,0,0,2,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-1C9F1823E419,train,apache,OX,lote-08,0,0,0,2,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-209B02A143C0,train,apache,OX,lote-08,0,0,0,4,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-21EC3BD470DD,train,apache,OX,lote-08,0,0,0,4,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-291C7A81131C,train,apache,OX,lote-08,0,0,0,2,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-2A76F2FCF434,train,apache,OX,lote-08,0,0,0,3,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-2B3556324B1D,train,apache,OX,lote-08,0,0,0,6,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-2B912B6D8179,train,apache,OX,lote-08,0,0,0,4,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-319986750081,train,apache,OX,lote-08,0,0,0,3,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-34E767234829,train,apache,OX,lote-08,0,0,0,2,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-366495F0CBCC,train,apache,OX,lote-08,0,0,0,3,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-3D89E060ACAC,train,apache,OX,lote-08,0,0,0,2,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-408528676C9D,train,apache,OX,lote-08,0,0,0,7,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-48B44CF6D134,train,apache,OX,lote-08,0,0,0,4,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-4D4A1BF8FF1B,train,apache,OX,lote-08,0,0,0,3,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-515482210281,train,apache,OX,lote-08,0,0,0,4,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-52087930036D,train,apache,OX,lote-08,0,0,0,2,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-57284A9AEEF7,train,apache,OX,lote-08,0,0,0,2,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-6061C5B9EE18,train,apache,OX,lote-08,0,0,0,4,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-6130410CD425,train,apache,OX,lote-08,0,0,0,2,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-72B6003DA272,train,apache,OX,lote-08,0,0,0,2,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-75D76CCD339A,train,apache,OX,lote-08,0,0,0,2,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-77BCCFA57580,train,apache,OX,lote-08,0,0,0,4,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-833D7370D71F,train,apache,OX,lote-08,0,0,0,7,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-93E900427DF0,train,apache,OX,lote-08,0,0,0,4,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-A21A35EB8006,train,apache,OX,lote-08,0,0,0,2,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-A69F6F491785,train,apache,OX,lote-08,0,0,0,2,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-B0AB8A966D1C,train,apache,OX,lote-08,0,0,0,2,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-B332B2B9A9DE,train,apache,OX,lote-08,0,0,0,6,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-B372E4DF4FFC,train,apache,OX,lote-08,0,0,0,2,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-B41BBC21F1B8,train,apache,OX,lote-08,0,0,0,4,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-BB757D208F6B,train,apache,OX,lote-08,0,0,0,3,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-BC3EEA98FEE1,train,apache,OX,lote-08,0,0,0,4,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-C7E2750B6302,train,apache,OX,lote-08,0,0,0,4,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-C8262BD32BB0,train,apache,OX,lote-08,0,0,0,2,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-D00DDCAFFCD3,train,apache,OX,lote-08,0,0,0,5,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-D5A67F235FED,train,apache,OX,lote-08,0,0,0,2,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-E36F0B64361E,train,apache,OX,lote-08,0,0,0,2,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-E90DFFD7D06F,train,apache,OX,lote-08,0,0,0,4,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-EAE271106D0C,train,apache,OX,lote-08,0,0,0,2,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-EB271325CF70,train,apache,OX,lote-08,0,0,0,2,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-F43286B7998C,train,apache,OX,lote-08,0,0,0,4,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-F696415B5B76,train,apache,OX,lote-08,0,0,0,6,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-FAC5DC8A0C7D,train,apache,OX,lote-08,0,0,0,4,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-FBE2A76A5642,train,apache,OX,lote-08,0,0,0,2,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX07-FD8D3A227D44,train,apache,OX,lote-08,0,0,0,3,,não,sem linha nativa,"localizador textual, sem linha numerada"
+OX09-1B7C278A7E65,train,apache,OX,lote-12,0,0,0,5,,não,sem linha nativa,arquivo do localizador não encontrado em data/raw (organization-x/log/apache2/web-access.log.14.gz)
+OX09-29FDB717B04E,train,apache,OX,lote-12,0,0,0,5,,não,sem linha nativa,arquivo do localizador não encontrado em data/raw (organization-x/log/apache2/web-access.log.11.gz)
+OX09-3AE34E94CEBA,train,apache,OX,lote-12,0,0,0,5,,não,sem linha nativa,arquivo do localizador não encontrado em data/raw (organization-x/log/apache2/web-access.log.14.gz)
+OX09-6CFFA8A5DD23,train,apache,OX,lote-12,0,0,0,5,,não,sem linha nativa,arquivo do localizador não encontrado em data/raw (organization-x/log/apache2/web-access.log.14.gz)
+OX09-A8CB2D5FB0D5,train,apache,OX,lote-12,0,0,0,5,,não,sem linha nativa,arquivo do localizador não encontrado em data/raw (organization-x/log/apache2/web-access.log.14.gz)
+OX09-B0608460464B,train,apache,OX,lote-12,0,0,0,5,,não,sem linha nativa,arquivo do localizador não encontrado em data/raw (organization-x/log/apache2/web-access.log.14.gz)
+OX09-D8721973EC3C,train,apache,OX,lote-12,0,0,0,5,,não,sem linha nativa,arquivo do localizador não encontrado em data/raw (organization-x/log/apache2/web-access.log.7.gz)
+OX09-FFF655B3760A,train,apache,OX,lote-12,0,0,0,5,,não,sem linha nativa,arquivo do localizador não encontrado em data/raw (organization-x/log/apache2/web-access.log.14.gz)
+RIT4W10-27C62125E0D,train,suricata,RIT4W,lote-12,0,0,0,4,,não,sem linha nativa,"offset em journal.gz do Splunk, sem linha de arquivo"
+RIT4W10-3B8C4697DDF,train,suricata,RIT4W,lote-12,0,0,0,5,,não,sem linha nativa,"offset em journal.gz do Splunk, sem linha de arquivo"
+RIT4W10-69A28EFE251,train,suricata,RIT4W,lote-12,0,0,0,5,,não,sem linha nativa,"offset em journal.gz do Splunk, sem linha de arquivo"
+RIT4W10-8074E39AB7B,train,suricata,RIT4W,lote-12,0,0,0,4,,não,sem linha nativa,"offset em journal.gz do Splunk, sem linha de arquivo"
+RIT4W10-A11458932A3,train,suricata,RIT4W,lote-12,0,0,0,4,,não,sem linha nativa,"offset em journal.gz do Splunk, sem linha de arquivo"
+RIT4W10-BDDDF08ADF0,train,suricata,RIT4W,lote-12,0,0,0,4,,não,sem linha nativa,"offset em journal.gz do Splunk, sem linha de arquivo"
+RIT4W10-D8E9771DC60,train,suricata,RIT4W,lote-12,0,0,0,5,,não,sem linha nativa,"offset em journal.gz do Splunk, sem linha de arquivo"
+RIT4W10-E04FEA34D1D,train,suricata,RIT4W,lote-12,0,0,0,4,,não,sem linha nativa,"offset em journal.gz do Splunk, sem linha de arquivo"
+RIT4W10-E6E877923C6,train,suricata,RIT4W,lote-12,0,0,0,4,,não,sem linha nativa,"offset em journal.gz do Splunk, sem linha de arquivo"
+RIT4W10-E94D419B914,train,suricata,RIT4W,lote-12,0,0,0,4,,não,sem linha nativa,"offset em journal.gz do Splunk, sem linha de arquivo"
+RITW10-0D81C8F04F2,train,suricata,RITW,lote-12,0,0,0,5,,não,sem linha nativa,"registro numerado numa exportação do Splunk, sem linha de arquivo"
+RITW10-0DE3427683E,train,suricata,RITW,lote-12,0,0,0,4,,não,sem linha nativa,"registro numerado numa exportação do Splunk, sem linha de arquivo"
+RITW10-183B888ACCD,train,suricata,RITW,lote-12,0,0,0,4,,não,sem linha nativa,"registro numerado numa exportação do Splunk, sem linha de arquivo"
+RITW10-18BEB1BD961,train,suricata,RITW,lote-12,0,0,0,5,,não,sem linha nativa,"registro numerado numa exportação do Splunk, sem linha de arquivo"
+RITW10-2612AC2E157,train,suricata,RITW,lote-12,0,0,0,5,,não,sem linha nativa,"registro numerado numa exportação do Splunk, sem linha de arquivo"
+RITW10-2AD6E3EF400,train,suricata,RITW,lote-12,0,0,0,5,,não,sem linha nativa,"registro numerado numa exportação do Splunk, sem linha de arquivo"
+RITW10-487E0CE45E4,train,suricata,RITW,lote-12,0,0,0,5,,não,sem linha nativa,"registro numerado numa exportação do Splunk, sem linha de arquivo"
+RITW10-48BD58984D5,train,suricata,RITW,lote-12,0,0,0,5,,não,sem linha nativa,"registro numerado numa exportação do Splunk, sem linha de arquivo"
+RITW10-5BE42740CE5,train,suricata,RITW,lote-12,0,0,0,4,,não,sem linha nativa,"registro numerado numa exportação do Splunk, sem linha de arquivo"
+RITW10-7F5BE68C6AD,train,suricata,RITW,lote-12,0,0,0,4,,não,sem linha nativa,"registro numerado numa exportação do Splunk, sem linha de arquivo"
+RITW10-80210415258,train,suricata,RITW,lote-12,0,0,0,5,,não,sem linha nativa,"registro numerado numa exportação do Splunk, sem linha de arquivo"
+RITW10-871439C363B,train,suricata,RITW,lote-12,0,0,0,5,,não,sem linha nativa,"registro numerado numa exportação do Splunk, sem linha de arquivo"
+RITW10-87666E35738,train,suricata,RITW,lote-12,0,0,0,5,,não,sem linha nativa,"registro numerado numa exportação do Splunk, sem linha de arquivo"
+RITW10-87FB84959E9,train,suricata,RITW,lote-12,0,0,0,5,,não,sem linha nativa,"registro numerado numa exportação do Splunk, sem linha de arquivo"
+RITW10-9CE7C022F49,train,suricata,RITW,lote-12,0,0,0,5,,não,sem linha nativa,"registro numerado numa exportação do Splunk, sem linha de arquivo"
+RITW10-CD9D48B4CE8,train,suricata,RITW,lote-12,0,0,0,5,,não,sem linha nativa,"registro numerado numa exportação do Splunk, sem linha de arquivo"
+RITW10-CE83BFE4375,train,suricata,RITW,lote-12,0,0,0,5,,não,sem linha nativa,"registro numerado numa exportação do Splunk, sem linha de arquivo"
+RITW10-F566B39FA2E,train,suricata,RITW,lote-12,0,0,0,5,,não,sem linha nativa,"registro numerado numa exportação do Splunk, sem linha de arquivo"
+RMX02,train,linux_auth,RMX,lote-08,7,7,0,1,,não,perfil não portado,
+RMX04,train,linux_auth,RMX,lote-08,8,8,0,1,,não,perfil não portado,
+RMX05,train,apache,RMX,lote-08,8,8,0,1,,não,perfil não portado,
+RTA09-409CFD98364E,train,apache,RTA,lote-12,4,4,0,5,,não,perfil não portado,mesma cadeia de classes de rota de AIT1W
+RTA09-F23456A5EBC2,train,apache,RTA,lote-12,3,3,0,4,,não,perfil não portado,mesma cadeia de classes de rota de AIT1W
+SG01,valid,linux_auth,SG,soc-triage-v3,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+SG02,valid,linux_auth,SG,soc-triage-v3,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+SG03,valid,linux_auth,SG,soc-triage-v3,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+SG04,valid,linux_auth,SG,soc-triage-v3,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+SG06,valid,linux_auth,SG,soc-triage-v4,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+SG07,valid,linux_auth,SG,soc-triage-v4,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+SG08,valid,linux_auth,SG,soc-triage-v4,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+SG09,valid,linux_auth,SG,soc-triage-v4,0,0,0,1,,não,sem linha nativa,lote sem localizador nativo
+SG10,valid,linux_auth,SG,lote-08,0,0,0,1,,não,sem linha nativa,"evento em banco SQLite, sem linha de arquivo"
+SG11,valid,linux_auth,SG,lote-08,0,0,0,1,,não,sem linha nativa,"evento em banco SQLite, sem linha de arquivo"
+SG13,valid,linux_auth,SG,lote-08,0,0,0,1,,não,sem linha nativa,"evento em banco SQLite, sem linha de arquivo"
+SMLD-09ae7d75c70bdb,valid,suricata,SMLD,lote-12,2,0,0,4,,não,perfil não portado,classes semânticas de recurso e pseudônimos do lote 12
+SMLD-317789c6988416,valid,suricata,SMLD,lote-12,2,0,0,4,,não,perfil não portado,classes semânticas de recurso e pseudônimos do lote 12
+SMLD-58c9d57a84747d,valid,suricata,SMLD,lote-12,25,0,0,5,,não,perfil não portado,classes semânticas de recurso e pseudônimos do lote 12
+SMLD-a089af2106c2aa,valid,suricata,SMLD,lote-12,1,0,0,3,,não,perfil não portado,classes semânticas de recurso e pseudônimos do lote 12
+SMLD-bfcf3a40991822,valid,suricata,SMLD,lote-12,25,0,0,5,,não,perfil não portado,classes semânticas de recurso e pseudônimos do lote 12
+VNL10-DNS-REFUSED,test,suricata,VNL10-DNS-REFUSED,lote-12,6,6,0,7,,não,perfil não portado,
+WF03,train,linux_auth,WF,lote-08,0,0,0,7,,não,sem linha nativa,"localizador textual, sem linha numerada"
+WF09-20f2f2711cd66927,train,apache,WF,lote-12,0,0,0,5,,não,sem linha nativa,"artefato em parquet, sem linha de arquivo"
+WFX03,train,linux_auth,WFX,lote-08,0,0,0,3,,não,sem linha nativa,"localizador textual, sem linha numerada"
+WFX04,train,linux_auth,WFX,lote-08,0,0,0,3,,não,sem linha nativa,"localizador textual, sem linha numerada"
+cc19-0d05c40890a11261,train,linux_auth,cc,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+cc19-180f3cb96ffd5d5e,train,linux_auth,cc,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+cc19-7248b8750eb8751a,train,linux_auth,cc,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+cc19-792614dc00c9e926,train,linux_auth,cc,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+cc19-84c8ada5cd18da3c,train,linux_auth,cc,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+cc19-9ab2118a4e6f8f9a,train,linux_auth,cc,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+cc19-a87d437118690b1e,train,linux_auth,cc,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+cc19-a959ad19b9cfaad5,train,linux_auth,cc,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+cc19-c60b987558095ccc,train,linux_auth,cc,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+cc19-e0344bf600d35e68,train,linux_auth,cc,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+cc19-e370ded6b7bee2b8,train,linux_auth,cc,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+cc19-e5cd4c69415dd644,train,linux_auth,cc,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+cc19-ea11fbaa53dec056,train,linux_auth,cc,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+cc19-eed70938901ee0d8,train,linux_auth,cc,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+sg41-00b837d50b4c5168,valid,linux_auth,sg,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+sg41-5860b7361b4db99c,valid,linux_auth,sg,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+sg41-73a35f794d02b763,valid,linux_auth,sg,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+sg41-989a0a121e7f7bf8,valid,linux_auth,sg,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+sg41-base-7869a35cfedaeda2,valid,linux_auth,sg41-base,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+sg41-base-7e82a80449e6f120,valid,linux_auth,sg41-base,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+sg41-base-87023e7191858223,valid,linux_auth,sg41-base,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+sg41-base-88756f2aabdde5ba,valid,linux_auth,sg41-base,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+sg41-base-98aa8d1a005f20bf,valid,linux_auth,sg41-base,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+sg41-f08407f0dd06824c,valid,linux_auth,sg,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
+sg41-f60680821c7ed842,valid,linux_auth,sg,lote-08,0,0,0,1,,não,sem linha nativa,"localizador textual, sem linha numerada"
