@@ -130,3 +130,16 @@ Mais tarde no mesmo dia, o responsável mudou três pontos da emenda anterior:
   smoke runs antigos do MLX deixam de ser comparáveis com as rodadas novas.
 - O uso do Gemini está no ADR 0010, e a publicação no Hugging Face está no ADR 0011.
 
+## Emenda 4 de 26/11/2026: o algoritmo é o DAPO
+
+O responsável escolheu o DAPO, que a decisão original deixava como alternativa ao Dr. GRPO. O
+DAPO roda no `GRPOTrainer` do TRL 1.19.0, que já implementa:
+
+- a loss por token (`loss_type="dapo"`);
+- o corte assimétrico, com `epsilon_high` de 0,28;
+- a exclusão das respostas cortadas da loss (`mask_truncated_completions`);
+- a ausência de KL (`beta` 0).
+
+O TRL não repõe os grupos sem variância, como faz a amostragem dinâmica do artigo do DAPO. Esses
+grupos não contribuem para o gradiente, e a fração deles é registrada em cada passo.
+

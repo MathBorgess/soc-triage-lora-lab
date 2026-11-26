@@ -1,6 +1,6 @@
 """Teste de encaixe do Guardião numa GPU do Colab.
 
-Mede se o Gemma 4 E4B cabe na GPU durante alguns passos de GRPO, em quatro montagens:
+Mede se o Gemma 4 E4B cabe na GPU durante alguns passos de RL com DAPO, em quatro montagens:
 
 - ``bf16-vllm``: treino em 16 bits e geração com vLLM na mesma GPU (modo colocate);
 - ``4bit-vllm``: treino com a base em 4 bits (NF4) e geração com vLLM;
@@ -207,7 +207,9 @@ def executar(args: argparse.Namespace) -> dict:
         report_to="none",
         save_strategy="no",
         seed=42,
-        loss_type="dr_grpo",
+        loss_type="dapo",
+        epsilon_high=0.28,
+        mask_truncated_completions=True,
         beta=0.0,
         chat_template_kwargs={"enable_thinking": False},
         use_vllm=usa_vllm,
