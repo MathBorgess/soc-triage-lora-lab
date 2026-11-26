@@ -70,10 +70,26 @@ colab upload -s "$SESSAO" "$AQUI/02_encaixe_na_vm.sh" /content/02_encaixe_na_vm.
 colab upload -s "$SESSAO" "$AQUI/$REQUISITOS" /content/requirements.txt
 colab upload -s "$SESSAO" "$PROMPTS" /content/prompts.jsonl
 
-log "iniciando o trabalho desacoplado na VM"
-executar "!setsid nohup bash /content/02_encaixe_na_vm.sh '$MODOS' $PRECISAO $VLLM_MEM '$EXTRA' > /content/vm.log 2>&1 < /dev/null &"
+# O disparo também pode perder a conexão. Confirma que o trabalho começou e tenta até 3 vezes;
+# a trava em 02_encaixe_na_vm.sh impede que ele rode duas vezes.
+iniciado=0
+for tentativa in 1 2 3; do
+  log "iniciando o trabalho desacoplado na VM (tentativa $tentativa)"
+  executar "!setsid nohup bash /content/02_encaixe_na_vm.sh '$MODOS' $PRECISAO $VLLM_MEM '$EXTRA' > /content/vm.log 2>&1 < /dev/null &" \
+    || log "o disparo perdeu a conexão"
+  sleep 20
+  if executar "!test -d /content/.iniciado && echo INICIADO" 2>&1 | grep -q INICIADO; then
+    iniciado=1
+    break
+  fi
+done
+if [ "$iniciado" != "1" ]; then
+  log "o trabalho não iniciou na VM"
+  exit 3
+fi
 
 falhas=0
+sem_estado=0
 for _ in $(seq 1 "$MAX_CONSULTAS"); do
   sleep 60
   if ! estado=$(executar "!tail -n 2 /content/estado.txt; free -m | sed -n 2p; nvidia-smi --query-gpu=memory.used --format=csv,noheader" 2>&1); then
@@ -84,6 +100,16 @@ for _ in $(seq 1 "$MAX_CONSULTAS"); do
   fi
   falhas=0
   log "$(echo "$estado" | tr '\n' ' ' | cut -c1-300)" | tee -a "$SAIDA/progresso.txt"
+  case "$estado" in
+    *"No such file"*)
+      sem_estado=$((sem_estado + 1))
+      if [ "$sem_estado" -ge 3 ]; then
+        log "sem andamento na VM; abortando"
+        break
+      fi
+      ;;
+    *) sem_estado=0 ;;
+  esac
   case "$estado" in *FIM*) break ;; esac
 done
 log "fim das consultas"

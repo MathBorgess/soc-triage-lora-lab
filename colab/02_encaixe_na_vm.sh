@@ -13,6 +13,11 @@ REVISAO="4ecc2ba63bcac23ba4a767fc87025b1450f84c9c"
 
 estado() { printf '%s %s\n' "$(date -u +%H:%M:%S)" "$*" >> /content/estado.txt; }
 
+# Trava: um segundo disparo não roda o trabalho de novo.
+if ! mkdir /content/.iniciado 2> /dev/null; then
+  exit 0
+fi
+
 estado "instalando"
 nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv > /content/gpu.txt 2>&1
 free -m >> /content/gpu.txt
