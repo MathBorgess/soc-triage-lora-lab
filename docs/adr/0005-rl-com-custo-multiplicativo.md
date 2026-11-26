@@ -117,3 +117,13 @@ Mais tarde no mesmo dia, o responsável mudou três pontos da emenda anterior:
   API paga exige conta de faturamento e pré-pagamento mínimo de US$ 5 (H-20). O uso exato fica
   registrado em ADR próprio.
 
+## Emenda 3 de 26/11/2026: A100 nos testes e ablação no Colab
+
+- As duas tentativas de alocar uma L4 receberam "503 Service Unavailable". O responsável decidiu
+  seguir os testes na A100 40 GB enquanto a L4 estiver indisponível. A L4 continua sendo a padrão
+  quando voltar e quando o modelo couber.
+- A matriz de ablação também passa para o Colab, com PEFT. O 4-bit passa a ser o NF4 do
+  `bitsandbytes`, e o PiSSA vem do PEFT. O MLX fica para smoke tests e inferência local, e os
+  smoke runs antigos do MLX deixam de ser comparáveis com as rodadas novas.
+- O uso do Gemini está no ADR 0010, e a publicação no Hugging Face está no ADR 0011.
+
