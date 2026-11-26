@@ -103,11 +103,11 @@ def recompensa_json(completions, **_kwargs) -> list[float]:
 
 
 def recompensa_variada(completions, **_kwargs) -> list[float]:
-    """JSON válido vale mais quanto mais perto de 180 caracteres. Força variância no grupo."""
+    """JSON válido vale mais quanto mais perto de 500 caracteres. Força variância no grupo."""
     notas = []
     for completion, valido in zip(completions, recompensa_json(completions), strict=True):
         texto = completion[-1]["content"] if isinstance(completion, list) else completion
-        notas.append(valido * (1.0 - min(1.0, abs(len(texto) - 180) / 180)))
+        notas.append(valido * (1.0 - min(1.0, abs(len(texto) - 500) / 500)))
     return notas
 
 

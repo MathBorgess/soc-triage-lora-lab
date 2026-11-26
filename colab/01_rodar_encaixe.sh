@@ -27,7 +27,8 @@ AQUI="$(cd "$(dirname "$0")" && pwd)"
 
 mkdir -p "$SAIDA"
 log() { printf '[%s] %s\n' "$(date -u +%H:%M:%S)" "$*"; }
-executar() { echo "$1" | colab exec -s "$SESSAO" --timeout 120; }
+# O timeout local cobre também uma conexão que trava sem cair.
+executar() { echo "$1" | timeout 150 colab exec -s "$SESSAO" --timeout 120; }
 
 baixar_resultados() {
   for arquivo in estado.txt gpu.txt instalacao.log download.log vm.log; do
