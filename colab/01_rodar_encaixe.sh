@@ -53,7 +53,7 @@ colab usage | tee "$SAIDA/usage-antes.txt"
 log "alocando $GPU"
 FORMATO=()
 [ "$HIGH_MEM" = "1" ] && FORMATO=(--high-mem)
-if ! timeout 600 colab new -s "$SESSAO" --gpu "$GPU" "${FORMATO[@]}"; then
+if ! timeout 600 colab new -s "$SESSAO" --gpu "$GPU" ${FORMATO[@]+"${FORMATO[@]}"}; then
   log "falha ao alocar $GPU"
   colab sessions | tee "$SAIDA/sessoes-depois.txt"
   exit 2
