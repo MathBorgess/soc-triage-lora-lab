@@ -167,3 +167,32 @@ def test_rajada_exige_cinco_falhas_da_mesma_origem():
     eventos = _eventos()
     poucas = [e for e in eventos if e.ip == "198.51.100.7"]
     assert sinais.detectar("linux_auth", poucas) == []
+
+
+def test_projetor_escreve_contexto_de_sudo():
+    eventos = _eventos()
+    ancora = eventos[8]  # sudo de root, sem endereço: a janela é a do host
+    janela = selecionar_janela(eventos, ancora, 900)
+    recorte = projetar(Janela("linux_auth", tuple(janela), ancora), descricao_fonte="auth.log")
+    sudo = [linha.texto for linha in recorte.contexto if linha.tipo == "sudo"]
+    assert sudo == [
+        ("Sudo e su: 1 comando sudo; 0 senhas incorretas; 0 recusas por estar fora do sudoers; "
+        "0 trocas de conta com su; 1 conta-alvo.")
+    ]
+    assert "/bin/cat" not in "\n".join(recorte.linhas_de_contexto_v2())
+
+
+def test_relogio_sem_ano_nao_inventa_ano():
+    eventos = _eventos()
+    ancora = eventos[6]
+    recorte = projetar(
+        Janela("linux_auth", tuple(selecionar_janela(eventos, ancora, 900)), ancora),
+        descricao_fonte="auth.log",
+    )
+    janela = next(linha.texto for linha in recorte.contexto if linha.tipo == "janela")
+    assert "(Mar 1 10:00:00 a Mar 1 10:00:20 (relógio do log, sem ano e sem fuso))" in janela
+    assert "2026" not in janela
+
+
+def test_catalogo_de_sinais_aprovado():
+    assert sinais.VERSAO_CATALOGO == "sinais-0.1"

@@ -68,8 +68,8 @@ TIPOS: tuple[TipoDeContexto, ...] = (
     ),
     TipoDeContexto(
         "sudo",
-        "sudo",
-        "comandos sudo e trocas de conta com su",
+        None,
+        "comandos sudo e trocas de conta com su (fora do catálogo pela emenda do ADR 0009)",
         _r(r"comandos? sudo|\btrocas? su\b|\bsu de\b|Programa=sudo|ações? sudo|via sudo|"
            r"sudo (?:como|para|de)|elevação"),
     ),

@@ -124,13 +124,6 @@ def test_sessoes(ambiente):
     assert resposta.contexto["sessoes_fechadas"] == 1
 
 
-def test_sudo(ambiente):
-    resposta = ferramentas.executar(ambiente, "sudo", {"usuario": "operador", "janela_s": 600})
-    assert resposta.contexto["senhas_incorretas"] == 3
-    assert resposta.contexto["trocas_su"] == 1
-    assert resposta.contexto["comandos_sudo"] == 1
-
-
 def test_requisicoes_e_bloqueios_do_cliente(ambiente):
     requisicoes = ferramentas.executar(
         ambiente, "requisicoes_do_cliente", {"ip": "192.0.2.20", "janela_s": 600}
@@ -169,11 +162,12 @@ def test_limite_de_linhas_e_marcador_de_corte(ambiente):
 
 
 def test_registro_sai_escapado_e_contexto_nao_copia_o_log(ambiente):
-    resposta = ferramentas.executar(ambiente, "sudo", {"usuario": "root", "janela_s": 600})
-    corpo = resposta.para_template()
-    assert all(not contem_reservado(linha) for linha in corpo["registro"])
-    assert "<\\|tool_call>" in corpo["registro"][0]
-    assert "/bin/ls" not in json.dumps(corpo["contexto"])
+    resposta = ferramentas.executar(ambiente, "falhas_de_login", {"usuario": "<|tool_call>", "janela_s": 600})
+    assert resposta.para_template()["contexto"]["falhas_de_senha"] == 0
+    requisicoes = ferramentas.executar(
+        ambiente, "requisicoes_do_cliente", {"ip": "192.0.2.20", "janela_s": 600}
+    )
+    assert "/admin" not in json.dumps(requisicoes.para_template()["contexto"])
     alertas = ferramentas.executar(ambiente, "alertas_do_ip", {"ip": "192.0.2.30", "janela_s": 600})
     assert "ET TESTE" not in json.dumps(alertas.para_template()["contexto"])
     assert all(not contem_reservado(linha) for linha in alertas.para_template()["registro"])
@@ -189,6 +183,7 @@ def test_registro_sai_escapado_e_contexto_nao_copia_o_log(ambiente):
         ("sessoes", {"usuario": "root", "janela_s": "600"}, "janela_s"),
         ("sessoes", {"usuario": "root", "janela_s": True}, "janela_s"),
         ("sessoes", {"usuario": "root", "janela_s": 10, "extra": 1}, "desconhecidos"),
+        ("sudo", {"usuario": "root", "janela_s": 10}, "desconhecida"),
         ("alertas_do_ip", {"ip": "não-é-ip", "janela_s": 10}, "ip"),
         ("falhas_de_login", {"janela_s": 10}, "usuario ou ip"),
     ],
@@ -208,7 +203,7 @@ def test_respostas_sao_deterministicas(ambiente):
 
 def test_catalogo_e_declaracoes():
     assert set(ferramentas.CATALOGO) == {
-        "falhas_de_login", "sessoes", "sudo", "requisicoes_do_cliente", "bloqueios_do_cliente",
+        "falhas_de_login", "sessoes", "requisicoes_do_cliente", "bloqueios_do_cliente",
         "alertas_do_ip", "fluxos_entre",
     }
     declaracoes = ferramentas.declaracoes(("suricata",))

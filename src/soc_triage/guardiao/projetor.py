@@ -43,9 +43,12 @@ def formatar_duracao(segundos: float) -> str:
     return f"{horas} h {minutos} min" if minutos else f"{horas} h"
 
 
-def formatar_instante(instante: datetime | None) -> str:
+def formatar_instante(instante: datetime | None, sem_ano: bool = False) -> str:
+    """Horário em UTC. Num relógio sem ano nem fuso (syslog BSD), repete o relógio do log."""
     if instante is None:
         return "sem horário"
+    if sem_ano:
+        return f"{instante:%b} {instante.day} {instante:%H:%M:%S}"
     return instante.astimezone(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
@@ -162,6 +165,23 @@ def _resumo_suricata(eventos: list[Evento]) -> str:
     )
 
 
+def resumo_sudo(eventos: list[Evento]) -> str:
+    """Contexto de sudo e su, escrito pelo Projetor desde a emenda do ADR 0009."""
+    sudo = [e for e in eventos if e.tipo == "sudo"]
+    comandos = sum(1 for e in sudo if e.get("comando") is not None)
+    senhas = sum(int(e.get("falhas") or 0) for e in sudo)
+    negados = sum(1 for e in sudo if e.get("negado"))
+    trocas = sum(1 for e in eventos if e.tipo == "su")
+    alvos = {e.get("alvo") for e in eventos if e.tipo in ("sudo", "su") and e.get("alvo")}
+    return (
+        f"Sudo e su: {plural(comandos, 'comando sudo', 'comandos sudo')}; "
+        f"{plural(senhas, 'senha incorreta', 'senhas incorretas')}; "
+        f"{plural(negados, 'recusa', 'recusas')} por estar fora do sudoers; "
+        f"{plural(trocas, 'troca', 'trocas')} de conta com su; "
+        f"{plural(len(alvos), 'conta-alvo', 'contas-alvo distintas')}."
+    )
+
+
 RESUMOS = {
     "linux_auth": _resumo_linux_auth,
     "apache": _resumo_apache,
@@ -206,15 +226,20 @@ def projetar(
 
     inicio, fim = eventos[0].instante, janela.ancora.instante
     duracao = (fim - inicio).total_seconds() if inicio and fim else 0
+    sem_ano = bool(janela.ancora.get("sem_ano"))
+    relogio = " (relógio do log, sem ano e sem fuso)" if sem_ano else ""
     linhas: list[Linha] = [
         contexto(f"Modalidade {modalidade} | {descricao_fonte}", "cabecalho"),
         contexto(
-            f"Janela: {formatar_duracao(duracao)} até a âncora ({formatar_instante(inicio)} a "
-            f"{formatar_instante(fim)}); {plural(len(eventos), 'evento', 'eventos')} da mesma origem.",
+            f"Janela: {formatar_duracao(duracao)} até a âncora ({formatar_instante(inicio, sem_ano)} a "
+            f"{formatar_instante(fim, sem_ano)}{relogio}); "
+            f"{plural(len(eventos), 'evento', 'eventos')} da mesma origem.",
             "janela",
         ),
         contexto(RESUMOS[modalidade](eventos), "contagens"),
     ]
+    if modalidade == "linux_auth" and any(e.tipo in ("sudo", "su") for e in eventos):
+        linhas.append(contexto(resumo_sudo(eventos), "sudo"))
     linhas += [contexto(texto, "curadoria") for texto in contexto_curado]
     linhas.append(contexto("Âncora: última linha do Registro.", "ancora"))
     posicao = {id(evento): indice for indice, evento in enumerate(mostrados)}

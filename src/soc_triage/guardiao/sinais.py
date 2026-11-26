@@ -3,8 +3,8 @@
 Um Sinal não cria Alerta. Ele só exige que um Rebaixamento cite Evidência do Contexto. A
 descrição de cada regra é fixa e nunca copia texto do log.
 
-O catálogo é uma proposta (``VERSAO_CATALOGO``) e precisa de aprovação do responsável pelo
-estudo, como diz a seção "Pontos em aberto" da arquitetura.
+O catálogo ``sinais-0.1`` foi aprovado pelo responsável pelo estudo em 26/11/2026 (ADR 0012). Os
+limiares são revistos depois de medir a taxa de cada Sinal na v12 reprojetada.
 """
 
 from __future__ import annotations
@@ -16,7 +16,7 @@ from urllib.parse import unquote_plus
 
 from .eventos import Evento
 
-VERSAO_CATALOGO = "sinais-0.1-proposta"
+VERSAO_CATALOGO = "sinais-0.1"
 
 TIPOS_DE_FALHA_SSH = frozenset({"falha_de_senha", "usuario_invalido", "excesso_de_tentativas", "falha_pam"})
 RAJADA_MINIMA = 5

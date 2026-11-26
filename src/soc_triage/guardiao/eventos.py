@@ -171,6 +171,7 @@ def ler_auth(texto: str, fonte: str, linha: int, relogio: RelogioSyslog | None) 
         "programa": achado["programa"],
         "pid": achado["pid"],
         "relogio": texto[: achado.start("host") - 1],
+        "sem_ano": bool(bsd),
     }
     mensagem = achado["mensagem"]
     tipo = "outro"
