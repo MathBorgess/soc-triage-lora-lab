@@ -103,8 +103,10 @@ executável [E, lacuna 2]:
 - **ALERT-BENCH** tem o desenho certo: alertas Wazuh do AIT-LDSv2 com rótulo por alerta,
   ferramentas parametrizadas e somente-leitura. Os dados não foram liberados, mas são
   reconstruíveis com o AIT-ADS e o AIT-LDSv2, que já estão em `data/raw`. Há risco de
-  contaminação: os cenários russellmitchell e wardbeck parecem estar na linhagem do treino da
-  v12. Santos e harrison estão reservados para avaliação.
+  contaminação: os cenários russellmitchell e wardbeck estão no treino da v12, que é onde o
+  AIDA foi avaliado. **Correção de 26/11/2026:** nenhum cenário está livre. O `validacao.json`
+  da v12 põe fox, russellmitchell, wardbeck, wheeler e wilson no treino, santos e shaw na
+  validação e harrison no teste (ADR 0007).
 - **ExCyTIn-Bench** (ICML 2026, código MIT) é executável, mas é QA só de ataque, sem benignos, com
   juiz GPT-4o e licença de dados conflitante. Serve só para testar se a política de consulta
   generaliza.
@@ -147,7 +149,7 @@ executável [E, lacuna 2]:
 | Fronteira | Uma política condicionada ao peso de custo no prompt, com 2 ou 3 políticas fixas para conferir | F-16 |
 | Algoritmo | Dr. GRPO ou DAPO, máscara das respostas de ferramenta, filtro de grupos sem variância, KL pequeno como ablação | F-3, F-4, F-8, F-12 |
 | Stack | MLX para ambiente, recompensas, SFT e piloto; GRPO multi-turno no Colab L4 com TRL | F, infraestrutura |
-| Ambientes | Ambiente de treino da v12 mais uma reconstrução do ALERT-BENCH sobre AIT-ADS e AIT-LDSv2, com santos e harrison na avaliação; ExCyTIn opcional | E-1, E-23, E-27 |
+| Ambientes | Ambiente de treino da v12 mais uma reconstrução do ALERT-BENCH sobre AIT-ADS e AIT-LDSv2, seguindo os splits da v12: harrison na avaliação, santos e shaw na seleção (ADR 0007); ExCyTIn opcional | E-1, E-23, E-27, `validacao.json` |
 | Baselines | Guardião sem ferramentas, Direct-Prompt com 3 chamadas, controlador externo estilo HESP, regras ou TF-IDF, controle com recompensa embaralhada | E-12, F-7 |
 | Calibração | Manter o enum de risco e medir a calibração na validação; calibrador separado fica fora do escopo | E-2, E-20 |
 | Diário | Cadeia de hash com checkpoints assinados; taxa de detecção de adulteração e TARr@N | G-14, G-15 |

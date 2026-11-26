@@ -92,7 +92,7 @@ Relato não-Alerta para um Recorte com Sinal. Só vale quando alguma Evidência 
 _Avoid_: downgrade, supressão
 
 **Diário de inferências**:
-Histórico append-only do Runtime agêntico, com uma linha por Recorte, que liga o Recorte, o Sinal, o adaptador, o Relato, a regra aplicada e a decisão humana.
+Histórico append-only e à prova de adulteração do Runtime agêntico, com uma linha por Recorte, que liga o Recorte, o Sinal, o adaptador, o Relato, a regra aplicada e a decisão humana.
 _Avoid_: registro, log de inferência, ledger
 
 **Reexecução**:
@@ -102,6 +102,14 @@ _Avoid_: replay, reprodução
 **Remessa**:
 O que o Runtime agêntico envia ao SOC por Recorte: o Relato, as chamadas de ferramenta com o hash de cada resposta, a linha do Diário, os hashes do Recorte e do adaptador e a Proposta de contenção, quando houver. O Recorte completo fica na máquina.
 _Avoid_: payload, telemetria, evento, log enviado
+
+**Fila de confirmação**:
+Lista no SOC com os Relatos não-Alerta, que o analista confirma em lote. Nenhum Relato fecha sem passar por ela ou por revisão humana.
+_Avoid_: fechamento automático, auto-close, descarte
+
+**Peso de custo**:
+Número que o Runtime agêntico passa ao Guardião e que diz quanto pesa o custo de investigar frente ao custo de errar.
+_Avoid_: orçamento, lambda, budget
 
 **Proposta de contenção**:
 Ação que o Runtime agêntico deriva de um Relato por regras determinísticas e versionadas. Só vale depois da aprovação humana.
@@ -138,8 +146,28 @@ Reprodução de data/raw que responde às Ferramentas de leitura durante o trein
 _Avoid_: SIEM simulado, sandbox, replay
 
 **Carga no analista**:
-Trabalho que o Guardião deixa para o SOC: Relatos que exigem decisão humana, falsos positivos que chegam ao analista e o material que ele precisa ler para decidir. É o resultado principal do estudo, medido com os malicious perdidos como restrição.
-_Avoid_: fadiga de alertas (sintoma, não medida), workload
+Trabalho que o Guardião deixa para o SOC: Relatos que exigem decisão humana, a Fila de confirmação, falsos positivos que chegam ao analista e o material que ele precisa ler para decidir. É o resultado principal do estudo, medido com os malicious perdidos como restrição.
+_Avoid_: fadiga de alertas (sintoma, não medida), workload, carga cognitiva (só com Estudo com analistas)
+
+**Estudo com analistas**:
+Experimento aprovado pelo CEP em que analistas de SOC triam Recortes com e sem Relato, para medir carga cognitiva, tempo e confiança indevida no Guardião.
+_Avoid_: teste de usabilidade, avaliação humana
+
+**Erro plantado**:
+Relato errado de propósito, inserido no Estudo com analistas para medir se o analista o aceita sem conferir. Há Erros plantados nos dois sentidos: Alerta perdido e Falso positivo.
+_Avoid_: pegadinha, caso armadilha
+
+**Matriz de custo**:
+Tabela pré-registrada com o custo de cada par de Veredito de referência e Veredito do Relato. Perder um malicious é o erro mais caro.
+_Avoid_: pesos da recompensa
+
+**Chamada desnecessária**:
+Chamada de Ferramenta de leitura duplicada, inválida, fora da janela permitida ou além do mínimo de chamadas visto entre os Relatos corretos do mesmo Recorte.
+_Avoid_: chamada redundante, desperdício
+
+**Comparador**:
+Sistema que o Guardião treinado por RL precisa superar com o mesmo custo de investigação, como o próprio Guardião sem ferramentas.
+_Avoid_: baseline (reservado ao Run 0), linha de base
 
 **Suíte adversarial**:
 Conjunto de avaliação separado dos splits, com injeções de prompt no Registro de Recortes reais, em moldes que o treino não contém. Mede injeções que rebaixam e que inflam Alertas. É um teste de regressão, não uma prova de robustez.

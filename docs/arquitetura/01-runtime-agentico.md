@@ -1,12 +1,15 @@
 # Arquitetura do Runtime agêntico
 
-> Rascunho de desenho, atualizado em 25/11/2026. Descreve o sistema que executa o Guardião na
+> Rascunho de desenho, atualizado em 26/11/2026. Descreve o sistema que executa o Guardião na
 > máquina monitorada. O Runtime ainda não existe: hoje ele é este documento, e vira código
 > depois. Os termos seguem o [GLOSSARY.md](../../GLOSSARY.md). As decisões estão nos ADRs
 > [0001](../adr/0001-guardiao-contrato-v2-sobre-recortes.md),
 > [0002](../adr/0002-opensec-por-familia-e-teste-real.md),
-> [0003](../adr/0003-defesa-contra-injecao-no-runtime.md) e
-> [0004](../adr/0004-guardiao-com-ferramentas-local.md).
+> [0003](../adr/0003-defesa-contra-injecao-no-runtime.md),
+> [0004](../adr/0004-guardiao-com-ferramentas-local.md),
+> [0005](../adr/0005-rl-com-custo-multiplicativo.md),
+> [0006](../adr/0006-nenhum-relato-fecha-sozinho.md) e
+> [0007](../adr/0007-ambiente-ait-segue-os-splits-da-v12.md).
 
 ## Objetivo
 
@@ -96,9 +99,11 @@ Regras de todas as ferramentas:
   roda em CPU com llama.cpp, que já suporta o Gemma 4. Com PiSSA, a fusão parte do modelo
   residual.
 - A inferência usa `enable_thinking=false` e temperatura 0.
+- O Runtime passa ao Guardião o Peso de custo, como no treino (ADR 0005).
 - O E4B tem 4,5B de parâmetros efetivos, ou 8B com embeddings. O E2B, com 2,3B efetivos ou 5,1B
   com embeddings, é o plano B se o E4B estourar o orçamento de latência.
-- O treino roda no MLX, no Mac, e no Colab.
+- O SFT e o piloto de turno único rodam no MLX, no Mac. O RL com várias chamadas por episódio
+  roda no Colab L4, com TRL e vLLM (ADR 0005).
 
 ### Validador
 
@@ -120,11 +125,13 @@ As regras são versionadas e só leem campos estruturados. O rationale nunca dis
 | Relato com Alerta | Gera a Proposta de contenção por regra e a anexa à Remessa |
 | Recorte com Sinal e Relato não-Alerta | Rebaixamento: só vale com Evidência no Contexto, incluindo campos calculados pelas ferramentas. Sem isso, o caso vai para revisão humana |
 | Recorte incompleto e Relato não-Alerta | Revisão humana; nunca fecha sozinho |
-| Demais Relatos não-Alerta | Ver "Pontos em aberto" |
+| Demais Relatos não-Alerta | Fila de confirmação no SOC, confirmada em lote. Nunca fecha sozinho (ADR 0006) |
 
 ### Diário de inferências
 
-O Diário é append-only, com uma linha por Recorte. Cada linha guarda:
+O Diário é append-only, com uma linha por Recorte. Cada linha guarda o hash da linha anterior,
+formando uma cadeia. Em intervalos fixos, o Runtime assina um checkpoint com o hash da última
+linha. Uma linha alterada ou apagada quebra a cadeia a partir dela. Cada linha guarda:
 
 - o hash do Recorte e os Sinais;
 - o hash do adaptador e da Liberação;
@@ -137,6 +144,9 @@ O Diário é append-only, com uma linha por Recorte. Cada linha guarda:
 O Recorte completo e as respostas brutas ficam na máquina por 30 dias, valor configurável. Esse
 material permite a Reexecução: rodar de novo com a mesma build, temperatura 0 e as mesmas
 threads, e conferir se o Relato se repete byte a byte.
+
+Uma árvore de Merkle, que provaria a inclusão de uma linha sem mostrar as outras, fica como
+trabalho futuro.
 
 ## O que sai da máquina
 
@@ -183,8 +193,8 @@ Os malicious perdidos são uma restrição em todas as medidas.
 
 | Eixo | Métrica |
 | --- | --- |
-| Carga no analista | Relatos que exigem humano a cada 1.000 Recortes; falsos positivos que chegam ao SOC por dia numa prevalência declarada; tamanho do Relato com Evidência comparado com o Recorte bruto |
-| Auditabilidade e supervisão | % de Relatos reproduzidos byte a byte na Reexecução; % de Evidência verificável literalmente; aprovação humana registrada em toda contenção |
+| Carga no analista | Relatos que exigem humano a cada 1.000 Recortes; tamanho e tempo de confirmação da Fila de confirmação; falsos positivos que chegam ao SOC por dia numa prevalência declarada; tamanho do Relato com Evidência comparado com o Recorte bruto. Com aprovação do CEP, também NASA-TLX ou RTLX, tempo por Recorte e Erros plantados aceitos no Estudo com analistas |
+| Auditabilidade e supervisão | TARr@N e TARa@N na Reexecução, variando threads, build e CPU; taxa de detecção de adulterações injetadas no Diário, com meta de 100%; custo por linha do Diário; % de Evidência verificável literalmente; aprovação humana registrada em toda contenção |
 | Governança local | Bytes e campos pessoais que saem da máquina por Relato, comparados com o envio de logs brutos ao SIEM; zero envios a terceiros |
 | Custo local | Tokens gerados e lidos, chamadas de ferramenta, latência p50 e p95 e pico de memória na máquina de referência x86 sem GPU e no Mac |
 
@@ -199,12 +209,11 @@ Os malicious perdidos são uma restrição em todas as medidas.
 
 ## Pontos em aberto
 
-- **Fechamento automático dos demais Relatos não-Alerta.** As regras aceitas só proíbem fechar
-  sozinho os casos com Sinal sem Contexto e os Recortes incompletos.
 - **Catálogo final de Sinais e de ferramentas por Modalidade.** As regras precisam de aprovação
   do responsável, com versão e testes.
 - **Catálogo de Propostas de contenção.** Faltam os tipos de ação e o mapeamento a partir do
   Veredito, da Severidade e da Hipótese de vulnerabilidade.
-- **Recompensa e stack do RL.** Pesos, algoritmo e infraestrutura dependem da pesquisa de RL.
-- **Estudo com analistas.** Decidir se a Carga no analista também será medida com pessoas, o que
-  depende da pesquisa sobre medição e da regra do CEP.
+- **Peso de custo em produção.** Falta decidir quem fixa o valor e se ele pode mudar sem nova
+  Liberação.
+- **Formato do lote da Fila de confirmação.** O Runtime e o Estudo com analistas precisam usar o
+  mesmo.

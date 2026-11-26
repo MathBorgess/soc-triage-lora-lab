@@ -24,7 +24,7 @@ humana.
 
 ## Consequences
 
-- O Guardião v2 sem ferramentas continua como linha de base: é o ponto de custo zero de
+- O Guardião v2 sem ferramentas continua como Comparador: é o ponto de custo zero de
   ferramentas da mesma política.
 - O SFT passa a ensinar trajetórias com chamadas de ferramenta, e o RL otimiza quando chamar.
 - O que volta das ferramentas entra no Relato como entrada não confiável, salvo regra explícita
