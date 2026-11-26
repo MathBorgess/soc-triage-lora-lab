@@ -117,6 +117,17 @@ def alvos_lora(modelo) -> list[str]:
     return nomes
 
 
+def contar_dtypes(modelo, so_treinaveis: bool) -> dict[str, int]:
+    """Conta parâmetros por tipo, para achar pesos em BF16 numa GPU sem BF16."""
+    contagem: dict[str, int] = {}
+    for parametro in modelo.parameters():
+        if so_treinaveis and not parametro.requires_grad:
+            continue
+        chave = str(parametro.dtype).replace("torch.", "")
+        contagem[chave] = contagem.get(chave, 0) + parametro.numel()
+    return contagem
+
+
 def gerar_amostra(modelo, tokenizer, prompt) -> dict:
     """Gera uma resposta gulosa para conferir a saída antes do treino."""
     import torch
@@ -142,14 +153,14 @@ def gerar_amostra(modelo, tokenizer, prompt) -> dict:
     }
 
 
-def executar(args: argparse.Namespace) -> dict:
+def executar(args: argparse.Namespace, relatorio: dict) -> None:
     import torch
     from datasets import Dataset
     from peft import LoraConfig
     from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
     from trl import GRPOConfig, GRPOTrainer
 
-    relatorio: dict = {"modo": args.modo, "modelo": MODELO, "revisao": REVISAO}
+    relatorio.update({"modelo": MODELO, "revisao": REVISAO})
     relatorio["gpu"] = torch.cuda.get_device_name(0)
 
     linhas = [json.loads(x) for x in Path(args.dados).read_text().splitlines() if x.strip()]
@@ -227,6 +238,13 @@ def executar(args: argparse.Namespace) -> dict:
         peft_config=peft_config,
     )
     inicio = time.monotonic()
+    # O GradScaler do FP16 exige pesos treináveis em FP32, como no QLoRA.
+    relatorio["dtype_treinaveis_antes"] = contar_dtypes(trainer.model, so_treinaveis=True)
+    for parametro in trainer.model.parameters():
+        if parametro.requires_grad and parametro.dtype != torch.float32:
+            parametro.data = parametro.data.float()
+    relatorio["dtype_treinaveis_depois"] = contar_dtypes(trainer.model, so_treinaveis=True)
+    relatorio["dtype_todos"] = contar_dtypes(trainer.model, so_treinaveis=False)
     trainer.train()
     relatorio["segundos_de_treino"] = round(time.monotonic() - inicio, 1)
     relatorio["passos"] = args.passos
@@ -237,7 +255,6 @@ def executar(args: argparse.Namespace) -> dict:
         for v in linha.values()
     )
     relatorio["pico_torch_gib"] = round(torch.cuda.max_memory_allocated() / 2**30, 2)
-    return relatorio
 
 
 def main() -> None:
@@ -257,7 +274,7 @@ def main() -> None:
     amostrador.start()
     relatorio: dict = {"modo": args.modo, "versoes": versoes()}
     try:
-        relatorio.update(executar(args))
+        executar(args, relatorio)
         relatorio["status"] = "ok"
     except Exception as erro:  # noqa: BLE001 - o relatório precisa registrar qualquer falha
         texto = f"{type(erro).__name__}: {erro}"
