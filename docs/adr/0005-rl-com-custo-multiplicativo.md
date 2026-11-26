@@ -143,3 +143,11 @@ DAPO roda no `GRPOTrainer` do TRL 1.19.0, que já implementa:
 O TRL não repõe os grupos sem variância, como faz a amostragem dinâmica do artigo do DAPO. Esses
 grupos não contribuem para o gradiente, e a fração deles é registrada em cada passo.
 
+## Emenda 5 de 26/11/2026: a T4 serve para desenvolvimento
+
+Com L4 e A100 indisponíveis, o responsável pediu para seguir numa VM que funcionasse. Só a T4
+padrão alocou. O teste de encaixe mostrou que o E4B treina nela com a base em 4 bits (NF4),
+cálculo em FP16 e geração pelo transformers, sem vLLM. O pico de memória foi de 14,3 GB de
+15,4 GB, sem NaN, com gradiente real e cerca de 50 s por Recorte com 8 respostas curtas.
+Os números estão em `colab/README.md`. A T4 não tem BF16 e não cabe o E4B em 16 bits.
+
