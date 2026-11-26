@@ -198,7 +198,8 @@
 | H100 | NVIDIA H100 [H-7] | 80 GB HBM3 nas VMs A3 [H-13]; variante do Colab NÃO VERIFICADA | ~18 (as of 2026-11-11) [H-11] | Secundária, uma medição |
 | TPU v5e-1 / v6e-1 | TPUs do Google [H-6, H-7] | NÃO VERIFICADO | NÃO VERIFICADO | — |
 
-- **Acesso pelo AI Pro:** nenhuma fonte primária lista as GPUs por plano. H100 e G4 ficaram só para Pro+ desde agosto de 2026 [H-9]. O AI Ultra ganha "Premium GPU access" [H-5]. Leitura provável (inferência): o AI Pro acessa T4, L4 e A100. A G4 e a H100 ficam fora. **Confirmar na conta.**
+- **Acesso pelo AI Pro, observado em 26/11/2026:** o endpoint `ccu-info` que o Colab CLI consulta respondeu, para a conta AI Pro do responsável, `eligibleGpus: G4, A100, L4, T4`, `ineligibleGpus: H100` e `eligibleTpus: V6E1, V5E1`. Isso corrige a inferência abaixo sobre a G4. Ter direito não garante alocação: no mesmo dia, L4, A100 e T4 com RAM alta receberam 503.
+- **Inferência anterior, superada:** nenhuma fonte primária lista as GPUs por plano. H100 e G4 ficaram só para Pro+ desde agosto de 2026 [H-9]. O AI Ultra ganha "Premium GPU access" [H-5]. Leitura provável (inferência): o AI Pro acessa T4, L4 e A100. A G4 e a H100 ficam fora. **Confirmar na conta.**
 - **TPUs:** a stack do projeto (TRL + vLLM em CUDA) não roda nelas sem trabalho extra (inferência). Não as considerei.
 
 ---
