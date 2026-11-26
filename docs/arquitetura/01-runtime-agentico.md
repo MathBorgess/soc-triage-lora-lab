@@ -64,8 +64,8 @@ a primeira peça a construir.
 - Declara no Contexto quando o Recorte está incompleto.
 - Calcula o hash do Recorte.
 
-O Projetor está pronto quando reproduz os Recortes aprovados da v12 a partir dos logs de origem,
-com os mesmos hashes.
+O Projetor está pronto quando reprojeta a v12 a partir dos logs de origem no formato canônico e a
+fila de revisão dos rótulos cuja Evidência mudou está fechada (ADR 0012).
 
 ### Ferramentas de leitura
 
@@ -205,7 +205,7 @@ Os malicious perdidos são uma restrição em todas as medidas.
 
 ## Ordem de construção
 
-1. Projetor por Modalidade, reproduzindo os hashes da v12.
+1. Projetor por Modalidade e reprojeção da v12 no formato canônico (ADR 0012).
 2. Ambiente de treino e catálogo de Ferramentas de leitura.
 3. Validador, Diário de inferências e Reexecução.
 4. Regras de decisão e montagem da Remessa.
