@@ -14,11 +14,12 @@ TRAIN_TARGETS := train-run1 train-run2 train-run3 train-run4-r8 train-run4-r64 \
                  train-run5-dora train-run5-qdora
 
 .PHONY: help setup check-mlx lint test prepare-pissa inspect-tokens check-prompt \
-        eval-run0 eval-adapter smoke serve-adapter $(TRAIN_TARGETS)
+        eval-run0 eval-adapter smoke serve-adapter reproduzir-v12 tipos-de-contexto $(TRAIN_TARGETS)
 
 help:
 	@printf '%s\n' 'setup check-mlx lint test prepare-pissa inspect-tokens check-prompt' \
-		'eval-run0 smoke eval-adapter' '$(TRAIN_TARGETS) serve-adapter'
+		'eval-run0 smoke eval-adapter' '$(TRAIN_TARGETS) serve-adapter' \
+		'reproduzir-v12 tipos-de-contexto'
 
 setup:
 	uv sync --locked
@@ -26,6 +27,18 @@ setup:
 check-mlx:
 	$(UV_RUN) python -c 'import mlx.core as mx; assert mx.metal.is_available(); print(mx.default_device())'
 	$(UV_RUN) mlx_lm.lora --help
+
+# Guardião: reprodução da v12 pelo Projetor e tipos de linha de Contexto (ADR 0009).
+# RAIZ_DADOS é a pasta com data/raw e data/processed (padrão: a raiz do repositório).
+RAIZ_DADOS ?= .
+
+reproduzir-v12:
+	$(UV_RUN) python scripts/09_reproduzir_v12.py --raiz-dados "$(RAIZ_DADOS)" \
+		--relatorio docs/curadoria/11-reproducao-da-v12.md --tabela docs/curadoria/11-reproducao-da-v12.csv
+
+tipos-de-contexto:
+	$(UV_RUN) python scripts/10_tipos_de_contexto.py --raiz-dados "$(RAIZ_DADOS)" \
+		--relatorio docs/curadoria/12-tipos-de-contexto-da-v12.md
 
 lint:
 	$(UV_RUN) ruff check .
